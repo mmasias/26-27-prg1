@@ -29,6 +29,5 @@ Repo de materiales y proyectos de la asignatura **PRG I** del [Grado de Ingenier
 
 NOTA: *Algunos enlaces podrían requerir **credenciales de acceso al campus** o a otros espacios colaborativos.*
 
-- Hoja de asistencia et-al
+- [Hoja de asistencia et-al](https://docs.google.com/spreadsheets/d/1-5ZMY8Fma46Mbm-MItCj5Y5kDLqur-iFi7zJJCRlWWU/edit?usp=sharing)
 - Libro de la asignatura
-- Este repo, versión de ediciones pasadas

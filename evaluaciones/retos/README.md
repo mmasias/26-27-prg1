@@ -2,11 +2,12 @@
 
 Los retos se irán proponiendo, habitualmente luego de una disertación teórica. Cada uno tendrá sus reglas de resolución y serán de entrega individual, aunque se puede (y se anima) a trabajarlos en grupo.
 
-## Entrega 001
+En la sesión posterior se desarrollará la revisión pública del reto, de acuerdo a lo indicado en la planificación docente. Esta entrega/revisión es evaluada.
 
-- La entrega a estos retos se hará a la rama *entrega-001* del repositorio de la asignatura.
-- La fecha de recepción de los mismos será hasta el día xx de XX
+<div align=center>
 
-|Retos|
-|-|
-[Detalle del reto](/evaluaciones/retos/reto001.md)
+|Reto|Fecha de entrega|Rama
+|-|:-:|:-:|
+[Detalle del reto](/evaluaciones/retos/reto001.md)|fechaDeEntrega|-
+
+</div>
