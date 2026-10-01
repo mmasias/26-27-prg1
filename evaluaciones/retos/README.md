@@ -8,6 +8,6 @@ En la sesión posterior se desarrollará la revisión pública del reto, de acue
 
 |Reto|Fecha de entrega|Rama
 |-|:-:|:-:|
-[Detalle del reto](/evaluaciones/retos/reto001.md)|fechaDeEntrega|-
+[Reto 001](/evaluaciones/retos/reto001.md)|1/oct/2026|reto-001
 
 </div>

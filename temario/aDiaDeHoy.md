@@ -4,5 +4,6 @@
 
 - Software y su naturaleza / Sistemas de información / Crisis del software y sus causas.
 - Gestión básica de un terminal (CRUD de directorios)
-- Fork de un repositorio (Quién soy, dónde estoy)
-- 
+- Fork de un repositorio (Quién soy, dónde estoy).
+  - Cómo saber qué ha cambiado.
+  - Fork del repo oficial de la asignatura
