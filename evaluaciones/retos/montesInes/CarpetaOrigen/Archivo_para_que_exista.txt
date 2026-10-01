@@ -1,0 +1,1 @@
+La carpeta necesita tener un archivo para que aparezca en github, sino la CarpetaOrigen no va a aparecer.
