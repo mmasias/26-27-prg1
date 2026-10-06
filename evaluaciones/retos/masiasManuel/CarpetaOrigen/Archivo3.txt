@@ -1,0 +1,4 @@
+total 32
+-rw-rw-r-- 1 manuel manuel  54 oct  1 13:07 Archivo1.txt
+-rw-rw-r-- 1 manuel manuel 177 oct  1 13:08 Archivo2.txt
+-rw-rw-r-- 1 manuel manuel   0 oct  1 13:06 Archivo3.txt
