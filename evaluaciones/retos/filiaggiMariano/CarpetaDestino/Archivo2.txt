@@ -1,0 +1,9 @@
+cristiano
+
+<<<<<<< HEAD
+el goleador
+
+LA MAQUINA  
+=======
+el goleador 
+>>>>>>> a2de7bc (Operacion5: movi los archivos de origen a destino)
