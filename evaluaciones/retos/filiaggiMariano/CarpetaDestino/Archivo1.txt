@@ -1,0 +1,9 @@
+messi
+
+<<<<<<< HEAD
+el mejor 
+
+GOAT 1
+=======
+el mejor 
+>>>>>>> a2de7bc (Operacion5: movi los archivos de origen a destino)
