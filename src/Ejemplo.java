@@ -1,5 +1,5 @@
 class  Ejemplo{
-    public static void main (string[] args){
+    public static void main (String[] args){
 
         System.out.println("Hola mundo");
         System.out.println(5);
@@ -17,6 +17,11 @@ class  Ejemplo{
         final int DIAS_DEL_AÑO = 365;
         final int DIAS_DEL_MES = 30;
         int edadEnDias = edad * MESES_DEL_AÑO * DIAS_DEL_MES;
+        int edadEnAños = edad * DIAS_DEL_AÑO;
+
+        System.out.println("Edad en años: " + edadEnAños);
+        System.out.println("Edad en dias: " + edadEnDias);
+        System.out.println("Edad en meses:" + edadEnMeses);
     }
 
 }
