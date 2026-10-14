@@ -1,0 +1,9 @@
+Neymar
+
+<<<<<<< HEAD
+el principe que no queria ser rey 
+
+LA MAGIA PURA 
+=======
+el principe que no queria ser rey 
+>>>>>>> a2de7bc (Operacion5: movi los archivos de origen a destino)
