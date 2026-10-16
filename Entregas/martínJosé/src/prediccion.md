@@ -1,0 +1,1 @@
+Si se introducen numeros con decimales en el programa,  este devolvera un error al no reconocer el formato, si se ingresan importes negativos o un pago inferior a la deuda, la diferencia resultará negativa y devolvera el numero de billetes y monedas que cubririan la deuda aunque en negativo, si se paga el importe exacto, el programa funcionara correctamente devolviendo 0.
