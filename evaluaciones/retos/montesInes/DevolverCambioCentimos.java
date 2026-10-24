@@ -11,12 +11,11 @@ public class DevolverCambioCentimos {
         dineroPagar = scanner.nextDouble();
         System.out.println("¿Cúanto dinero tienes?");
         dineroEntregado = scanner.nextDouble();
-       
+
         int totalPagar = (int) Math.round(dineroPagar * 100);
         int totalEntregado = (int) Math.round(dineroEntregado * 100);
         int cambiocent = totalEntregado - totalPagar;
-        System.out.println("Tu cambio es de " + (cambiocent / 100.0) );
-
+        System.out.println("Tu cambio es de " + (cambiocent / 100.0));
 
         final int BILLETES100 = 10000;
         int numBilletes100 = cambiocent / BILLETES100;
@@ -44,7 +43,7 @@ public class DevolverCambioCentimos {
         System.out.println("necesitas " + numMonedas2 + " monedas de 2 euros");
         final int MONEDAS1 = 100;
         int numMonedas1 = cambiocent / MONEDAS1;
-        cambiocent = cambiocent  % MONEDAS1;
+        cambiocent = cambiocent % MONEDAS1;
         System.out.println("necesitas " + numMonedas1 + " monedas de 1 euro");
 
         final int MONEDAS50C = 50;
@@ -75,5 +74,5 @@ public class DevolverCambioCentimos {
         scanner.close();
 
     }
-    
+
 }
