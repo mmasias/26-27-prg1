@@ -1,0 +1,3 @@
+----------Este es el primer archivo modificado------------
+
+Acabo de editar el archivo1.txt, <--- con el comando edit <NombreDelArchivo>
