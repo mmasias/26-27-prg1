@@ -1,0 +1,1 @@
+Si el cliente paga menos de lo que cuesta la compra —por ejemplo, 200 € cuando debe pagar 232 €—, el programa calculará un cambio negativo. Como resultado, las divisiones y los restos darán valores erróneos y se mostrarán billetes y monedas con cantidades negativas. El programa no detecta este error
