@@ -1,2 +1,13 @@
+<<<<<<< HEAD
 
 99
+=======
+12345678fghjkl¤
+zxfghjukl¤lkiuytr
+rfghjkl
+erftghjkl
+
+
+
+frthyj
+>>>>>>> 8e984b0af9adf072f99f6117c6dfa5ee77215bb9

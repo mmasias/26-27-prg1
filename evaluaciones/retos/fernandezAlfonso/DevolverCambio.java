@@ -1,4 +1,3 @@
-
 import java.util.Scanner;
 
 class DevolverCambio {
@@ -13,7 +12,7 @@ class DevolverCambio {
             int paga = scanner.nextInt();
             
             int cambio1;
-            cambio1 = paga - debe;
+            cambio1 = paga - debe;232
 
              int cambio2;
             cambio2 = paga - debe;
@@ -46,3 +45,4 @@ class DevolverCambio {
         }
         
     }
+ }
