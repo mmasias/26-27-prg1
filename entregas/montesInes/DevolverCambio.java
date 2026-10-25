@@ -1,3 +1,4 @@
+package entregas.montesInes;
 
 import java.util.Scanner;
 
@@ -16,8 +17,12 @@ public class DevolverCambio {
         int cambio = dineroEntregado - dineroPagar;
         System.out.println("El cambio es de " + cambio + " euros");
 
-        scanner.close();
+        final int BILLETES100 = 100;
+        int numBilletes100 = cambio / BILLETES100;
+        cambio = cambio % BILLETES100;
+        System.out.println("necesitas " + numBilletes100 + " billetes de 100 euros");
 
+        scanner.close();
     }
 
 }
