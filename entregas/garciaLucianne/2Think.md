@@ -1,0 +1,2 @@
+Simulación de un país imaginario en el que solo hay monedas de 4,3,1 unidades, el código si entrega la menor cantidad de monedas. Sin embargo al solo contar con 3 monedas siempre será una cantidad considerable de monedas.
+El sistema del euro cuenta con billetes y monedas suficientes, las cuales son perfectamente divisibles y encajan con una moneda mas pequeña consecutivamente. 
