@@ -56,6 +56,31 @@ public class DevolverCambioCentimos {
         cambiocent = cambiocent % (int) MONEDAS50c;
         System.out.println("necesitas " + numMonedas50c + " monedas de 50 céntimos");
 
+        final int MONEDAS20c = 20;
+        int numMonedas20c = (int) (cambiocent / MONEDAS20c);
+        cambiocent = cambiocent % (int) MONEDAS20c;
+        System.out.println("necesitas " + numMonedas20c + " monedas de 20 céntimos");
+
+        final int MONEDAS10c = 10;
+        int numMonedas10c = (int) (cambiocent / MONEDAS10c);
+        cambiocent = cambiocent % (int) MONEDAS10c;
+        System.out.println("necesitas " + numMonedas10c + " monedas de 10 céntimos");
+
+        final int MONEDAS5c = 5;
+        int numMonedas5c = (int) (cambiocent / MONEDAS5c);
+        cambiocent = cambiocent % (int) MONEDAS5c;
+        System.out.println("necesitas " + numMonedas5c + " monedas de 5 céntimos");
+
+        final int MONEDAS2c = 2;
+        int numMonedas2c = (int) (cambiocent / MONEDAS2c);
+        cambiocent = cambiocent % (int) MONEDAS2c;
+        System.out.println("necesitas " + numMonedas2c + " monedas de 2 céntimos");
+
+        final int MONEDAS1c = 1;
+        int numMonedas1c = (int) (cambiocent / MONEDAS1c);
+        cambiocent = cambiocent % (int) MONEDAS1c;
+        System.out.println("necesitas " + numMonedas1c + " monedas de 1 céntimo");
+
         scanner.close();
     }
 }
