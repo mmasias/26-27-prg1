@@ -1,0 +1,2 @@
+# Prediccion
+Mi prediccion es que si intenta pagar menos de lo que debe, los numeros de billetes en mi caso las variables `num1`, `num2`, `num5`, `num10`, `num20`, `num50` y `num100` van a dar negativo. En el caso presentado en el reto extendido dice que el cliente paga 200 € por una compra de 232 € daria la diferencia correspondiente que es 32 pero con el numero de billetes negativos representando cuanto es lo que falta.

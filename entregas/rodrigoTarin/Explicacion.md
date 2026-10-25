@@ -1,0 +1,2 @@
+# Explicacion
+Tal como dije en mi prediccion el resultado arrojo -1 billete de 20, 10 y -1 moneda de 2 lo que indica la diferencia. Esto se debe a la resta que dio negativa entre las variables `importeAPagar` e `importePagado`
