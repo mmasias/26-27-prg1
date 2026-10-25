@@ -3,17 +3,13 @@ package entregas.montesInes;
 import java.util.Scanner;
 
 public class DevolverCambio {
-
     public static void main(String[] args) {
-
-        int dineroPagar;
-        int dineroEntregado;
 
         Scanner scanner = new Scanner(System.in);
         System.out.println("¿Cuántos euros tienes que pagar?");
-        dineroPagar = scanner.nextInt();
+        int dineroPagar = scanner.nextInt();
         System.out.println("¿Cúanto dinero tienes?");
-        dineroEntregado = scanner.nextInt();
+        int dineroEntregado = scanner.nextInt();
         int cambio = dineroEntregado - dineroPagar;
         System.out.println("El cambio es de " + cambio + " euros");
 
@@ -51,7 +47,6 @@ public class DevolverCambio {
         int numMonedas1 = cambio / MONEDAS1;
         cambio = cambio % MONEDAS1;
         System.out.println("necesitas " + numMonedas1 + " monedas de 1 euro");
-        
 
         scanner.close();
     }
