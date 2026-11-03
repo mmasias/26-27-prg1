@@ -1,7 +1,5 @@
-import java.util.Scanner;
-class RETO-03-11{
+class RETO_03_11{
     public static void main(String[] args){
-        Scanner scanner = new Scanner(System.in);
         final int MAXIMA_VELOCIDAD = 15;
         final int MINIMA_VELOCIDAD = 10;
         final int AVANCE_MAXIMO_HORAS = 10;
@@ -15,13 +13,13 @@ class RETO-03-11{
         final double AMEDIO_ESCAPA = 0.15;
         final double FACTOR_AMEDIO_CANSADO = 0.90;
         final int FACTOR_AMEDIO_ESCAPA_HORAS_PERDIDAS = 2;
-        int distancia_madre_marco = 350;
+        double distancia_madre_marco = 350;
         final int AVANCE_POR_DIA_MADRE = 80;
         int dias = 0;
         do {
             dias++;
-            int velocidad = (int) (Math.random() * 6) + 10;
-            int horas = (int) (Math.random() * 3) + 8;
+            int velocidad = (int) (Math.random() * (MAXIMA_VELOCIDAD - MINIMA_VELOCIDAD +1)) + MINIMA_VELOCIDAD;
+            int horas = (int) (Math.random() * (AVANCE_MAXIMO_HORAS - AVANCE_MINIMO_HORAS +1)) + AVANCE_MINIMO_HORAS;
             double azar_clima = Math.random();
             double factor_clima = 1.0;
 
