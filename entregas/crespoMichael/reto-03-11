@@ -1,0 +1,135 @@
+import java.util.Locale;
+import java.util.Random;
+
+public class BusquedaMarco {
+
+    static final Random RND = new Random();
+
+    
+    static final double DISTANCIA_INICIAL = 350.0;   
+
+  
+    static final double VEL_MARCO_MIN = 10, VEL_MARCO_MAX = 15;   
+    static final double HORAS_MARCO_MIN = 8, HORAS_MARCO_MAX = 10;
+    static final double P_LLUVIA_FUERTE_MARCO = 0.10;
+    static final double P_LLUVIA_NORMAL_MARCO = 0.30;
+    static final double P_MONO_ESCAPA = 0.15;
+    static final double P_MONO_CANSADO = 0.25;
+
+    
+    static final double VEL_MADRE_MIN = 6, VEL_MADRE_MAX = 9;     
+    static final double HORAS_MADRE_MIN = 6, HORAS_MADRE_MAX = 9;
+    static final double P_LLUVIA_FUERTE_MADRE = 0.10;
+    static final double P_LLUVIA_NORMAL_MADRE = 0.30;
+
+    
+    static final double DISTANCIA_AVISTAMIENTO = 50.0;
+    static final double P_AVISTAMIENTO = 0.50;
+    static final double KM_EXTRA = 25.0;
+
+    static final int BUEN_CLIMA = 0, LLUVIA_NORMAL = 1, LLUVIA_FUERTE = 2;
+
+    static double entre(double min, double max) {
+        return min + RND.nextDouble() * (max - min);
+    }
+
+    static int sortearClima(double pFuerte, double pNormal) {
+        double r = RND.nextDouble();
+        if (r < pFuerte) return LLUVIA_FUERTE;
+        if (r < pFuerte + pNormal) return LLUVIA_NORMAL;
+        return BUEN_CLIMA;
+    }
+
+    static String mensajeClimaMarco(int clima) {
+        switch (clima) {
+            case LLUVIA_FUERTE: return "Ha llovido muchisimo!";    
+            case LLUVIA_NORMAL: return "Ha llovido un poco";
+            default:            return "Ha hecho un buen dia";
+        }
+    }
+
+    static String mensajeClimaMadre(int clima) {
+        switch (clima) {
+            case LLUVIA_FUERTE: return "A mama le ha llovido muchisimo";
+            case LLUVIA_NORMAL: return "A mama le ha llovido un poco";
+            default:            return "A mama le ha hecho un buen dia";
+        }
+    }
+
+    static double jornadaMarco() {
+        double velocidad = entre(VEL_MARCO_MIN, VEL_MARCO_MAX);
+        double horas = entre(HORAS_MARCO_MIN, HORAS_MARCO_MAX);
+
+        int clima = sortearClima(P_LLUVIA_FUERTE_MARCO, P_LLUVIA_NORMAL_MARCO);
+        if (clima == LLUVIA_FUERTE) velocidad *= 0.25;
+        else if (clima == LLUVIA_NORMAL) velocidad *= 0.75;
+
+        boolean seEscapa = RND.nextDouble() < P_MONO_ESCAPA;
+        boolean seCansa = RND.nextDouble() < P_MONO_CANSADO; 
+
+        if (seCansa) velocidad *= 0.90;
+        if (seEscapa) horas = Math.max(0, horas - 2);
+
+        double km = velocidad * horas;
+
+        System.out.println(mensajeClimaMarco(clima));
+        if (seCansa)  System.out.println("Amedio se ha cansado, lo llevo en brazos!");
+        if (seEscapa) System.out.println("He perdido tiempo buscando a Amedio!");
+        System.out.printf("Avance %.2f horas a %.2f Km/h recorriendo %.2f Km%n",
+                horas, velocidad, km);
+        return km;
+    }
+
+    static double jornadaMadre() {
+        double velocidad = entre(VEL_MADRE_MIN, VEL_MADRE_MAX);
+        double horas = entre(HORAS_MADRE_MIN, HORAS_MADRE_MAX);
+
+        int clima = sortearClima(P_LLUVIA_FUERTE_MADRE, P_LLUVIA_NORMAL_MADRE);
+        if (clima == LLUVIA_FUERTE) velocidad *= 0.50;
+        else if (clima == LLUVIA_NORMAL) velocidad *= 0.75;
+
+        double km = velocidad * horas;
+
+        System.out.println(mensajeClimaMadre(clima));
+        System.out.printf("Mama pudo avanzar %.2f horas a %.2f Km/h recorriendo %.2f Km%n",
+                horas, velocidad, km);
+        return km;
+    }
+
+    public static void main(String[] args) {
+        Locale.setDefault(Locale.US);   
+
+        double distancia = DISTANCIA_INICIAL;
+        int dia = 0;
+
+        System.out.println("DIARIO DEL VIAJE DE MARCO");
+        System.out.println("=========================");
+
+        while (distancia > 0) {
+            dia++;
+            System.out.println("DIA " + dia);
+
+            double kmMarco = jornadaMarco();
+            double kmMadre = jornadaMadre();
+
+            distancia = distancia - kmMarco + kmMadre;
+
+            if (distancia > 0 && distancia < DISTANCIA_AVISTAMIENTO
+                    && RND.nextDouble() < P_AVISTAMIENTO) {
+                System.out.println("A Marco le dicen que han visto a su mama, y rompe a correr!!!");
+                distancia -= KM_EXTRA;
+            }
+
+            if (distancia <= 0) {
+                String estrellas = "*".repeat(60);
+                System.out.println(estrellas);
+                System.out.println("Al final del dia " + dia + " Marco encuentra a su madre!!!");
+                System.out.println(estrellas);
+            } else {
+                System.out.printf("Al final del dia %d la distancia entre Marco y su Madre es de %.2f Km%n",
+                        dia, distancia);
+                System.out.println("- ".repeat(34).trim());
+            }
+        }
+    }
+}
