@@ -1,5 +1,5 @@
 import java.util.Scanner;
-class RETO{
+class RETO-03-11{
     public static void main(String[] args){
         Scanner scanner = new Scanner(System.in);
         final int MAXIMA_VELOCIDAD = 15;
@@ -50,15 +50,18 @@ class RETO{
             }
             double avance_marco = velocidad * horas * factor_clima * factor_amedio;
             distancia_madre_marco = distancia_madre_marco - avance_marco - AVANCE_POR_DIA_MADRE;
-            
+            System.out.println("DIA " + dias);
+            System.out.println("Velocidad de Marco: " + velocidad + " km/h");
+            System.out.println("Horas de recorrido: " + horas);
+            System.out.println("Kilometros recorridos por Marco: "+ avance_marco);
+            System.out.println("Distancia restante: "+ Math.max(0, distancia_madre_marco) + " km");
+            System.out.println("----------------------------");
 
-                            
-            
         }while (distancia_madre_marco > 0);
-        
-
-    
+        System.out.println("¡MARCO HA ENCONTRADO A SU MADRE!");
+        System.out.println("Dias que ha tardado: " + dias);
     }
+}
 
 
 
