@@ -99,7 +99,7 @@ class ViajeMarco {
                 System.out.println(
                         "Al final del día " + dia + " la distancia entre Marco y su madre es de " + distancia + " Km");
             }
-            final String SEPARADOR = "─".repeat(46) + " ◆ " + "─".repeat(46);
+            final String SEPARADOR = "─".repeat(48) + " ◆ " + "─".repeat(48);
             System.out.println(SEPARADOR);
         }
 
