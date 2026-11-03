@@ -12,6 +12,14 @@ public class Viaje_marco {
         final double PROBABILIDAD_LLUVIA_FUERTE= 0.10;
         final double PROBABILIDAD_LLUVIA_NORMAL= 0.30;
         final double PROBABILIDAD_BUEN_CLIMA= 0.60;
+      
+            int velocidad_de_marco = (int) (Math.random() * ( AVANCE_MAXIMO_MARCO - AVANCE_MINIMO_MARCO + 1)) + AVANCE_MINIMO_MARCO;
+            int avance_de_marco = (int) (Math.random() * ( MAXIMA_VELOCIDAD_MARCO- MINIMA_VELOCIDAD_MARCO + 1)) + MINIMA_VELOCIDAD_MARCO;
+            if ( Math.random() < PROBABILIDAD_LLUVIA_FUERTE ) {
+            
+
+            }
+
         
         
 
