@@ -20,6 +20,20 @@ class RETO{
         int dias = 0;
         do {
             dias++;
+            int velocidad = (int) (Math.random() * 6) + 10;
+            int horas = (int) (Math.random() * 3) + 8;
+            double azar_clima = Math.random();
+            double factor_clima = 1.0;
+
+            if (azar_clima < LLUVIA_FUERTE) {
+
+                factor_clima = FACTOR_LLUVIA_FUERTE;}
+
+            else if (azar_clima < LLUVIA_FUERTE + LLUVIA_NORMAL) {
+
+                        factor_clima = FACTOR_LLUVIA_NORMAL;}
+
+                            
             
         }while (distancia_madre_marco > 0);
         
