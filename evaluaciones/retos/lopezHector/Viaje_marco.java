@@ -99,6 +99,11 @@ public class Viaje_marco {
 
             distancia = distancia - avanceMarco + avanceMadre;
 
+            if (distancia < DISTANCIA_PARA_AVISO && Math.random() < PROBABILIDAD_AVISO) {
+                System.out.println("A Marco le dicen que han visto a su mamá, y rompe a correr!!!");
+                distancia = distancia - KM_EXTRA_CORRIENDO;
+            }
+
             if (distancia > 0) {
                 System.out.println("Al final del día " + dia + " la distancia entre Marco y su Madre es de "
                         + String.format("%.2f", distancia) + " Km");
@@ -107,8 +112,6 @@ public class Viaje_marco {
 
         } while (distancia > 0);
 
-        System.out.println("A Marco le dicen que han visto a su mamá, y rompe a correr!!!");
-        System.out.println("************************************************************");
         System.out.println("Al final del día " + dia + " Marco encuentra a su madre!!!");
         System.out.println("************************************************************");
     }
