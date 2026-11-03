@@ -29,6 +29,9 @@ public class Viaje_marco {
         final double FACTOR_LLUVIA_MUY_FUERTE_MADRE = 0.50;
         final double FACTOR_LLUVIA_MADRE = 0.75;
 
+        final double DISTANCIA_PARA_AVISO = 50;
+        final double PROBABILIDAD_AVISO = 0.50;
+        final double KM_EXTRA_CORRIENDO = 25;
         double distancia = DISTANCIA_INICIAL_MADRE;
         int dia = 0;
 
