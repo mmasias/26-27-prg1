@@ -17,6 +17,10 @@ public class viajeMarco {
     final double VELOCIDAD_MAX = 15.0;
     final double HORAS_MIN = 8.0;
     final double HORAS_MAX = 10.0;
+    final double VELOCIDAD_MADRE_MIN = 8.0;
+    final double VELOCIDAD_MADRE_MAX = 12.0;
+    final double HORAS_MADRE_MIN = 6.0;
+    final double HORAS_MADRE_MAX = 10.0;
 
     double distancia = DISTANCIA_INICIAL;
     int dia = 0;
@@ -52,6 +56,28 @@ public class viajeMarco {
             System.out.println("Amedio se ha cansado y lo llevo en brazos");
             velocidad = velocidad * CASTIGO_CANSANCIO;
         }
+
+                double recorridoMarco = horas * velocidad;
+        System.out.println("Avance " + Math.round(horas * 100) / 100.0 + " horas a " + Math.round(velocidad * 100) / 100.0 + " Km/h recorriendo " + Math.round(recorridoMarco * 100) / 100.0 + " Km");
+        
+        double velocidadMadre = Math.random() * (VELOCIDAD_MADRE_MAX - VELOCIDAD_MADRE_MIN) + VELOCIDAD_MADRE_MIN;
+        double horasMadre = Math.random() * (HORAS_MADRE_MAX - HORAS_MADRE_MIN) + HORAS_MADRE_MIN;
+        double climaMadre = Math.random();
+
+        if (climaMadre < LLUVIA_FUERTE) {
+        System.out.println("A mamá le ha llovido muchísimo");
+        velocidadMadre = velocidadMadre * CASTIGO_LLUVIA_FUERTE;
+        } else if (climaMadre < LLUVIA_FUERTE + LLUVIA_NORMAL) {
+        System.out.println("A mamá le ha llovido un poco");
+        velocidadMadre = velocidadMadre * CASTIGO_LLUVIA_NORMAL;
+        } else {
+        System.out.println("A mamá le ha hecho un buen día");
+        }
+
+        double recorridoMadre = horasMadre * velocidadMadre;
+        System.out.println("Mama pudo avanzar " + Math.round(horasMadre * 100) / 100.0 + " horas a "
+        + Math.round(velocidadMadre * 100) / 100.0 + " Km/h recorriendo "
+        + Math.round(recorridoMadre * 100) / 100.0 + " Km");
 
         encontrada = true;
     }
