@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Reto003ViajeDeMarco",
+            "request": "launch",
+            "mainClass": "Reto003ViajeDeMarco",
+            "projectName": "celisDaniel_74d36a74"
+        },
+        {
+            "type": "java",
             "name": "Reto2Think",
             "request": "launch",
             "mainClass": "Reto2Think",
