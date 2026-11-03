@@ -20,7 +20,16 @@ class viajeMarco {
         final double REDUCCION_TIEMPO_MONO_ESCAPA = 2.0;
 
         final double DISTACIA_INICIO = 350;
-        final int AVANCE_MADRE_DIA = 80;
+
+        final int VELOCIDAD_MADRE_MAX = 9;
+        final int VELOCIDAD_MADRE_MIN = 6;
+
+        final int VELOCIDAD_MADRE_MAX = 9;
+        final int VELOCIDAD_MADRE_MIN = 6;
+
+        final double REDUCCION_VELOCIDAD_MADRE_LLUVIA_FUERTE = 0.50;
+        final double REDUCCION_VELOCIDAD_MADRE_LLUVIA_NORMAL = 0.25;
+
 
         double distanciaFalta = DISTACIA_INICIO;
         int dia = 0;
