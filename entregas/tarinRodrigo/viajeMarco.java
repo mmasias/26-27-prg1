@@ -27,7 +27,7 @@ public class viajeMarco {
     
     while(!encontrada){
         dia++;
-        System.out.println("DIA" + dia);
+        System.out.println("DIA " + dia);
 
         double velocidad = Math.random() * (VELOCIDAD_MAX - VELOCIDAD_MIN) + VELOCIDAD_MIN;
         double horas = Math.random() * (HORAS_MAX - HORAS_MIN) + HORAS_MIN;
@@ -42,6 +42,17 @@ public class viajeMarco {
         } else {
             System.out.println("Ha hecho un buen dia");
         }
+
+        if (Math.random() < ESCAPE) {
+            System.out.println("¡He perdido tiempo buscando a Amedio!");
+            horas = horas - HORAS_PERDIDAS;
+        }
+
+        if (Math.random() < CANSANCIO) {
+            System.out.println("Amedio se ha cansado y lo llevo en brazos");
+            velocidad = velocidad * CASTIGO_CANSANCIO;
+        }
+
         encontrada = true;
     }
     }
