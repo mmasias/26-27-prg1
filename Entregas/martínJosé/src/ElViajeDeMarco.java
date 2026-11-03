@@ -30,6 +30,14 @@ public class ElViajeDeMarco {
             }
             double marcorrecorridohoy = horashoy * vel;
             marcorrecorrido += marcorrecorridohoy;
+
+            System.out.println("--- Día " + dia + " ---");
+            System.out.println("Clima: " + clima);
+            System.out.println("Marco recorrió hoy: " +  marcorrecorridohoy + " km");
+            System.out.println("Distancia total acumulada de Marco: " +  marcorrecorrido + " km");
+            System.out.println("Posición actual de la madre: " + mamarrecorrido + " km");
+            System.out.println("----------------------------------------");
         }
+        System.out.println("FIN DEL VIAJE! Marco ha encontrado a su madre en el día " + dia);
     }
 }
