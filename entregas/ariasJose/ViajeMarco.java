@@ -1,12 +1,16 @@
 class ViajeMarco {
     public static void main(String[] args) {
         
-        final int DISTANCIA_MADRE_MARCO = 350;
-        final int RECORRIDO_DIARIO_MADRE_MARCO = 80;
+        final double RECORRIDO_DIARIO_MADRE_MARCO = 80;
         final int VELOCIDAD_MINIMA_MARCO = 10;
         final int VELOCIDAD_MAXIMA_MARCO = 15; 
         final int TIEMPO_MINIMO_MARCO = 8;
         final int TIEMPO_MAXIMO_MARCO = 10;
+        double distanciaMarcoYMadre = 350;
+
+        System.out.println();
+        System.out.println("DIARIO DEL VIAJE DE MARCO");
+        System.out.println("=========================");
 
         double velocidadMarco = (Math.random() * (VELOCIDAD_MAXIMA_MARCO - VELOCIDAD_MINIMA_MARCO)) + VELOCIDAD_MINIMA_MARCO;
         double tiempoRecorridoMarco = (Math.random() * (TIEMPO_MAXIMO_MARCO - TIEMPO_MINIMO_MARCO)) + TIEMPO_MINIMO_MARCO;
@@ -47,6 +51,11 @@ class ViajeMarco {
             System.out.println("¡Amedio se ha escapado!");
             tiempoRecorridoMarco = tiempoRecorridoMarco + REDUCCION_TIEMPO_AMEDIO_SE_ESCAPA;
         }
+
+        double distanciaRecorridaMarco = velocidadMarco * tiempoRecorridoMarco;
+        distanciaMarcoYMadre = distanciaMarcoYMadre - distanciaRecorridaMarco + RECORRIDO_DIARIO_MADRE_MARCO;
+        System.out.println("Avance " + tiempoRecorridoMarco + " horas a " + velocidadMarco + " Km/h. Recorriendo " + distanciaRecorridaMarco + " Km.");
+        System.out.println("Al final del día 1" + " la distancia entre Marco y su madre es de " + distanciaMarcoYMadre);
 
     }
 }
