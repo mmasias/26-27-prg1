@@ -17,6 +17,14 @@ class RETO{
         final int FACTOR_AMEDIO_ESCAPA_HORAS_PERDIDAS = 2;
         int distancia_madre_marco = 350;
         final int AVANCE_POR_DIA_MADRE = 80;
+        int dias = 0;
+        do {
+            dias++;
+            
+        }while (distancia_madre_marco > 0);
+        
+
+    
     }
 
 
