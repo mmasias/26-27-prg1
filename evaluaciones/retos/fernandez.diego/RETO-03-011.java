@@ -33,6 +33,22 @@ class RETO{
 
                         factor_clima = FACTOR_LLUVIA_NORMAL;}
 
+            double azar_cansancio = Math.random();
+            double factor_amedio = 1.0;
+
+            if (azar_cansancio < AMEDIO_CANSADO) {
+
+                factor_amedio = FACTOR_AMEDIO_CANSADO;
+
+            }
+            double azar_escapa = Math.random();
+
+            if (azar_escapa < AMEDIO_ESCAPA) {
+
+            horas = horas - FACTOR_AMEDIO_ESCAPA_HORAS_PERDIDAS;
+
+            }
+
                             
             
         }while (distancia_madre_marco > 0);
