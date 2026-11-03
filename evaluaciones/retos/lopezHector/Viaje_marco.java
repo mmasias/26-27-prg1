@@ -29,7 +29,8 @@ public class Viaje_marco {
             dia++;
             System.out.println("Día " + dia);
 
-            double velocidadMarco = (int) (Math.random() * (MAXIMA_VELOCIDAD_MARCO - MINIMA_VELOCIDAD_MARCO + 1))+ MINIMA_VELOCIDAD_MARCO;
+            double velocidadMarco = (int) (Math.random() * (MAXIMA_VELOCIDAD_MARCO - MINIMA_VELOCIDAD_MARCO + 1))
+                    + MINIMA_VELOCIDAD_MARCO;
             int horas_de_avance_Marco = (int) (Math.random() * (TIEMPO_MAX - TIEMPO_MIN + 1)) + TIEMPO_MIN;
             String mensajeDia;
 
@@ -59,9 +60,13 @@ public class Viaje_marco {
             distancia = distancia - avanceMarco + AVANCE_DIARIO_MADRE;
 
             System.out.println("Marco avanzó " + avanceMarco);
-            System.out.println("Está a " + distancia + " km. de su madre");
-            System.out.println("----------");
 
+            if (distancia > 0) {
+                System.out.println("Está a " + distancia + " km. de su madre");
+            } else {
+                System.out.println("Marco ha alcanzado a su madre");
+            }
+            System.out.println("----------");
 
         } while (distancia > 0);
 
