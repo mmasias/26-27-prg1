@@ -48,6 +48,9 @@ class RETO{
             horas = horas - FACTOR_AMEDIO_ESCAPA_HORAS_PERDIDAS;
 
             }
+            double avance_marco = velocidad * horas * factor_clima * factor_amedio;
+            distancia_madre_marco = distancia_madre_marco - avance_marco - AVANCE_POR_DIA_MADRE;
+            
 
                             
             
