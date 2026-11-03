@@ -30,8 +30,6 @@ public class Viaje_marco {
         final double FACTOR_LLUVIA_MUY_FUERTE_MADRE = 0.50;
         final double FACTOR_LLUVIA_MADRE = 0.75;
 
-
-
         double distancia = DISTANCIA_INICIAL_MADRE;
         int dia = 0;
 
@@ -65,11 +63,29 @@ public class Viaje_marco {
             }
 
             System.out.println(mensajeDia);
-            
-            double velocidadMadre = (int) (Math.random() * (MAXIMA_VELOCIDAD_MADRE - MINIMA_VELOCIDAD_MADRE + 1)) + MINIMA_VELOCIDAD_MADRE;
-            int horasMadre = (int) (Math.random() * (MAXIMAS_HORAS_MADRE - MINIMAS_HORAS_MADRE + 1)) + MINIMAS_HORAS_MADRE;
+
+            double velocidad_de_Madre = (int) (Math.random() * (MAXIMA_VELOCIDAD_MADRE - MINIMA_VELOCIDAD_MADRE + 1))
+                    + MINIMA_VELOCIDAD_MADRE;
+            int horasMadre = (int) (Math.random() * (MAXIMAS_HORAS_MADRE - MINIMAS_HORAS_MADRE + 1))
+                    + MINIMAS_HORAS_MADRE;
+            String mensajeMadre;
+
+            double climaMadre = Math.random();
+            if (climaMadre < PROBABILIDAD_LLUVIA_MUY_FUERTE_MADRE) {
+                velocidad_de_Madre = velocidad_de_Madre * FACTOR_LLUVIA_MUY_FUERTE_MADRE;
+                mensajeMadre = "¡LLUVIA MUY FUERTE!";
+            } else if (climaMadre < PROBABILIDAD_LLUVIA_MUY_FUERTE_MADRE + PROBABILIDAD_LLUVIA_MADRE) {
+                velocidad_de_Madre = velocidad_de_Madre * FACTOR_LLUVIA_MADRE;
+                mensajeMadre = "¡LLUVIA!";
+            } else {
+                mensajeMadre = "BUEN TIEMPO";
+            }
+
+            System.out.println("Madre: " + mensajeMadre);
+            double avanceMadre = velocidad_de_Madre * horasMadre;
 
             double avanceMarco = velocidadMarco * horas_de_avance_Marco;
+            distancia = distancia - avanceMarco + avanceMadre;
 
             System.out.println("Marco avanzó " + avanceMarco);
 
