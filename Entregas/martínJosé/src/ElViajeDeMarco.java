@@ -55,6 +55,7 @@ public class ElViajeDeMarco {
             }
             System.out.println("Marco recorrió hoy: " +  marcorrecorridohoy + " km");
             System.out.println("Distancia total acumulada de Marco: " +  marcorrecorrido + " km");
+            System.out.println("Mama ha tenido un clima " + climamama);
             System.out.println("Mama recorrio hoy: " + mamarrecorrido + " km");
             System.out.println("Distancia total acumulada de Mama: " +  mamarrecorrido + " km");
             System.out.println("Distancia hasta mama: " + distancia + " km");
