@@ -8,11 +8,8 @@ public class ViajeMarco {
         double horas;
 
         // Generamos dos probabilidades independientes
-
-        double probCansancio = 0.20;
-        double probEscape = 0.10;
-
-        double distancia;
+        double probCansancio;
+        double probEscape;
 
         double distanciaMadre = 350;
         int dia = 1;
@@ -57,15 +54,21 @@ public class ViajeMarco {
 
             distanciaMadre = distanciaMadre - avanceMarco + avanceMadre;
 
-            System.out.println("Marco avanzo: " + avanceMarco + " km");
-            System.out.println("Distancia restante: " + distanciaMadre + " km");
+            // Evitar distancia negativa
+            if (distanciaMadre < 0) {
+                distanciaMadre = 0;
+            }
+
+            // Mostrar resultados con dos decimales
+            System.out.printf("Marco avanzo: %.2f km%n", avanceMarco);
+            System.out.printf("Mama avanzo: %.2f km%n", avanceMadre);
+            System.out.printf("Distancia restante: %.2f km%n", distanciaMadre);
+
             System.out.println("----------------------------");
 
             dia++;
         }
 
         System.out.println("Marco encontro a su madre en " + (dia - 1) + " dias");
-        
     }
-
 }
