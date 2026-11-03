@@ -57,7 +57,7 @@ public class viajeMarco {
             velocidad = velocidad * CASTIGO_CANSANCIO;
         }
 
-                double recorridoMarco = horas * velocidad;
+        double recorridoMarco = horas * velocidad;
         System.out.println("Avance " + Math.round(horas * 100) / 100.0 + " horas a " 
         + Math.round(velocidad * 100) / 100.0 + " Km/h recorriendo " 
         + Math.round(recorridoMarco * 100) / 100.0 + " Km");
@@ -92,7 +92,7 @@ public class viajeMarco {
         } else {
         distancia = distanciaTotal - recorridoMarco;
         System.out.println("Al final del día " + dia + " la distancia entre Marco y su Madre es de "
-            + Math.round(distancia * 100) / 100.0 + " Km");
+        + Math.round(distancia * 100) / 100.0 + " Km");
         System.out.println("- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -");
         }
     }
