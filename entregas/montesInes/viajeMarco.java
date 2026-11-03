@@ -35,7 +35,7 @@ class viajeMarco {
         int dia = 0;
 
         System.out.println("DIARIO DEL VIAJE DE MARCO");
-        System.out.println("=============================");
+        System.out.println("================================");
 
         while (distanciaFalta > 0) {
 
@@ -63,7 +63,7 @@ class viajeMarco {
             double reduccionCulpaLluvia = 0;
             double probabilidadLluvia = Math.random();
 
-            if (probabilidadLluvia < PROBABILIDAD_LLUVIA_FUERTE+PROBABILIDAD_LLUVIA_NORMAL) {
+            if (probabilidadLluvia < PROBABILIDAD_LLUVIA_FUERTE) {
 
                 reduccionCulpaLluvia = REDUCCION_VELOCIDAD_LLUVIA_FUERTE;
                 System.out.println("¡¡Ha llovido fuerte en donde estaba Marco!!");
@@ -79,9 +79,8 @@ class viajeMarco {
 
 
             System.out.println("Tiempo caminando por Marco hoy es de : " + tiempoDia + " horas.");
-            System.out.println("La velocidad que ha llevado Marco durante el día ha sido : " + velocidadDia + " km/h.");
+            System.out.println("La velocidad que ha llevado Marco durante el día ha sido : " + velocidadEfectiva + " km/h.");
             System.out.println("Al acabar el dia Marco y Amedio han recorrido: " + distanciaRecorrida + " km.");
-            System.out.println("Le faltan: " + distanciaFalta + " km para llegar a su madre.");
             System.out.println("");
 
 
@@ -90,12 +89,12 @@ class viajeMarco {
             double probabilidadLluviaMadre = Math.random();
             double reduccionLluviaMadre = 0;
 
-            if (probabilidadLluviaMadre < PROBABILIDAD_LLUVIA_FUERTE) {
+            if (probabilidadLluviaMadre < PROBABILIDAD_LLUVIA_FUERTE ) {
 
                 reduccionLluviaMadre = REDUCCION_VELOCIDAD_MADRE_LLUVIA_FUERTE;
                 System.out.println("¡¡Ha llovido fuerte en donde estaba la madre de Marco!!");
 
-            } else if (probabilidadLluviaMadre < PROBABILIDAD_LLUVIA_NORMAL) {
+            } else if (probabilidadLluviaMadre < PROBABILIDAD_LLUVIA_NORMAL + PROBABILIDAD_LLUVIA_FUERTE) {
 
                 reduccionLluviaMadre = REDUCCION_VELOCIDAD_MADRE_LLUVIA_NORMAL;
                 System.out.println("¡¡Ha llovido normal en donde estaba la madre de Marco!!");
@@ -115,7 +114,7 @@ class viajeMarco {
 
            
             System.out.println("Tiempo caminando por la madre de Marco hoy es de : " + tiempoMadre + " horas.");
-            System.out.println("La velocidad que ha llevado ha sido : " + velocidadMadre + " km/h.");
+            System.out.println("La velocidad que ha llevado ha sido : " + velocidadMadreEfectiva + " km/h.");
             System.out.println("Al acabar el dia de hoy ha recorrido: " + distanciaMadre + " km.");
             System.out.println("Le faltan: " + distanciaFalta + " km para encontrarse con Marco.");
             System.out.println("--------------------------------------------------");
