@@ -41,14 +41,23 @@ public class ElViajeDeMarco {
             double marcorrecorridohoy = horashoymarco * velmarco;
             marcorrecorrido += marcorrecorridohoy;
             mamarrecorrido += horashoymama * velmama;
+            double distancia = mamarrecorrido - marcorrecorrido;
 
             System.out.println("--- Día " + dia + " ---");
             System.out.println("Clima: " + climamarco);
+            if (distancia < 50){
+                int pinfo = (int) (Math.random() * 100);
+                if (pinfo < 50){
+                    System.out.println("Marco ha encontrado a alguien que ha visto a su madre y ha empezado a correr");
+                    marcorrecorridohoy += 25;
+                    distancia = mamarrecorrido - marcorrecorrido;
+                }
+            }
             System.out.println("Marco recorrió hoy: " +  marcorrecorridohoy + " km");
             System.out.println("Distancia total acumulada de Marco: " +  marcorrecorrido + " km");
             System.out.println("Mama recorrio hoy: " + mamarrecorrido + " km");
             System.out.println("Distancia total acumulada de Mama: " +  mamarrecorrido + " km");
-            System.out.println("Distancia hasta mama: " + (mamarrecorrido - marcorrecorrido) + " km");
+            System.out.println("Distancia hasta mama: " + distancia + " km");
             System.out.println("----------------------------------------");
         }
         System.out.println("FIN DEL VIAJE! Marco ha encontrado a su madre en el día " + dia);
