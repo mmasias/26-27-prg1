@@ -8,34 +8,47 @@ public class ElViajeDeMarco {
 
         while (marcorrecorrido <= mamarrecorrido) {
             dia++;
-            mamarrecorrido += 80;
+            double velmama = (Math.random() * 3) + 6;
+            double velmarco = (Math.random() * 5) + 10;
+            double horashoymarco = (Math.random() * 2) + 8;
+            double horashoymama = (Math.random() * 3) + 6;
+            int pclimamarco = (int) (Math.random() * 100);
+            int pclimamama = (int) (Math.random() * 100);
+            String climamarco = "soleado";
+            String climamama = "soleado";
 
-            double vel = (Math.random() * 5) + 10;
-            double horashoy = (Math.random() * 2) + 8;
-            int pclima = (int) (Math.random() * 100);
-            String clima = "soleado";
-            if (pclima < 10) {
-                clima = "lluvia fuerte";
-                vel = vel * 0.75;
-            } else if (pclima < 40) {
-                clima = "lluvia normal";
-                vel = vel * 0.75; 
+            if (pclimamarco < 10) {
+                climamarco = "lluvia fuerte";
+                velmarco = velmarco * 0.75;
+            } else if (pclimamarco < 40) {
+                climamarco = "lluvia normal";
+                velmarco = velmarco * 0.75; 
             }
 
+            if (pclimamama < 30) {
+                velmama = velmama * 0.75;
+                climamama = "lluvia";
+            } else if (pclimamama < 40) {
+                velmama = velmama * 0.5; 
+                climamama = "lluvia fuerte";
+            }
             int pmono = (int) (Math.random() * 100);
             if (pmono < 15) {
-                horashoy -= 2;
+                horashoymarco -= 2;
             }else if (pmono < 40) {
-                    vel = vel * 0.9;
+                    velmarco = velmarco * 0.9;
             }
-            double marcorrecorridohoy = horashoy * vel;
+            double marcorrecorridohoy = horashoymarco * velmarco;
             marcorrecorrido += marcorrecorridohoy;
+            mamarrecorrido += horashoymama * velmama;
 
             System.out.println("--- Día " + dia + " ---");
-            System.out.println("Clima: " + clima);
+            System.out.println("Clima: " + climamarco);
             System.out.println("Marco recorrió hoy: " +  marcorrecorridohoy + " km");
             System.out.println("Distancia total acumulada de Marco: " +  marcorrecorrido + " km");
-            System.out.println("Posición actual de la madre: " + mamarrecorrido + " km");
+            System.out.println("Mama recorrio hoy: " + mamarrecorrido + " km");
+            System.out.println("Distancia total acumulada de Mama: " +  mamarrecorrido + " km");
+            System.out.println("Distancia hasta mama: " + (mamarrecorrido - marcorrecorrido) + " km");
             System.out.println("----------------------------------------");
         }
         System.out.println("FIN DEL VIAJE! Marco ha encontrado a su madre en el día " + dia);
