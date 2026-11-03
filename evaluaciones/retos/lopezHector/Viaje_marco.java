@@ -20,7 +20,10 @@ public class Viaje_marco {
         final int HORAS_PERDIDAS_MONO_ESCAPA = 2;
 
         final double DISTANCIA_INICIAL_MADRE = 350;
-        final double AVANCE_DIARIO_MADRE = 80;
+        final int MINIMA_VELOCIDAD_MADRE = 6;
+        final int MAXIMA_VELOCIDAD_MADRE = 9;
+        final int MINIMAS_HORAS_MADRE = 6;
+        final int MAXIMAS_HORAS_MADRE = 9;
 
         double distancia = DISTANCIA_INICIAL_MADRE;
         int dia = 0;
