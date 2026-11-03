@@ -19,7 +19,8 @@ public class ViajedeMarco {
         final int REDUCCION_HORAS_AMEDIO_ESCAPA = 2;
 
         do {
-
+            System.out.println("*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*");
+            System.out.println();
             double velocidad_promedio = VELOCIDAD_MIN_MARCO + (Math.random() * (VELOCIDAD_MAX_MARCO - VELOCIDAD_MIN_MARCO));
             int horas_de_viaje = HORAS_MIN_MARCO + (int) (Math.random() * (HORAS_MAX_MARCO - HORAS_MIN_MARCO));
             double chance_lluvia = (Math.random());
@@ -48,15 +49,23 @@ public class ViajedeMarco {
             }
 
             int kilometros_recorridos = (int) (velocidad_promedio * horas_de_viaje);
-            distancia_con_madre = distancia_con_madre + AVANCE_DE_MADRE - kilometros_recorridos;
+            distancia_con_madre = Math.max(0,distancia_con_madre + ((AVANCE_DE_MADRE * 100) / 100) - kilometros_recorridos);
             dias_de_viaje++;
             System.out.println("MARCO RECORRIO " + kilometros_recorridos  + "KM");
             System.out.println("MARCO LLEVA " + dias_de_viaje + " DIAS DE VIAJE");
             System.out.println("MARCO LE QUEDAN " + distancia_con_madre + "KM PARA LLEGAR A SU MADRE");
+            
+            System.out.println();
+            System.out.println("*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*");
+            System.out.println();
+            
 
             if (distancia_con_madre <= 0) {
                 llega_donde_madre = true;
-                System.out.println("MARCO LLEGO A SU MADRE");
+                System.out.println("//////////------MARCO LLEGO A SU MADRE");
+                System.out.println();
+                System.out.println("//////////------FIN DE LA HISTORIA");
+                System.out.println();
             }
 
         } while (!llega_donde_madre);
