@@ -24,10 +24,29 @@ public class Viaje_marco {
 
         double distancia = DISTANCIA_INICIAL_MADRE;
         int dia = 0;
-        boolean sigueViajando = true;
-  
-    }
 
-    
+        do {
+            dia++;
+            System.out.println("Día " + dia);
+
+            double velocidadMarco = (int) (Math.random() * (MAXIMA_VELOCIDAD_MARCO - MINIMA_VELOCIDAD_MARCO + 1))+ MINIMA_VELOCIDAD_MARCO;
+            int horasMarco = (int) (Math.random() * (TIEMPO_MAX - TIEMPO_MIN + 1)) + TIEMPO_MIN;
+            String mensajeDia;
+
+            double clima = Math.random();
+            if (clima <= PROBABILIDAD_LLUVIA_FUERTE) {
+                velocidadMarco = velocidadMarco * FACTOR_LLUVIA_FUERTE;
+                mensajeDia = "¡LLUVIA FUERTE!";
+            } else if (clima < PROBABILIDAD_LLUVIA_FUERTE + PROBABILIDAD_LLUVIA_NORMAL) {
+                velocidadMarco = velocidadMarco * FACTOR_LLUVIA_NORMAL;
+                mensajeDia = "¡LLUVIA SUAVE!";
+            } else {
+                mensajeDia = "BUEN DÍA";
+            }
+
+        } while (distancia > 0);
+
+        System.out.println("Marco encuentra a su madre en " + dia + " días.");
+    }
 
 }
