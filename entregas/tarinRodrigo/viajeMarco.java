@@ -58,7 +58,9 @@ public class viajeMarco {
         }
 
                 double recorridoMarco = horas * velocidad;
-        System.out.println("Avance " + Math.round(horas * 100) / 100.0 + " horas a " + Math.round(velocidad * 100) / 100.0 + " Km/h recorriendo " + Math.round(recorridoMarco * 100) / 100.0 + " Km");
+        System.out.println("Avance " + Math.round(horas * 100) / 100.0 + " horas a " 
+        + Math.round(velocidad * 100) / 100.0 + " Km/h recorriendo " 
+        + Math.round(recorridoMarco * 100) / 100.0 + " Km");
         
         double velocidadMadre = Math.random() * (VELOCIDAD_MADRE_MAX - VELOCIDAD_MADRE_MIN) + VELOCIDAD_MADRE_MIN;
         double horasMadre = Math.random() * (HORAS_MADRE_MAX - HORAS_MADRE_MIN) + HORAS_MADRE_MIN;
@@ -78,8 +80,21 @@ public class viajeMarco {
         System.out.println("Mama pudo avanzar " + Math.round(horasMadre * 100) / 100.0 + " horas a "
         + Math.round(velocidadMadre * 100) / 100.0 + " Km/h recorriendo "
         + Math.round(recorridoMadre * 100) / 100.0 + " Km");
+        
+        double distanciaTotal = distancia + recorridoMadre;
 
+        if (recorridoMarco >= distanciaTotal) {
         encontrada = true;
+        System.out.println("A Marco le dicen que han visto a su mamá, y rompe a correr!!!");
+        System.out.println("************************************************************");
+        System.out.println("Al final del día " + dia + " Marco encuentra a su madre!!!");
+        System.out.println("************************************************************");
+        } else {
+        distancia = distanciaTotal - recorridoMarco;
+        System.out.println("Al final del día " + dia + " la distancia entre Marco y su Madre es de "
+            + Math.round(distancia * 100) / 100.0 + " Km");
+        System.out.println("- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -");
+        }
     }
     }
 }
