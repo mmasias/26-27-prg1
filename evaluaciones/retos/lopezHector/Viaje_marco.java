@@ -1,4 +1,3 @@
-package evaluaciones.retos.lopezHector;
 
 import java.util.Scanner;
 
@@ -33,11 +32,14 @@ public class Viaje_marco {
         double distancia = DISTANCIA_INICIAL_MADRE;
         int dia = 0;
 
+        System.out.println("DIARIO DEL VIAJE DE MARCO");
+        System.out.println("=========================");
+
         do {
             dia++;
-            System.out.println("Día " + dia);
+            System.out.println("DIA " + dia);
 
-            double velocidadMarco = (int) (Math.random() * (MAXIMA_VELOCIDAD_MARCO - MINIMA_VELOCIDAD_MARCO + 1))
+            double velocidadMarco = Math.random() * (MAXIMA_VELOCIDAD_MARCO - MINIMA_VELOCIDAD_MARCO)
                     + MINIMA_VELOCIDAD_MARCO;
             int horas_de_avance_Marco = (int) (Math.random() * (TIEMPO_MAX - TIEMPO_MIN + 1)) + TIEMPO_MIN;
             String mensajeDia;
@@ -45,26 +47,31 @@ public class Viaje_marco {
             double clima = Math.random();
             if (clima <= PROBABILIDAD_LLUVIA_FUERTE) {
                 velocidadMarco = velocidadMarco * FACTOR_LLUVIA_FUERTE;
-                mensajeDia = "¡LLUVIA FUERTE!";
+                mensajeDia = "¡Ha llovido muchísimo!";
             } else if (clima < PROBABILIDAD_LLUVIA_FUERTE + PROBABILIDAD_LLUVIA_NORMAL) {
                 velocidadMarco = velocidadMarco * FACTOR_LLUVIA_NORMAL;
-                mensajeDia = "¡LLUVIA SUAVE!";
+                mensajeDia = "Ha llovido un poco";
             } else {
-                mensajeDia = "BUEN DÍA";
+                mensajeDia = "Ha hecho un buen día";
             }
             if (Math.random() < PROBABILIDAD_MONO_CANSADO) {
                 velocidadMarco = velocidadMarco * FACTOR_MONO_CANSADO;
-                mensajeDia = mensajeDia + ". El mono se cansa";
+                mensajeDia = mensajeDia + "\n¡Amedio se ha cansado y he tenido que llevarlo en brazos!";
             }
 
             if (Math.random() < PROBABILIDAD_MONO_ESCAPA) {
                 horas_de_avance_Marco = horas_de_avance_Marco - HORAS_PERDIDAS_MONO_ESCAPA;
-                mensajeDia = mensajeDia + ". El mono se escapa";
+                mensajeDia = mensajeDia + "\n¡He perdido tiempo buscando a Amedio!";
             }
 
             System.out.println(mensajeDia);
 
-            double velocidad_de_Madre = (int) (Math.random() * (MAXIMA_VELOCIDAD_MADRE - MINIMA_VELOCIDAD_MADRE + 1))
+            double avanceMarco = velocidadMarco * horas_de_avance_Marco;
+            System.out.println("Avance " + horas_de_avance_Marco + " horas a "
+                    + String.format("%.2f", velocidadMarco) + " Km/h recorriendo "
+                    + String.format("%.2f", avanceMarco) + " Km");
+
+            double velocidad_de_Madre = Math.random() * (MAXIMA_VELOCIDAD_MADRE - MINIMA_VELOCIDAD_MADRE)
                     + MINIMA_VELOCIDAD_MADRE;
             int horasMadre = (int) (Math.random() * (MAXIMAS_HORAS_MADRE - MINIMAS_HORAS_MADRE + 1))
                     + MINIMAS_HORAS_MADRE;
@@ -73,32 +80,34 @@ public class Viaje_marco {
             double climaMadre = Math.random();
             if (climaMadre < PROBABILIDAD_LLUVIA_MUY_FUERTE_MADRE) {
                 velocidad_de_Madre = velocidad_de_Madre * FACTOR_LLUVIA_MUY_FUERTE_MADRE;
-                mensajeMadre = "¡LLUVIA MUY FUERTE!";
+                mensajeMadre = "A mamá le ha llovido muchísimo";
             } else if (climaMadre < PROBABILIDAD_LLUVIA_MUY_FUERTE_MADRE + PROBABILIDAD_LLUVIA_MADRE) {
                 velocidad_de_Madre = velocidad_de_Madre * FACTOR_LLUVIA_MADRE;
-                mensajeMadre = "¡LLUVIA!";
+                mensajeMadre = "A mamá le ha llovido un poco";
             } else {
-                mensajeMadre = "BUEN TIEMPO";
+                mensajeMadre = "A mamá le ha hecho un buen día";
             }
 
-            System.out.println("Madre: " + mensajeMadre);
+            System.out.println(mensajeMadre);
             double avanceMadre = velocidad_de_Madre * horasMadre;
+            System.out.println("Mama pudo avanzar " + horasMadre + " horas a "
+                    + String.format("%.2f", velocidad_de_Madre) + " Km/h recorriendo "
+                    + String.format("%.2f", avanceMadre) + " Km");
 
-            double avanceMarco = velocidadMarco * horas_de_avance_Marco;
             distancia = distancia - avanceMarco + avanceMadre;
 
-            System.out.println("Marco avanzó " + avanceMarco);
-
             if (distancia > 0) {
-                System.out.println("Está a " + distancia + " km. de su madre");
-            } else {
-                System.out.println("Marco ha alcanzado a su madre");
+                System.out.println("Al final del día " + dia + " la distancia entre Marco y su Madre es de "
+                        + String.format("%.2f", distancia) + " Km");
+                System.out.println("- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -");
             }
-            System.out.println("----------");
 
         } while (distancia > 0);
 
-        System.out.println("Marco encuentra a su madre en " + dia + " días.");
+        System.out.println("A Marco le dicen que han visto a su mamá, y rompe a correr!!!");
+        System.out.println("************************************************************");
+        System.out.println("Al final del día " + dia + " Marco encuentra a su madre!!!");
+        System.out.println("************************************************************");
     }
 
 }
