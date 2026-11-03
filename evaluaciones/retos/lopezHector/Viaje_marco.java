@@ -65,6 +65,9 @@ public class Viaje_marco {
             }
 
             System.out.println(mensajeDia);
+            
+            double velocidadMadre = (int) (Math.random() * (MAXIMA_VELOCIDAD_MADRE - MINIMA_VELOCIDAD_MADRE + 1)) + MINIMA_VELOCIDAD_MADRE;
+            int horasMadre = (int) (Math.random() * (MAXIMAS_HORAS_MADRE - MINIMAS_HORAS_MADRE + 1)) + MINIMAS_HORAS_MADRE;
 
             double avanceMarco = velocidadMarco * horas_de_avance_Marco;
 
