@@ -25,6 +25,13 @@ public class Viaje_marco {
         final int MINIMAS_HORAS_MADRE = 6;
         final int MAXIMAS_HORAS_MADRE = 9;
 
+        final double PROBABILIDAD_LLUVIA_MUY_FUERTE_MADRE = 0.10;
+        final double PROBABILIDAD_LLUVIA_MADRE = 0.30;
+        final double FACTOR_LLUVIA_MUY_FUERTE_MADRE = 0.50;
+        final double FACTOR_LLUVIA_MADRE = 0.75;
+
+
+
         double distancia = DISTANCIA_INICIAL_MADRE;
         int dia = 0;
 
@@ -60,7 +67,6 @@ public class Viaje_marco {
             System.out.println(mensajeDia);
 
             double avanceMarco = velocidadMarco * horas_de_avance_Marco;
-            distancia = distancia - avanceMarco + AVANCE_DIARIO_MADRE;
 
             System.out.println("Marco avanzó " + avanceMarco);
 
