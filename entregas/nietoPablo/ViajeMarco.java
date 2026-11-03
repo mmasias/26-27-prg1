@@ -27,6 +27,17 @@ public class ViajeMarco {
                 System.out.println("Ha hecho buen tiempo");
             }
 
+            boolean amedioCansado = azar.nextDouble() < 0.25;
+            boolean amedioEscapado = azar.nextDouble() < 0.15;
+            if (amedioCansado) {
+                System.out.println("Amedio se ha cansado y Marco lo lleva en brazos");
+                velocidad *= 0.90;
+            }
+            if (amedioEscapado) {
+                System.out.println("Amedio se ha escapado y Marco pierde dos horas buscandolo");
+                horas -= 2.0;
+            }
+
             double avanceMarco = velocidad * horas;
             distancia = distancia - avanceMarco + 80.0;
 
