@@ -11,12 +11,14 @@ class viajeMarco {
 
         //cambia cada dia: reduccion velocidad,reduccion de tiempo , tiempo trayecto por dia (8 a 10), velocidad promedio por dia (10 a 15), tiempo recorrido efectivo =(trayrcto dia - reducciontiempo)
         // velocidad efecttiva =velocidad por dia - (reduccion de velociada lluvia + reduccion velocidad mono cansado)
+        //distancia recorrida en el dia =tiempo efectibo * velocidad efectiva.
+        // distancia restante = distancia restante - distancia recorrida + avance madre
 
-        final double PROBABILIDAD_LLUVIA_FUERTE = 0,10; //Reduce velocidad al 25%
-        final double PROBABILIDAD_LLUVIA_NORMAL = 0,30;// Reduce velocidad en un 25%
-        final double PROBABILIDAD_BUEN_TIEMPO= 0,60; // el no lo pone
+        final double PROBABILIDAD_LLUVIA_FUERTE = 0,10; //Reduce velocidad al 25% // reduccion velocidad en un 75%
+        final double PROBABILIDAD_LLUVIA_NORMAL = 0,30;// Reduce velocidad en un 25% // reduccion velocidad en un 75%
+        final double PROBABILIDAD_BUEN_TIEMPO= 0,60; // el no lo pone 
         
-        final double MONO_CANSADO= 0.25; // reduce velocidad en un 10%
+        final double MONO_CANSADO= 0.25; // reduce velocidad en un 10% 
         final double MONO_ESCAPA = 0.10; //reducción de tiempo 2h
 
         final int DISTACIA_INICIO= 350;
