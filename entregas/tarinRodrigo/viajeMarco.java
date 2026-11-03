@@ -11,6 +11,8 @@ public class viajeMarco {
     final double HORAS_PERDIDAS = 2.0;
 
     final double CASTIGO_LLUVIA_FUERTE = 0.25;
+    final double CASTIGO_LLUVIA_NORMAL = 0.75;
+    final double CASTIGO_CANSANCIO = 0.90;
     final double VELOCIDAD_MIN = 10.0;
     final double VELOCIDAD_MAX = 15.0;
     final double HORAS_MIN = 8.0;
@@ -34,6 +36,11 @@ public class viajeMarco {
         if (clima < LLUVIA_FUERTE) {
             System.out.println("¡Ha llovido muchísimo!");
             velocidad = velocidad * CASTIGO_LLUVIA_FUERTE;
+        } else if (clima < LLUVIA_FUERTE + LLUVIA_NORMAL) {
+            System.out.println("Ha llovido un poco");
+            velocidad = velocidad * CASTIGO_LLUVIA_NORMAL;
+        } else {
+            System.out.println("Ha hecho un buen dia");
         }
         encontrada = true;
     }
