@@ -10,5 +10,7 @@ public class viajeMarco {
     final double CANSANCIO = 0.25;
     final double HORAS_PERDIDAS = 2.0;
 
+    System.out.println("DIARIO DEL VIAJE DE MARCO");
+    System.out.println("=========================");
     }
 }
