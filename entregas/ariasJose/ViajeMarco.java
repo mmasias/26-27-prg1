@@ -57,13 +57,19 @@ class ViajeMarco {
 
             double distanciaRecorridaMarco = velocidadMarco * tiempoRecorridoMarco;
             distanciaMarcoYMadre = distanciaMarcoYMadre - distanciaRecorridaMarco + RECORRIDO_DIARIO_MADRE_MARCO;
+            
+            distanciaMarcoYMadre = Math.round(distanciaMarcoYMadre * 100.0) / 100.0;
+            distanciaRecorridaMarco = Math.round(distanciaRecorridaMarco * 100.0) / 100.0;
+            tiempoRecorridoMarco = Math.round(tiempoRecorridoMarco * 100.0) / 100.0;
+            velocidadMarco = Math.round(velocidadMarco * 100.0) / 100.0;
+
             System.out.println("Avance " + tiempoRecorridoMarco + " horas a " + velocidadMarco + " Km/h. Recorriendo " + distanciaRecorridaMarco + " Km.");
 
             if (distanciaMarcoYMadre <= 0) {
                 sigueViajando = false;
                 System.out.println("¡Al final del día " + día + " Marco encuentra a su madre!");
             } else {
-                System.out.println("Al final del día " + día + " la distancia entre Marco y su madre es de " + distanciaMarcoYMadre);
+                System.out.println("Al final del día " + día + " la distancia entre Marco y su madre es de " + distanciaMarcoYMadre + " Km.");
             }
 
         }
