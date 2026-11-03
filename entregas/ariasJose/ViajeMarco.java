@@ -25,11 +25,9 @@ class ViajeMarco {
         if (probabilidadLluvia <= PROBABILIDAD_LLUVIA_FUERTE) {
             System.out.println("¡Ha llovido muchísimo!");
             velocidadMarco = velocidadMarco * REDUCCION_VELOCIDAD_LLUVIA_FUERTE;
-            System.out.println("Nueva velocidad Marco: " + velocidadMarco);
         } else if (probabilidadLluvia <= PROBABILIDAD_LLUVIA_NORMAL) {
             System.out.println("¡Ha llovido un poco!");
             velocidadMarco = velocidadMarco * REDUCCION_VELOCIDAD_LLUVIA_NORMAL;
-            System.out.println("Nueva velocidad Marco: " + velocidadMarco);
         } else {
             System.out.println("¡Ha hecho un día soleado!");
         }
@@ -42,16 +40,12 @@ class ViajeMarco {
 
         if (probabilidadAmedio <= PROBABILIDAD_AMEDIO_SE_CANSA) {
             System.out.println("¡Amedio se ha cansado!");
-            System.out.println("Velocidad Marco: " + velocidadMarco);
             velocidadMarco = velocidadMarco * REDUCCION_VELOCIDAD_AMEDIO_CANSADO;
-            System.out.println("Nueva velocidad Marco: " + velocidadMarco);
         } 
 
         if (probabilidadAmedio <= PROBABILIDAD_AMEDIO_SE_ESCAPA) {
             System.out.println("¡Amedio se ha escapado!");
-            System.out.println("Tiempo recorrido Marco: " + tiempoRecorridoMarco);
             tiempoRecorridoMarco = tiempoRecorridoMarco + REDUCCION_TIEMPO_AMEDIO_SE_ESCAPA;
-            System.out.println("Nuevo tiempo Marco: " + tiempoRecorridoMarco);
         }
 
     }
