@@ -1,5 +1,5 @@
 
-public class Marco {
+public class viajeMarco {
 
     public static void main(String[] args) {
 
