@@ -18,3 +18,41 @@ public class viajeMarco {
         }
     }
 }
+
+            double velocidadMarco = 10 + Math.random() * 5;
+            double horasMarco = 8 + Math.random() * 2;
+
+            double climaMarco = Math.random();
+
+            if (climaMarco < 0.10) {
+                System.out.println("¡Ha llovido muchísimo!");
+                velocidadMarco = velocidadMarco * 0.25;
+            } else if (climaMarco < 0.40) {
+                System.out.println("Ha llovido un poco");
+                velocidadMarco = velocidadMarco * 0.75;
+            } else {
+                System.out.println("Ha hecho un buen día");
+            }
+
+            boolean escapa = Math.random() < 0.15;
+
+            if (escapa) {
+                System.out.println("¡He perdido tiempo buscando a Amedio!");
+                horasMarco = horasMarco - 2;
+            }
+
+            boolean cansado = Math.random() < 0.25;
+
+            if (cansado) {
+                System.out.println("Amedio está cansado y tengo que llevarlo");
+                velocidadMarco = velocidadMarco * 0.90;
+            }
+
+            double recorridoMarco = velocidadMarco * horasMarco;
+
+            System.out.printf("Avance %.2f horas a %.2f Km/h recorriendo %.2f Km%n",
+                    horasMarco, velocidadMarco, recorridoMarco);
+
+        }
+    }
+}
