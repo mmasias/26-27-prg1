@@ -49,9 +49,17 @@ public class viajeMarco {
             System.out.println();
 
             distancia = distancia - kmMarco;
-            System.out.printf("Al final del día %d la distancia es de %.2f Km%n", dia, distancia);
-        
+            
+            if (distancia > 0) {
+                System.out.printf("Al final del día %d la distancia entre Marco y su Madre es de %.2f Km%n",
+                        dia, distancia);
+                System.out.println();
+                System.out.println("- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -");
+            } else {
+                System.out.println("************************************************************");
+                System.out.println();
+                System.out.println("Al final del día " + dia + " Marco encuentra a su madre!!!");
+            }
         }
-    }
-    
+    }   
 }
