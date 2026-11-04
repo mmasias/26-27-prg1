@@ -12,6 +12,11 @@ class ViajeDeMarco {
         final double FACTOR_LLUVIA_FUERTE = 0.25;
         final double FACTOR_LLUVIA_NORMAL = 0.75;
 
+        final double PROBABILIDAD_AMEDIO_SE_CANSA = 0.25;
+        final double PROBABILIDAD_AMEDIO_SE_ESCAPA = 0.15;
+        final double FACTOR_AMEDIO_EN_BRAZOS = 0.90;
+        final double HORAS_PERDIDAS_BUSCANDO_AMEDIO = 2;
+
         final double AVANCE_DIARIO_MADRE = 80;
 
         double distancia = DISTANCIA_INICIAL;
@@ -39,6 +44,18 @@ class ViajeDeMarco {
                 System.out.println("Ha llovido un poco");
             } else {
                 System.out.println("Ha hecho un buen día");
+            }
+
+            boolean amedioSeCansa = Math.random() < PROBABILIDAD_AMEDIO_SE_CANSA;
+            boolean amedioSeEscapa = Math.random() < PROBABILIDAD_AMEDIO_SE_ESCAPA;
+
+            if (amedioSeCansa) {
+                velocidadMarco = velocidadMarco * FACTOR_AMEDIO_EN_BRAZOS;
+                System.out.println("Amedio se ha cansado y lo llevo en brazos");
+            }
+            if (amedioSeEscapa) {
+                horasMarco = horasMarco - HORAS_PERDIDAS_BUSCANDO_AMEDIO;
+                System.out.println("¡He perdido tiempo buscando a Amedio!");
             }
 
             double avanceMarco = velocidadMarco * horasMarco;
