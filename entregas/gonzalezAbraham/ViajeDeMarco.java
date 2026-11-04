@@ -22,6 +22,10 @@ class ViajeDeMarco {
         final double HORAS_MINIMAS_MADRE = 6;
         final double HORAS_MAXIMAS_MADRE = 9;
 
+        final double DISTANCIA_PARA_PISTA = 50;
+        final double PROBABILIDAD_PISTA = 0.50;
+        final double KILOMETROS_CORRIENDO = 25;
+
         final double PROBABILIDAD_LLUVIA_FUERTE_MADRE = 0.10;
         final double PROBABILIDAD_LLUVIA_MADRE = 0.30;
         final double FACTOR_LLUVIA_FUERTE_MADRE = 0.50;
@@ -91,6 +95,13 @@ class ViajeDeMarco {
                     horasMadre, velocidadMadre, avanceMadre);
 
             distancia = distancia + avanceMadre - avanceMarco;
+
+            boolean estaCerca = distancia < DISTANCIA_PARA_PISTA;
+            if (estaCerca && Math.random() < PROBABILIDAD_PISTA) {
+                distancia = distancia - KILOMETROS_CORRIENDO;
+                System.out.println("A Marco le dicen que han visto a su mamá, y rompe a correr!!!");
+            }
+
             encontrada = distancia <= 0;
 
             if (encontrada) {
