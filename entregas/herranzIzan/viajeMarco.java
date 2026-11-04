@@ -44,6 +44,10 @@ public class viajeMarco {
                     horasMarco, velocidadMarco, kmMarco);
             System.out.println();
 
+            double kmMadre = 80;
+            System.out.printf("Mama avanza %.2f Km%n", kmMadre);
+            System.out.println();
+
             distancia = distancia - kmMarco;
             System.out.printf("Al final del día %d la distancia es de %.2f Km%n", dia, distancia);
         
