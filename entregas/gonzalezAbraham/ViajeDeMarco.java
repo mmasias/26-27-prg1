@@ -17,7 +17,15 @@ class ViajeDeMarco {
         final double FACTOR_AMEDIO_EN_BRAZOS = 0.90;
         final double HORAS_PERDIDAS_BUSCANDO_AMEDIO = 2;
 
-        final double AVANCE_DIARIO_MADRE = 80;
+        final double VELOCIDAD_MINIMA_MADRE = 6;
+        final double VELOCIDAD_MAXIMA_MADRE = 9;
+        final double HORAS_MINIMAS_MADRE = 6;
+        final double HORAS_MAXIMAS_MADRE = 9;
+
+        final double PROBABILIDAD_LLUVIA_FUERTE_MADRE = 0.10;
+        final double PROBABILIDAD_LLUVIA_MADRE = 0.30;
+        final double FACTOR_LLUVIA_FUERTE_MADRE = 0.50;
+        final double FACTOR_LLUVIA_MADRE = 0.75;
 
         double distancia = DISTANCIA_INICIAL;
         int dia = 0;
@@ -62,8 +70,25 @@ class ViajeDeMarco {
             System.out.printf("Avance %.2f horas a %.2f Km/h recorriendo %.2f Km%n",
                     horasMarco, velocidadMarco, avanceMarco);
 
-            double avanceMadre = AVANCE_DIARIO_MADRE;
-            System.out.printf("Mamá avanzó %.2f Km%n", avanceMadre);
+            double velocidadMadre = VELOCIDAD_MINIMA_MADRE
+                    + Math.random() * (VELOCIDAD_MAXIMA_MADRE - VELOCIDAD_MINIMA_MADRE);
+            double horasMadre = HORAS_MINIMAS_MADRE
+                    + Math.random() * (HORAS_MAXIMAS_MADRE - HORAS_MINIMAS_MADRE);
+
+            double climaMadre = Math.random();
+            if (climaMadre < PROBABILIDAD_LLUVIA_FUERTE_MADRE) {
+                velocidadMadre = velocidadMadre * FACTOR_LLUVIA_FUERTE_MADRE;
+                System.out.println("A mamá le ha llovido muchísimo");
+            } else if (climaMadre < PROBABILIDAD_LLUVIA_FUERTE_MADRE + PROBABILIDAD_LLUVIA_MADRE) {
+                velocidadMadre = velocidadMadre * FACTOR_LLUVIA_MADRE;
+                System.out.println("A mamá le ha llovido un poco");
+            } else {
+                System.out.println("A mamá le ha hecho un buen día");
+            }
+
+            double avanceMadre = velocidadMadre * horasMadre;
+            System.out.printf("Mama pudo avanzar %.2f horas a %.2f Km/h recorriendo %.2f Km%n",
+                    horasMadre, velocidadMadre, avanceMadre);
 
             distancia = distancia + avanceMadre - avanceMarco;
             encontrada = distancia <= 0;
