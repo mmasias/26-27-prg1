@@ -1,5 +1,5 @@
 
-public class viajeMarco {
+public class Marco {
 
     public static void main(String[] args) {
 
@@ -14,10 +14,6 @@ public class viajeMarco {
             System.out.println("DIARIO DEL VIAJE DE MARCO");
             System.out.println("=========================");
             System.out.println("DIA " + dia);
-
-        }
-    }
-}
 
             double velocidadMarco = 10 + Math.random() * 5;
             double horasMarco = 8 + Math.random() * 2;
@@ -53,9 +49,6 @@ public class viajeMarco {
             System.out.printf("Avance %.2f horas a %.2f Km/h recorriendo %.2f Km%n",
                     horasMarco, velocidadMarco, recorridoMarco);
 
-        }
-    }
-}
             double velocidadMadre = 6 + Math.random() * 3;
             double horasMadre = 6 + Math.random() * 3;
 
@@ -76,11 +69,7 @@ public class viajeMarco {
             System.out.printf("Mamá pudo avanzar %.2f horas a %.2f Km/h recorriendo %.2f Km%n",
                     horasMadre, velocidadMadre, recorridoMadre);
 
-            // ACTUALIZAR DISTANCIA
-
             distancia = distancia + recorridoMadre - recorridoMarco;
-
-        }
 
             if (distancia > 0 && distancia < 50) {
 
@@ -92,8 +81,6 @@ public class viajeMarco {
                     distancia = distancia - 25;
                 }
             }
-
-            // COMPROBAR SI MARCO HA ENCONTRADO A SU MADRE
 
             if (distancia <= 0) {
 
@@ -112,5 +99,3 @@ public class viajeMarco {
         }
     }
 }
-
-
