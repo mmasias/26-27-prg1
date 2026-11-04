@@ -1,5 +1,3 @@
-package entregas.herranzIzan;
-
 public class viajeMarco {
     public static void main(String[] args) {
         double distancia = 350; 
