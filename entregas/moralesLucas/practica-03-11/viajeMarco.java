@@ -81,6 +81,36 @@ public class viajeMarco {
             distancia = distancia + recorridoMadre - recorridoMarco;
 
         }
+
+            if (distancia > 0 && distancia < 50) {
+
+                if (Math.random() < 0.50) {
+
+                    System.out.println("¡A Marco le dicen que han visto a su mamá!");
+                    System.out.println("¡Marco rompe a correr y avanza 25 Km adicionales!");
+
+                    distancia = distancia - 25;
+                }
+            }
+
+            // COMPROBAR SI MARCO HA ENCONTRADO A SU MADRE
+
+            if (distancia <= 0) {
+
+                encontrado = true;
+
+                System.out.println("***************************************");
+                System.out.println("Al final del dia " + dia + " Marco encuentra a su madre!!!");
+
+            } else {
+
+                System.out.printf("Al final del dia %d la distancia entre Marco y su Madre es de %.2f Km%n",
+                        dia, distancia);
+
+                System.out.println("---------------------------------------");
+            }
+        }
     }
 }
+
 
