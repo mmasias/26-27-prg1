@@ -56,3 +56,31 @@ public class viajeMarco {
         }
     }
 }
+            double velocidadMadre = 6 + Math.random() * 3;
+            double horasMadre = 6 + Math.random() * 3;
+
+            double climaMadre = Math.random();
+
+            if (climaMadre < 0.10) {
+                System.out.println("A mamá le ha llovido muchísimo");
+                velocidadMadre = velocidadMadre * 0.50;
+            } else if (climaMadre < 0.40) {
+                System.out.println("A mamá le ha llovido un poco");
+                velocidadMadre = velocidadMadre * 0.75;
+            } else {
+                System.out.println("A mamá le ha hecho un buen día");
+            }
+
+            double recorridoMadre = velocidadMadre * horasMadre;
+
+            System.out.printf("Mamá pudo avanzar %.2f horas a %.2f Km/h recorriendo %.2f Km%n",
+                    horasMadre, velocidadMadre, recorridoMadre);
+
+            // ACTUALIZAR DISTANCIA
+
+            distancia = distancia + recorridoMadre - recorridoMarco;
+
+        }
+    }
+}
+
