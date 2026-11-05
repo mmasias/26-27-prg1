@@ -14,7 +14,7 @@ public class Cajaregistradora {
         int cola = 0;
         int atendidos = 0;
         
-       for (int minuto=0; minuto <= MINUTOS_JORNADA ;minuto++) {
+        for (int minuto=0; minuto < MINUTOS_JORNADA ;minuto++) {
 
             if (Math.random() <= PROBABILIDAD_LLEGADA_CLIENTE){
                 System.out.print("MINUTO " + (minuto + 1) + " - Llega 1 persona");
@@ -23,7 +23,6 @@ public class Cajaregistradora {
                 System.out.print("MINUTO " + (minuto + 1) + " - No llega nadie");
             }
                 
-            }
             if (CAJA1_CLIENTES == 0 && cola > 0){
                 CAJA1_CLIENTES = (int) (Math.random() * (NUMERO_MAXIMO_PACKS - NUMERO_MINIMO_PACKS + 1)) + NUMERO_MINIMO_PACKS;
                 cola=cola-1;
@@ -70,9 +69,9 @@ public class Cajaregistradora {
                     atendidos++;
                 }
             }
-            System.out.println("clientes atendidos"+atendidos);
-            System.out.println("clientes en cloa"+cola);
         }
+        
+        System.out.println("clientes atendidos"+atendidos);
+        System.out.println("clientes en cloa"+cola);
+    }
 }
-
-   
