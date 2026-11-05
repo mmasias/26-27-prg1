@@ -10,6 +10,7 @@ class CCCF {
         int caja2 = 0;
         int caja3 = 0;
         int caja4 = 0;
+        int caja5 = 0;
         final int MIN_PACKS = 5;
         final int MAX_PACKS = 15;
 
@@ -18,6 +19,9 @@ class CCCF {
         int minutosSinCola = 0;
         int totalClientesAtendidos = 0;
         int totalItemsVendidos = 0;
+
+        boolean caja5Activa = false;
+        int atendidosCaja5EstaRonda = 0;
 
         while (minutoActual < MINUTOS_TOTAL_ATENCIÓN) {
             minutoActual++;
@@ -31,6 +35,10 @@ class CCCF {
                 System.out.print("    Llego un cliente    - ");
             } else {
                 System.out.print("No llegó nungún cliente - ");
+            }
+
+            if (clientesEnFila > 15) {
+                caja5Activa = true;
             }
 
             if (caja1 == 0 && clientesEnFila > 0) {
@@ -48,6 +56,12 @@ class CCCF {
             if (caja4 == 0 && clientesEnFila > 0){
                 caja4 = (int) (Math.random() * (MAX_PACKS - MIN_PACKS + 1)) + MIN_PACKS;
                 clientesEnFila--;
+            }
+
+            if (caja5Activa && caja5 == 0 && clientesEnFila > 0) {
+                caja5 = (int) (Math.random() * (MAX_PACKS - MIN_PACKS + 1)) + MIN_PACKS;
+                clientesEnFila--;
+                atendidosCaja5EstaRonda++;
             }
 
             if (clientesEnFila == 0) {
@@ -78,11 +92,23 @@ class CCCF {
                 totalItemsVendidos++;
             }
 
+            if (caja5 == 1) totalClientesAtendidos++;
+            if (caja5 > 0) {
+                caja5--;
+                totalItemsVendidos++;
+            }
+
+            if (caja5Activa && caja5 == 0 && atendidosCaja5EstaRonda >= 5 && clientesEnFila <= 15) {
+                caja5Activa = false;
+                atendidosCaja5EstaRonda = 0;
+            }
+
             System.out.println("En cola: " + clientesEnFila);
             System.out.print("Caja 1: [" + caja1 + "] | ");
             System.out.print("Caja 2: [" + caja2 + "] | ");
             System.out.print("Caja 3: [" + caja3 + "] | ");
-            System.out.println("Caja 4: [" + caja4 + "]");
+            System.out.print("Caja 4: [" + caja4 + "]");
+            System.out.println("Caja 5: [" + caja5 + "] " + (caja5Activa ? "(activa)" : "(inactiva)"));
             System.out.println("───────────────────────────────────────────────────────────");
         }
 
