@@ -1,3 +1,4 @@
+package entregas;
 import java.util.Scanner;
 
 public class cajaCarrefour {
