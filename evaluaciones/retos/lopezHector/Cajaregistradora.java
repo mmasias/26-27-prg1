@@ -42,6 +42,42 @@ public class Cajaregistradora {
                 cola = cola - 1;
             }
 
+
+             // 3. Completar la línea y mostrar las cajas
+            System.out.println(" - En Cola: " + cola);
+            System.out.println("Caja1:[" + caja1 + "] | Caja2:[" + caja2 + "] | Caja3:[" + caja3 + "] | Caja4:[" + caja4 + "]");
+            System.out.println("- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - ");
+
+           if (caja1 > 0) {
+                caja1=caja1-1;
+                if (caja1 == 0) {
+                    atendidos++;
+                }
+            }
+            
+           
+            if (caja2 > 0) {
+                caja2=caja2-1;
+                if (caja2 == 0) {
+                    atendidos++;
+                }
+            }
+            if (caja3 > 0) {
+                caja3=caja3-1;
+                if (caja3 == 0) {
+                    atendidos++;
+                }
+            }
+            if (caja4 > 0) {
+                caja4=caja4-1;
+                if (caja4 == 0) {
+                    atendidos++;
+                }
+            }
         }
+
+        System.out.println("clientes atendidos" + atendidos);
+        System.out.println("clientes en cloa" + cola);
+
     }
 }
