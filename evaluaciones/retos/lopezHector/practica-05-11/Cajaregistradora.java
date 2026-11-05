@@ -16,6 +16,26 @@ public class Cajaregistradora {
         
        for (minuto=0; <=MINUTOS_JORNADA;minuto++) {
 
+            if (Math.random() <= PROBABILIDAD_LLEGADA_CLIENTE){
+                cola = cola+1;
+            }
+            if (CAJA1_CLIENTES = 0 && cola >0){
+                CAJA1_CLIENTES = (int) (Math.random() * (NUMERO_MAXIMO_PACKS - NUMERO_MINIMO_PACKS + 1)) + NUMERO_MINIMO_PACKS;
+                cola= cola-1;
+            }
+             if (CAJA2_CLIENTES = 0 && cola >0){
+                CAJA2_CLIENTES = (int) (Math.random() * (NUMERO_MAXIMO_PACKS - NUMERO_MINIMO_PACKS + 1)) + NUMERO_MINIMO_PACKS;
+                cola= cola-1;
+            }
+             if (CAJA3_CLIENTES = 0 && cola >0){
+                CAJA3_CLIENTES = (int) (Math.random() * (NUMERO_MAXIMO_PACKS - NUMERO_MINIMO_PACKS + 1)) + NUMERO_MINIMO_PACKS;
+                cola= cola-1;
+            }
+            if (CAJA4_CLIENTES = 0 && cola >0){
+                CAJA4_CLIENTES = (int) (Math.random() * (NUMERO_MAXIMO_PACKS - NUMERO_MINIMO_PACKS + 1)) + NUMERO_MINIMO_PACKS;
+                cola= cola-1;
+            }
             
+           
     }
 }
