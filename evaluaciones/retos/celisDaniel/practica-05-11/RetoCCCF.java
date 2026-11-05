@@ -41,5 +41,12 @@ public class RetoCCCF {
                 }
             }
         }               System.out.println("Fin de la cola este minuto: " + personasEnCola + "\n");
+
+        // - RESUMEN FINAL - 
+        System.out.println("- RESUMEN DEL DÍA -");
+        System.out.println("Minutos con cola vacía: " + minutosColaVacia);
+        System.out.println("Personas en cola al finalizar: " + personasEnCola);
+        System.out.println("Personas atendidas: " + personasAtendidas);
+        System.out.println("Items vendidos: " + itemsVendidos);
     }
 }
