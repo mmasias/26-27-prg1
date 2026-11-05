@@ -1,11 +1,18 @@
 class ClaseJava {
-    public static void CCCF (String[] args) {
+    public static void CCCF(String[] args) {
         final int HORAS_JORNADA = 12;
         final int MINUTOS_POR_HORA = 60;
         final double PROBABILIDAD_LLEGADA = 0.60;
+        final int ITEMS_MIN = 5;
+        final int ITEMS_MAX = 15;
 
         int cola = 0;
         int minutosJornada = HORAS_JORNADA * MINUTOS_POR_HORA;
+
+        int caja1 = 0;
+        int caja2 = 0;
+        int caja3 = 0;
+        int caja4 = 0;
 
         for (int minuto = 1; minuto <= minutosJornada; minuto++) {
             boolean llegaPersona = Math.random() < PROBABILIDAD_LLEGADA;
@@ -17,7 +24,33 @@ class ClaseJava {
                 System.out.println("MINUTO " + minuto + " - No llega nadie  - En Cola: " + cola);
             }
 
-            System.out.println("- - - - - - - - - - - - - - - - - - - - - - - - - - -");
+            if (caja1 > 0)
+                caja1--;
+            if (caja2 > 0)
+                caja2--;
+            if (caja3 > 0)
+                caja3--;
+            if (caja4 > 0)
+                caja4--;
+
+            if (cola > 0 && caja1 == 0) {
+                caja1 = (int) (Math.random() * (ITEMS_MAX - ITEMS_MIN)) + ITEMS_MIN;
+                cola--;
+                if (cola > 0 && caja2 == 0) {
+                    caja2 = (int) (Math.random() * (ITEMS_MAX - ITEMS_MIN)) + ITEMS_MIN;
+                    cola--;
+                }
+                if (cola > 0 && caja3 == 0) {
+                    caja3 = (int) (Math.random() * (ITEMS_MAX - ITEMS_MIN)) + ITEMS_MIN;
+                    cola--;
+                }
+                if (cola > 0 && caja4 == 0) {
+                    caja4 = (int) (Math.random() * (ITEMS_MAX - ITEMS_MIN)) + ITEMS_MIN;
+                    cola--;
+                }
+
+                System.out.println("- - - - - - - - - - - - - - - - - - - - - - - - - - -");
+            }
         }
     }
 }
