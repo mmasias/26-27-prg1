@@ -14,7 +14,7 @@ class retoCCCF {
         int caja4 = 0;
         int personasEnCola = 0;
 
-        for (int minutoActual = 1; minutoActual >= MINUTOS_JORNADA; minutoActual++) {
+        for (int minutoActual = 1; minutoActual <= MINUTOS_JORNADA; minutoActual++) {
             
             boolean llegaAlguien = Math.random() < PROBABILIDAD_LLEGADA;
 
@@ -50,6 +50,17 @@ class retoCCCF {
                 personasEnCola--;
             }
 
+            String textoLlegada;
+            if (llegaAlguien) {
+                textoLlegada = "Llega 1 persona";
+            } else {
+                textoLlegada = "No llega nadie ";
+            }
+            
+            System.out.println("MINUTO " + minutoActual + " - " + textoLlegada + " - En Cola: " + personasEnCola);
+            System.out.println("Caja1:[" + caja1 + "] | Caja2:[" + caja2 + "] | Caja3:[" + caja3 + "] | Caja4:[" + caja4 + "]");
+            System.out.println("_".repeat(48));
+            
 
         }
 
