@@ -5,10 +5,10 @@ public class Cajaregistradora {
         Scanner scanner = new Scanner(System.in);
         final int MINUTOS_JORNADA = 12 * 60;
         final double PROBABILIDAD_LLEGADA_CLIENTE = 0.60;
-        int CAJA1_CLIENTES = 0;   
-        int CAJA2_CLIENTES = 0;
-        int CAJA3_CLIENTES = 0;
-        int CAJA4_CLIENTES = 0;
+        int caja1clientes = 0;   
+        int caja2_clientes = 0;
+        int caja3_clientes = 0;
+        int caja4_clientes = 0;
         final int NUMERO_MINIMO_PACKS = 5;
         final int NUMERO_MAXIMO_PACKS = 15;
         int cola = 0;
@@ -23,55 +23,55 @@ public class Cajaregistradora {
                 System.out.print("MINUTO " + (minuto + 1) + " - No llega nadie");
             }
                 
-            if (CAJA1_CLIENTES == 0 && cola > 0){
-                CAJA1_CLIENTES = (int) (Math.random() * (NUMERO_MAXIMO_PACKS - NUMERO_MINIMO_PACKS + 1)) + NUMERO_MINIMO_PACKS;
+            if (caja1clientes == 0 && cola > 0){
+                caja1clientes = (int) (Math.random() * (NUMERO_MAXIMO_PACKS - NUMERO_MINIMO_PACKS + 1)) + NUMERO_MINIMO_PACKS;
                 cola=cola-1;
             }
-             if (CAJA2_CLIENTES == 0 && cola >0){
-                CAJA2_CLIENTES = (int) (Math.random() * (NUMERO_MAXIMO_PACKS - NUMERO_MINIMO_PACKS + 1)) + NUMERO_MINIMO_PACKS;
+             if (caja2_clientes == 0 && cola >0){
+                caja2_clientes = (int) (Math.random() * (NUMERO_MAXIMO_PACKS - NUMERO_MINIMO_PACKS + 1)) + NUMERO_MINIMO_PACKS;
                 cola=cola-1;
             }
-             if (CAJA3_CLIENTES == 0 && cola >0){
-                CAJA3_CLIENTES = (int) (Math.random() * (NUMERO_MAXIMO_PACKS - NUMERO_MINIMO_PACKS + 1)) + NUMERO_MINIMO_PACKS;
+             if (caja3_clientes == 0 && cola >0){
+                caja3_clientes = (int) (Math.random() * (NUMERO_MAXIMO_PACKS - NUMERO_MINIMO_PACKS + 1)) + NUMERO_MINIMO_PACKS;
                 cola=cola-1;
             }
-            if (CAJA4_CLIENTES == 0 && cola >0){
-                CAJA4_CLIENTES = (int) (Math.random() * (NUMERO_MAXIMO_PACKS - NUMERO_MINIMO_PACKS + 1)) + NUMERO_MINIMO_PACKS;
+            if (caja4_clientes == 0 && cola >0){
+                caja4_clientes = (int) (Math.random() * (NUMERO_MAXIMO_PACKS - NUMERO_MINIMO_PACKS + 1)) + NUMERO_MINIMO_PACKS;
                 cola=cola-1;
             }
 
              // 3. Completar la línea y mostrar las cajas
             System.out.println(" - En Cola: " + cola);
-            System.out.println("Caja1:[" + CAJA1_CLIENTES + "] | Caja2:[" + CAJA2_CLIENTES + "] | Caja3:[" + CAJA3_CLIENTES + "] | Caja4:[" + CAJA4_CLIENTES + "]");
+            System.out.println("Caja1:[" + caja1clientes + "] | Caja2:[" + caja2_clientes + "] | Caja3:[" + caja3_clientes + "] | Caja4:[" + caja4_clientes + "]");
             System.out.println("- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - ");
 
-           if (CAJA1_CLIENTES > 0) {
-                CAJA1_CLIENTES--;
-                if (CAJA1_CLIENTES == 0) {
+           if (caja1clientes > 0) {
+                caja1clientes--;
+                if (caja1clientes == 0) {
                     atendidos++;
                 }
             }
-            if (CAJA2_CLIENTES > 0) {
-                CAJA2_CLIENTES--;
-                if (CAJA2_CLIENTES == 0) {
+            if (caja2_clientes > 0) {
+                caja2_clientes--;
+                if (caja2_clientes == 0) {
                     atendidos++;
                 }
             }
-            if (CAJA3_CLIENTES > 0) {
-                CAJA3_CLIENTES--;
-                if (CAJA3_CLIENTES == 0) {
+            if (caja3_clientes > 0) {
+                caja3_clientes--;
+                if (caja3_clientes == 0) {
                     atendidos++;
                 }
             }
-            if (CAJA4_CLIENTES > 0) {
-                CAJA4_CLIENTES--;
-                if (CAJA4_CLIENTES == 0) {
+            if (caja4_clientes > 0) {
+                caja4_clientes--;
+                if (caja4_clientes == 0) {
                     atendidos++;
                 }
             }
         }
         
-        System.out.println("clientes atendidos"+atendidos);
-        System.out.println("clientes en cloa"+cola);
+        System.out.println(" clientes atendidos " + atendidos);
+        System.out.println(" clientes en cloa " + cola);
     }
 }
