@@ -36,21 +36,22 @@ class ClaseJava {
             if (cola > 0 && caja1 == 0) {
                 caja1 = (int) (Math.random() * (ITEMS_MAX - ITEMS_MIN)) + ITEMS_MIN;
                 cola--;
-                if (cola > 0 && caja2 == 0) {
-                    caja2 = (int) (Math.random() * (ITEMS_MAX - ITEMS_MIN)) + ITEMS_MIN;
-                    cola--;
-                }
-                if (cola > 0 && caja3 == 0) {
-                    caja3 = (int) (Math.random() * (ITEMS_MAX - ITEMS_MIN)) + ITEMS_MIN;
-                    cola--;
-                }
-                if (cola > 0 && caja4 == 0) {
-                    caja4 = (int) (Math.random() * (ITEMS_MAX - ITEMS_MIN)) + ITEMS_MIN;
-                    cola--;
-                }
-
-                System.out.println("- - - - - - - - - - - - - - - - - - - - - - - - - - -");
             }
+            if (cola > 0 && caja2 == 0) {
+                caja2 = (int) (Math.random() * (ITEMS_MAX - ITEMS_MIN)) + ITEMS_MIN;
+                cola--;
+            }
+            if (cola > 0 && caja3 == 0) {
+                caja3 = (int) (Math.random() * (ITEMS_MAX - ITEMS_MIN)) + ITEMS_MIN;
+                cola--;
+            }
+            if (cola > 0 && caja4 == 0) {
+                caja4 = (int) (Math.random() * (ITEMS_MAX - ITEMS_MIN)) + ITEMS_MIN;
+                cola--;
+            }
+
+            System.out.println("Caja1:[" + caja1 + "] | Caja2:[" + caja2 + "] | Caja3:[" + caja3 + "] | Caja4:[" + caja4 + "]");
+            System.out.println("- - - - - - - - - - - - - - - - - - - - - - - - - - -");
         }
     }
 }
