@@ -72,6 +72,6 @@ public class RetoCCCFAmpliado {
         System.out.println("Minutos cola vacía: " + minutosColaVacia);
         System.out.println("Personas en cola al final: " + personasEnCola);
         System.out.println("Personas atendidas: " + personasAtendidas);
-        System.out.println("Items vendidos: " + itemsVendidos);
+        System.out.println("Items vendidos: " +itemsVendidos);
     }
 }
