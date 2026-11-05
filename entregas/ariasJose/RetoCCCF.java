@@ -160,9 +160,15 @@ class RetoCCCF {
 
             }
 
+            while (clientesEnFila >= 15) {
+                clientesEnFila = clientesEnFila - 5;
+            }
+
             if (clientesEnFila == 0) {
                 minutosSinFila ++;
             }
+
+
 
             System.out.println("- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -");
 
