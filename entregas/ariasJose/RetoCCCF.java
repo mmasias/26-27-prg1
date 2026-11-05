@@ -12,7 +12,7 @@ class RetoCCCF {
         int clientesTotales = 0;
         int clientesEnFila = 0;
         int clientesEnCaja = 0;
-        int packsClienteCajaUno;
+        int packsClienteCajaUno = 0;
         int packsClienteCajaDos;
         int packsClienteCajaTres;
         int packsClienteCajaCuatro;
@@ -45,8 +45,7 @@ class RetoCCCF {
             }
             System.out.println("En cola: " + clientesEnFila);
 
-            if (cajaUnoLibre == true && clientesEnFila > 0
-                    || cajaUnoLibre == false && procesadoCompraCajaUno == false) {
+            if (cajaUnoLibre == true && clientesEnFila > 0) {
 
                 procesadoCompraCajaUno = false;
 
@@ -57,21 +56,17 @@ class RetoCCCF {
                         * (CANTIDAD_MAXIMA_PACKS_CLIENTE - CANTIDAD_MINIMA_PACKS_CLIENTE + 1))
                         + CANTIDAD_MINIMA_PACKS_CLIENTE;
 
-                do {
+            }
 
-                    packsClienteCajaUno--;
+            if (cajaUnoLibre == false) {
 
-                    System.out.println("Caja1: [" + packsClienteCajaUno + "]");
+                System.out.println("Caja1: [" + packsClienteCajaUno + "]");
 
-                    if (packsClienteCajaUno > 0) {
-                        procesadoCompraCajaUno = true;
-                    } else if (packsClienteCajaUno == 0) {
-                        procesadoCompraCajaUno = true;
-                    }
-
-                } while (procesadoCompraCajaUno == false);
+                packsClienteCajaUno--;
+                procesadoCompraCajaUno = true;
 
             }
+            
 
         } while (minutoActual < 10);
 
