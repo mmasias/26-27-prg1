@@ -1,5 +1,5 @@
 class ClaseJava {
-    public static void main (String[] args) {
+    public static void main(String[] args) {
         final int HORAS_JORNADA = 12;
         final int MINUTOS_POR_HORA = 60;
         final double PROBABILIDAD_LLEGADA = 0.60;
@@ -13,6 +13,10 @@ class ClaseJava {
         int caja2 = 0;
         int caja3 = 0;
         int caja4 = 0;
+
+        int minutosColaVacia = 0;
+        int personasAtendidas = 0;
+        int itemsVendidos = 0;
 
         for (int minuto = 1; minuto <= minutosJornada; minuto++) {
             boolean llegaPersona = Math.random() < PROBABILIDAD_LLEGADA;
@@ -34,24 +38,48 @@ class ClaseJava {
                 caja4--;
 
             if (cola > 0 && caja1 == 0) {
-                caja1 = (int) (Math.random() * (ITEMS_MAX - ITEMS_MIN + 1)) + ITEMS_MIN;
+                int items = (int) (Math.random() * (ITEMS_MAX - ITEMS_MIN + 1)) + ITEMS_MIN;
+                caja1 = items;
+                itemsVendidos += items;
+                personasAtendidas++;
                 cola--;
             }
             if (cola > 0 && caja2 == 0) {
-                caja2 = (int) (Math.random() * (ITEMS_MAX - ITEMS_MIN + 1)) + ITEMS_MIN;
+                int items = (int) (Math.random() * (ITEMS_MAX - ITEMS_MIN + 1)) + ITEMS_MIN;
+                caja2 = items;
+                itemsVendidos += items;
+                personasAtendidas++;
                 cola--;
             }
             if (cola > 0 && caja3 == 0) {
-                caja3 = (int) (Math.random() * (ITEMS_MAX - ITEMS_MIN + 1)) + ITEMS_MIN;
+                int items = (int) (Math.random() * (ITEMS_MAX - ITEMS_MIN + 1)) + ITEMS_MIN;
+                caja3 = items;
+                itemsVendidos += items;
+                personasAtendidas++;
                 cola--;
             }
             if (cola > 0 && caja4 == 0) {
-                caja4 = (int) (Math.random() * (ITEMS_MAX - ITEMS_MIN + 1)) + ITEMS_MIN;
+                int items = (int) (Math.random() * (ITEMS_MAX - ITEMS_MIN + 1)) + ITEMS_MIN;
+                caja4 = items;
+                itemsVendidos += items;
+                personasAtendidas++;
                 cola--;
+            }
+
+            if (cola == 0) {
+                minutosColaVacia++;
             }
 
             System.out.println("Caja1:[" + caja1 + "] | Caja2:[" + caja2 + "] | Caja3:[" + caja3 + "] | Caja4:[" + caja4 + "]");
             System.out.println("- - - - - - - - - - - - - - - - - - - - - - - - - - -");
         }
+
+        System.out.println("\nRESUMEN");
+        System.out.println("============================================================");
+        System.out.println("Minutos con cola en cero       : " + minutosColaVacia);
+        System.out.println("Personas en la cola al cierre  : " + cola);
+        System.out.println("Personas atendidas en el dia   : " + personasAtendidas);
+        System.out.println("Articulos vendidos en el dia   : " + itemsVendidos);
+        System.out.println("============================================================");
     }
 }
