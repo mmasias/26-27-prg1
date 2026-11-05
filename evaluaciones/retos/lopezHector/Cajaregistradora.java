@@ -20,8 +20,12 @@ public class Cajaregistradora {
         int items_vendidos = 0;
 
         for (int minuto = 0; minuto < MINUTOS_JORNADA; minuto++) {
+
             if (Math.random() <= PROBABILIDAD_DE_CLIENTE_NUEVO_COLA) {
+                System.out.print("MINUTO " + (minuto + 1) + " - Llega 1 persona");
                 cola = cola + 1;
+            }else {
+                System.out.print("MINUTO " + (minuto + 1) + " - No llega nadie");
             }
             if (caja1 == 0 && cola > 0) {
                 caja1 = (int) (Math.random() * (NUMERO_MAXIMO_PACKS - NUMERO_MINIMO_PACKS + 1))
