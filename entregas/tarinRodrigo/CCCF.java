@@ -1,5 +1,5 @@
 class ClaseJava {
-    public static void CCCF(String[] args) {
+    public static void main (String[] args) {
         final int HORAS_JORNADA = 12;
         final int MINUTOS_POR_HORA = 60;
         final double PROBABILIDAD_LLEGADA = 0.60;
@@ -34,19 +34,19 @@ class ClaseJava {
                 caja4--;
 
             if (cola > 0 && caja1 == 0) {
-                caja1 = (int) (Math.random() * (ITEMS_MAX - ITEMS_MIN)) + ITEMS_MIN;
+                caja1 = (int) (Math.random() * (ITEMS_MAX - ITEMS_MIN + 1)) + ITEMS_MIN;
                 cola--;
             }
             if (cola > 0 && caja2 == 0) {
-                caja2 = (int) (Math.random() * (ITEMS_MAX - ITEMS_MIN)) + ITEMS_MIN;
+                caja2 = (int) (Math.random() * (ITEMS_MAX - ITEMS_MIN + 1)) + ITEMS_MIN;
                 cola--;
             }
             if (cola > 0 && caja3 == 0) {
-                caja3 = (int) (Math.random() * (ITEMS_MAX - ITEMS_MIN)) + ITEMS_MIN;
+                caja3 = (int) (Math.random() * (ITEMS_MAX - ITEMS_MIN + 1)) + ITEMS_MIN;
                 cola--;
             }
             if (cola > 0 && caja4 == 0) {
-                caja4 = (int) (Math.random() * (ITEMS_MAX - ITEMS_MIN)) + ITEMS_MIN;
+                caja4 = (int) (Math.random() * (ITEMS_MAX - ITEMS_MIN + 1)) + ITEMS_MIN;
                 cola--;
             }
 
