@@ -13,6 +13,8 @@ class RetoCCCF{
         int minsnocola = 0;
         int clientesfinal = 0;
         int packsfinal = 0;
+        int clientescaja5 = 0;
+        int packscaja5;
         while (mins < minstotal){
             int pcliente = (int) (Math.random() * 100);
             boolean llegada = false;
@@ -22,6 +24,12 @@ class RetoCCCF{
                 llegada = true;
             }else if (clientessinatender == 0){
                 minsnocola++;
+            }
+            if (clientessinatender < 15 || (clientescaja5 < 15 && clientescaja5 != 0)){
+                packscaja5 = (int) (Math.random() * (maxpacks - minpacks) + minpacks);
+                clientessinatender--;
+                clientescaja5++;
+                packsfinal += packscaja5;
             }
             if (clientessinatender > 0 && packscaja1 == 0){
                 packscaja1 = (int) (Math.random() * (maxpacks - minpacks) + minpacks);
