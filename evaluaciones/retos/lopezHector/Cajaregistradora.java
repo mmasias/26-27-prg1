@@ -8,7 +8,7 @@ public class Cajaregistradora {
         Scanner scanner = new Scanner(System.in);
         final int MINUTOS_JORNADA = 12 * 60;
         final double PROBABILIDAD_DE_CLIENTE_NUEVO_COLA = 0.60;
-        int caja1 = 0;   
+        int caja1 = 0;
         int caja2 = 0;
         int caja3 = 0;
         int caja4 = 0;
@@ -17,10 +17,31 @@ public class Cajaregistradora {
         int cola = 0;
         int atendidos = 0;
 
-
         for (int minuto = 0; minuto < MINUTOS_JORNADA; minuto++) {
+            if (Math.random() <= PROBABILIDAD_DE_CLIENTE_NUEVO_COLA) {
+                cola = cola + 1;
+            }
+            if (caja1 == 0 && cola > 0) {
+                caja1 = (int) (Math.random() * (NUMERO_MAXIMO_PACKS - NUMERO_MINIMO_PACKS + 1))
+                        + NUMERO_MINIMO_PACKS;
+                cola = cola - 1;
+            }
+            if (caja2 == 0 && cola > 0) {
+                caja2 = (int) (Math.random() * (NUMERO_MAXIMO_PACKS - NUMERO_MINIMO_PACKS + 1))
+                        + NUMERO_MINIMO_PACKS;
+                cola = cola - 1;
+            }
+            if (caja3 == 0 && cola > 0) {
+                caja3 = (int) (Math.random() * (NUMERO_MAXIMO_PACKS - NUMERO_MINIMO_PACKS + 1))
+                        + NUMERO_MINIMO_PACKS;
+                cola = cola - 1;
+            }
+            if (caja4 == 0 && cola > 0) {
+                caja4 = (int) (Math.random() * (NUMERO_MAXIMO_PACKS - NUMERO_MINIMO_PACKS + 1))
+                        + NUMERO_MINIMO_PACKS;
+                cola = cola - 1;
+            }
 
-            
-    }
+        }
     }
 }
