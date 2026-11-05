@@ -3,7 +3,6 @@ class RetoCCCF {
 
         final int MINUTOS_POR_DIA = 720;
         final double PROBABILIDAD_CLIENTE_NUEVO = 0.6;
-        final int CAJAS = 4;
         final int CANTIDAD_MINIMA_PACKS_CLIENTE = 5;
         final int CANTIDAD_MAXIMA_PACKS_CLIENTE = 15;
 
@@ -11,7 +10,6 @@ class RetoCCCF {
         int minutoActual = 0;
         int clientesAtendidos = 0;
         int clientesEnFila = 0;
-        int clientesEnCaja = 0;
         int packsClienteCajaUno = 0;
         int packsClienteCajaDos = 0;
         int packsClienteCajaTres = 0;
@@ -55,7 +53,6 @@ class RetoCCCF {
 
                 cajaUnoLibre = false;
                 clientesEnFila--;
-                clientesEnCaja++;
                 packsClienteCajaUno = (int) (Math.random()
                         * (CANTIDAD_MAXIMA_PACKS_CLIENTE - CANTIDAD_MINIMA_PACKS_CLIENTE + 1))
                         + CANTIDAD_MINIMA_PACKS_CLIENTE;
@@ -82,7 +79,6 @@ class RetoCCCF {
 
                 cajaDosLibre = false;
                 clientesEnFila--;
-                clientesEnCaja++;
                 packsClienteCajaDos = (int) (Math.random()
                         * (CANTIDAD_MAXIMA_PACKS_CLIENTE - CANTIDAD_MINIMA_PACKS_CLIENTE + 1))
                         + CANTIDAD_MINIMA_PACKS_CLIENTE;
@@ -110,7 +106,6 @@ class RetoCCCF {
 
                 cajaTresLibre = false;
                 clientesEnFila--;
-                clientesEnCaja++;
                 packsClienteCajaTres = (int) (Math.random()
                         * (CANTIDAD_MAXIMA_PACKS_CLIENTE - CANTIDAD_MINIMA_PACKS_CLIENTE + 1))
                         + CANTIDAD_MINIMA_PACKS_CLIENTE;
@@ -138,7 +133,6 @@ class RetoCCCF {
 
                 cajaCuatroLibre = false;
                 clientesEnFila--;
-                clientesEnCaja++;
                 packsClienteCajaCuatro = (int) (Math.random()
                         * (CANTIDAD_MAXIMA_PACKS_CLIENTE - CANTIDAD_MINIMA_PACKS_CLIENTE + 1))
                         + CANTIDAD_MINIMA_PACKS_CLIENTE;
