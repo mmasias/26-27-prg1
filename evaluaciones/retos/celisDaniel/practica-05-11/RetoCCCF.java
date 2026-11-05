@@ -16,8 +16,6 @@ public class RetoCCCF {
                 System.out.println("Llega una persona a la cola. Personas en cola: " + personasEnCola);
             } else  {
                 System.out.println("Nadie ha llegado a la cola.");
-
-                if (personasEnCola == 0) { minutosColaVacia++; }
             } 
 
             for (int i = 0; i < cajas.length; i++) {
@@ -35,12 +33,17 @@ public class RetoCCCF {
                 
                 if (cajas[i] > 0 ) {
                     cajas[i]--;
-                    System.out.println("Caja " + (i + 1) + " atendiendo. Le quedan " + cajas[i] + "items.");
+                    System.out.println("Caja " + (i + 1) + " atendiendo. Le quedan " + cajas[i] + " items.");
                 } else {
                     System.out.println("Caja " + (i + 1) + " está libre.");
                 }
             }
-        }               System.out.println("Fin de la cola este minuto: " + personasEnCola + "\n");
+
+            if (personasEnCola == 0) {
+                minutosColaVacia++;
+            }
+            System.out.println("Fin de la cola este minuto: " + personasEnCola + "\n");
+        }
 
         // - RESUMEN FINAL - 
         System.out.println("- RESUMEN DEL DÍA -");
