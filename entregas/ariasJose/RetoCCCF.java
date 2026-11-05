@@ -40,7 +40,7 @@ class RetoCCCF {
                 llegaUnaPersona = false;
             }
 
-            System.out.print("Minuto: " + minutoActual + " - ");
+            System.out.print("MINUTO " + minutoActual + " - ");
             if (llegaUnaPersona == true) {
                 System.out.print("Llega 1 persona - ");
             } else {
@@ -62,7 +62,7 @@ class RetoCCCF {
             }
 
             if (cajaUnoLibre == true) {
-                System.out.println("Caja1:["+packsClienteCajaUno+"] | ");
+                System.out.print("Caja1:["+packsClienteCajaUno+"] | ");
             } else if (cajaUnoLibre == false) {
                 packsClienteCajaUno--;
                 System.out.print("Caja1:["+packsClienteCajaUno+"] | ");
@@ -87,10 +87,10 @@ class RetoCCCF {
             }
 
             if (cajaDosLibre == true) {
-                System.out.println(" Caja2:["+packsClienteCajaDos+"] | ");
+                System.out.print(" Caja2:["+packsClienteCajaDos+"] | ");
             } else if (cajaDosLibre == false) {
                 packsClienteCajaDos--;
-                System.out.println(" Caja2:["+packsClienteCajaDos+"] | ");
+                System.out.print(" Caja2:["+packsClienteCajaDos+"] | ");
 
                 if (packsClienteCajaDos == 0) {
                     cajaDosLibre = true;
@@ -99,8 +99,61 @@ class RetoCCCF {
 
             }
             
+            if (cajaTresLibre == true && clientesEnFila > 0) {
 
-        } while (minutoActual < 5);
+                procesadoCompraCajaTres = false;
+
+                cajaTresLibre = false;
+                clientesEnFila--;
+                clientesEnCaja++;
+                packsClienteCajaTres = (int) (Math.random()
+                        * (CANTIDAD_MAXIMA_PACKS_CLIENTE - CANTIDAD_MINIMA_PACKS_CLIENTE + 1))
+                        + CANTIDAD_MINIMA_PACKS_CLIENTE;
+
+            }
+
+            if (cajaTresLibre == true) {
+                System.out.print(" Caja3:["+packsClienteCajaTres+"] | ");
+            } else if (cajaTresLibre == false) {
+                packsClienteCajaTres--;
+                System.out.print(" Caja3:["+packsClienteCajaTres+"] | ");
+
+                if (packsClienteCajaTres == 0) {
+                    cajaTresLibre = true;
+                }
+                procesadoCompraCajaTres = true;
+
+            }
+
+            if (cajaCuatroLibre == true && clientesEnFila > 0) {
+
+                procesadoCompraCajaCuatro = false;
+
+                cajaCuatroLibre = false;
+                clientesEnFila--;
+                clientesEnCaja++;
+                packsClienteCajaCuatro = (int) (Math.random()
+                        * (CANTIDAD_MAXIMA_PACKS_CLIENTE - CANTIDAD_MINIMA_PACKS_CLIENTE + 1))
+                        + CANTIDAD_MINIMA_PACKS_CLIENTE;
+
+            }
+
+            if (cajaCuatroLibre == true) {
+                System.out.println(" Caja4:["+packsClienteCajaCuatro+"] | ");
+            } else if (cajaCuatroLibre == false) {
+                packsClienteCajaCuatro--;
+                System.out.println(" Caja4:["+packsClienteCajaCuatro+"] | ");
+
+                if (packsClienteCajaCuatro == 0) {
+                    cajaCuatroLibre = true;
+                }
+                procesadoCompraCajaCuatro = true;
+
+            }
+
+            System.out.println("- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -");
+
+        } while (minutoActual < MINUTOS_POR_DIA);
 
     }
 }
