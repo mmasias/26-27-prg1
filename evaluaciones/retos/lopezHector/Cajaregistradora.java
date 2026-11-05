@@ -16,6 +16,8 @@ public class Cajaregistradora {
         final int NUMERO_MAXIMO_PACKS = 15;
         int cola = 0;
         int atendidos = 0;
+        int minutos_sin_cola = 0;
+        int items_vendidos = 0;
 
         for (int minuto = 0; minuto < MINUTOS_JORNADA; minuto++) {
             if (Math.random() <= PROBABILIDAD_DE_CLIENTE_NUEVO_COLA) {
@@ -41,43 +43,58 @@ public class Cajaregistradora {
                         + NUMERO_MINIMO_PACKS;
                 cola = cola - 1;
             }
+            if (cola == 0) {
+                minutos_sin_cola = minutos_sin_cola + 1;
+            }
 
-
-             // 3. Completar la línea y mostrar las cajas
             System.out.println(" - En Cola: " + cola);
-            System.out.println("Caja1:[" + caja1 + "] | Caja2:[" + caja2 + "] | Caja3:[" + caja3 + "] | Caja4:[" + caja4 + "]");
+            System.out.println(
+                    "Caja1:[" + caja1 + "] | Caja2:[" + caja2 + "] | Caja3:[" + caja3 + "] | Caja4:[" + caja4 + "]");
             System.out.println("- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - ");
 
-           if (caja1 > 0) {
-                caja1=caja1-1;
+            if (caja1 > 0) {
+                caja1 = caja1 - 1;
                 if (caja1 == 0) {
-                    atendidos++;
+                    atendidos = atendidos + 1;
+                    items_vendidos = items_vendidos
+                            + (int) (Math.random() * (NUMERO_MAXIMO_PACKS - NUMERO_MINIMO_PACKS + 1))
+                            + NUMERO_MINIMO_PACKS;
                 }
             }
-            
-           
+
             if (caja2 > 0) {
-                caja2=caja2-1;
+                caja2 = caja2 - 1;
                 if (caja2 == 0) {
-                    atendidos++;
+                    atendidos = atendidos + 1;
+                    items_vendidos = items_vendidos
+                            + (int) (Math.random() * (NUMERO_MAXIMO_PACKS - NUMERO_MINIMO_PACKS + 1))
+                            + NUMERO_MINIMO_PACKS;
                 }
             }
             if (caja3 > 0) {
-                caja3=caja3-1;
+                caja3 = caja3 - 1;
                 if (caja3 == 0) {
-                    atendidos++;
+                    atendidos = atendidos + 1;
+                    items_vendidos = items_vendidos
+                            + (int) (Math.random() * (NUMERO_MAXIMO_PACKS - NUMERO_MINIMO_PACKS + 1))
+                            + NUMERO_MINIMO_PACKS;
                 }
             }
             if (caja4 > 0) {
-                caja4=caja4-1;
+                caja4 = caja4 - 1;
                 if (caja4 == 0) {
-                    atendidos++;
+                    atendidos = atendidos + 1;
+                    items_vendidos = items_vendidos
+                            + (int) (Math.random() * (NUMERO_MAXIMO_PACKS - NUMERO_MINIMO_PACKS + 1))
+                            + NUMERO_MINIMO_PACKS;
                 }
             }
         }
 
-        System.out.println("clientes atendidos" + atendidos);
-        System.out.println("clientes en cloa" + cola);
+        System.out.println("Clientes atendidos: " + atendidos);
+        System.out.println("Minutos sin nadie en cola: " + minutos_sin_cola);
+        System.out.println("Clientes en cola al finalizar el día: " + cola);
+        System.out.println("Items vendidos: " + items_vendidos);
 
     }
 }
