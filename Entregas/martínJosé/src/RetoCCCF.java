@@ -9,10 +9,13 @@ class RetoCCCF{
         int packscaja2 = 0;
         int packscaja3 = 0;
         int packscaja4 = 0;
+        final int phaycliente = 60;
         while (mins < minstotal){
             int pcliente = (int) (Math.random() * 100);
-            if (pcliente < 60){
+            boolean llegada = false;
+            if (pcliente < phaycliente){
                 clientes++;
+                llegada = true;
             }
             if (clientes > 0 && packscaja1 == 0){
                 packscaja1 = (int) (Math.random() * (maxpacks - minpacks) + minpacks);
@@ -35,6 +38,14 @@ class RetoCCCF{
                 packscaja4--;
             }
             mins++;
+            String Mensajellegada;
+            if (llegada){
+                Mensajellegada = " | llega 1 persona | ";
+            }else{
+                Mensajellegada = " | No llega nadie | ";
+            }
+            System.out.println("Minuto: " + mins + " " + Mensajellegada + " En cola " + clientes);
+            System.out.println("Packs: Caja 1: " + packscaja1 + " | Caja 2: " + packscaja2 + " | Caja 3: " + packscaja3 + " | Caja 4: " + packscaja4);
         }
     }
 }
