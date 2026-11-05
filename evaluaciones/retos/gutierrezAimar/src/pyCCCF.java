@@ -10,7 +10,7 @@ public class pyCCCF {
         double horaActual = HORA_APERTURA;
         boolean estaAbierto = true; 
 
-        int cola = 0
+        int cola = 0;
         final double PROBABILIDAD_LLEGADA = 0.6;
 
         int caja1 = 0, caja2 = 0, caja3 = 0, caja4 = 0;
@@ -31,6 +31,19 @@ public class pyCCCF {
             if (Math.random() < PROBABILIDAD_LLEGADA) {
                 cola++;
                 haLlegado = true;
+            }
+            
+            if (cola > 0 && caja1 <= 0) {
+                cola--;
+                caja1 = crearItems(ITEMS_MAXIMO, ITEMS_MINIMO);
+            }
+            if (cola > 0 && caja2 <= 0) {
+                cola--;
+                caja2 = crearItems(ITEMS_MAXIMO, ITEMS_MINIMO);
+            }
+            if (cola > 0 && caja3 <= 0) {
+                cola--;
+                caja3 = crearItems(ITEMS_MAXIMO, ITEMS_MINIMO);
             }
             if (cola > 0 && caja4 <= 0) {
                 cola--;
@@ -73,9 +86,21 @@ public class pyCCCF {
              String textoMinuto = minuto < PRIMER_NUMERO_DOS_CIFRAS ? "0" + minuto : "" + minuto;
              String textoLlegada = haLlegado ? "Llega 1 persona" : "No llega nadie ";
 
-             System.out.println(hora +)
+             System.out.println(hora + ":" + textoMinuto + " | " + textoLlegada + " | Cola: " + cola + " | Caja1: " + caja1 + " | Caja2: " + caja2 + " | Caja3: " + caja3 + " | Caja4: " + caja4);
+             scanner.nextLine();
 
         } while (estaAbierto);
+         
+        System.out.println();
+        System.out.println ("==== RESUMEN DE LA JORNADA ====");
+        System.out.println ("Minutos sin nadie en cola: " + minutosSinCola);
+        System.out.println ("Personas en cola al cerrar: " + cola);
+        System.out.println ("Personas atendidas: " + personasAtendidas);
+        System.out.println ("Items vendidos: " + itemsVendidios);
+        scanner.close();
 
+    }
+    static int crearItems(int maximo, int minimo) {
+        return (int) (Math.random() * (maximo - minimo + 1)) + minimo;
     }
 }
