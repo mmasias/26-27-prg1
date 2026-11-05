@@ -13,7 +13,7 @@ public class RetoCCCFAmpliado {
         for (int minuto = 1; minuto <= 720; minuto++) {
             System.out.println("MINUTO: " + minuto);
 
-            // 1. LLEGADA
+            
             if (Math.random() <= 0.40) {
                 personasEnCola++;
                 System.out.println("Llega una persona a la cola. Personas en cola: " + personasEnCola);
@@ -21,14 +21,14 @@ public class RetoCCCFAmpliado {
                 System.out.println("Nadie ha llegado a la cola.");
             }
 
-            // 2. APARTADO A: ENCENDER CAJA EXTRA
+            
             if (personasEnCola > 15 && cajasActivas == 4) {
                 cajasActivas = 5;
                 atendidosCajaExtra = 0;
                 System.out.println(">>> SUPERADMIN: Cola alta (" + personasEnCola + "). Encendiendo Caja 5.");
             }
 
-            // 3. APARTADO B: ATENCIÓN DE CAJAS
+            
             for (int i = 0; i < cajasActivas; i++) {
                 if (cajas[i] == 0 && personasEnCola > 0) {
                     personasEnCola--;
@@ -39,7 +39,7 @@ public class RetoCCCFAmpliado {
                     personasAtendidas++;
                     itemsVendidos = itemsVendidos + packs;
                     
-                    // Contar si atiende la Caja 5 (índice 4)
+                    
                     if (i == 4) {
                         atendidosCajaExtra++;
                     }
@@ -55,7 +55,7 @@ public class RetoCCCFAmpliado {
                 }
             }
 
-            // 4. APARTADO C: APAGAR CAJA EXTRA
+        
             if (cajasActivas == 5 && atendidosCajaExtra >= 5 && personasEnCola <= 15) {
                 cajasActivas = 4;
                 System.out.println(">>> SUPERADMIN: Cola normalizada. Apagando Caja 5.");
@@ -68,7 +68,7 @@ public class RetoCCCFAmpliado {
             System.out.println("Fin de la cola este minuto: " + personasEnCola + "\n");
         }
 
-        //- RESUMEN FINAL -      
+        //- RESUMEN FINAL -       
         System.out.println("Minutos cola vacía: " + minutosColaVacia);
         System.out.println("Personas en cola al final: " + personasEnCola);
         System.out.println("Personas atendidas: " + personasAtendidas);

@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "RetoCCCF",
+            "request": "launch",
+            "mainClass": "RetoCCCF",
+            "projectName": "celisDaniel_74d36a74"
+        },
+        {
+            "type": "java",
             "name": "RetoCCCFAmpliado",
             "request": "launch",
             "mainClass": "RetoCCCFAmpliado",
