@@ -14,6 +14,24 @@ public class RetoCCCF {
             } else  {
                 System.out.println("Nadie ha llegado a la cola.");
             } 
-        }
+
+            for (int i = 0; i < cajas.length; i++) {
+                if (cajas [i] == 0 && personasEnCola > 0) {
+                    personasEnCola--;
+                    
+                    int packs = (int) (Math.random() * 11) + 5;
+                    cajas[i] = packs;
+
+                    System.out.println("Caja " + (i + 1) + " atiende a una persona con " + packs + " items.");
+                }
+                
+                if (cajas[i] > 0 ) {
+                    cajas[i]--;
+                    System.out.println("Caja " + (i + 1) + " atendiendo. Le quedan " + cajas[i] + " items. ");
+                } else {
+                    System.out.println("Caja " + (i + 1) + " está libre.");
+                }
+            }
+        }               System.out.println("Fin de la cola este minuto: " + personasEnCola + "\n");
     }
 }
