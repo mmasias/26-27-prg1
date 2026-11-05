@@ -11,9 +11,38 @@ class RetoCCCF {
         int clientesTotales = 0;
         int clientesEnFila = 0;
         int clientesEnCaja = 0;
-        int cantidadDePacksCliente = (int) (Math.random() * (CANTIDAD_MAXIMA_PACKS_CLIENTE - CANTIDAD_MINIMA_PACKS_CLIENTE + 1)) + CANTIDAD_MINIMA_PACKS_CLIENTE;
+        int PacksClienteCajaUno;
+        int PacksClienteCajaDos;
+        int PacksClienteCajaTres;
+        int PacksClienteCajaCuatro;
 
-        
+
+        Boolean cajaUnoLibre = false;
+        Boolean cajaDosLibre = false;
+        Boolean cajaTresLibre = false;
+        Boolean cajaCuatroLibre = false;
+
+        Boolean procesadoCompraCajaUno = false;
+
+        do {
+            minutoActual ++;
+
+            if (cajaUnoLibre == true && clientesEnFila > 0) {
+
+            clientesEnFila = clientesEnFila -1;
+            clientesEnCaja ++;
+
+            PacksClienteCajaUno = (int) (Math.random() * (CANTIDAD_MAXIMA_PACKS_CLIENTE - CANTIDAD_MINIMA_PACKS_CLIENTE + 1)) + CANTIDAD_MINIMA_PACKS_CLIENTE;
+            
+                while (procesadoCompraCajaUno == false) {
+
+                }
+            }
+
+            System.out.println("Minuto: " + minutoActual);
+
+        }
+        while (minutoActual < MINUTOS_POR_DIA);
 
     }
 }
