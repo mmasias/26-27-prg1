@@ -27,7 +27,7 @@ public class RetoCCCF {
                 
                 if (cajas[i] > 0 ) {
                     cajas[i]--;
-                    System.out.println("Caja " + (i + 1) + " atendiendo. Le quedan " + cajas[i] + " items. ");
+                    System.out.println("Caja " + (i + 1) + " atendiendo. Le quedan " + cajas[i] + "items.");
                 } else {
                     System.out.println("Caja " + (i + 1) + " está libre.");
                 }
