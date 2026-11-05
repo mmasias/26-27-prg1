@@ -1,8 +1,3 @@
-
-
-
-
-
 class CCCF {
 
     public static void main(String[] args) {
@@ -29,27 +24,27 @@ class CCCF {
             boolean llegoCliente = false;
             llegoCliente = (Math.random() <= PROBABILIDAD_LLEGADA_CLIENTES);
 
-            int packsCliente = 0;
-
             if (llegoCliente){
-                packsCliente = (int) ((Math.random() * (MAX_PACKS - MIN_PACKS)) + MIN_PACKS) + 1; 
-                clientesEnFila = clientesEnFila + 1;
+                clientesEnFila++;
                 System.out.print("    Llego un cliente    - ");
             } else {
                 System.out.print("No llegó nungún cliente - ");
             }
 
-            if (caja1 == 0 && clientesEnFila > 0){
-                caja1 = packsCliente;
+            if (caja1 == 0 && clientesEnFila > 0) {
+                caja1 = (int) (Math.random() * (MAX_PACKS - MIN_PACKS + 1)) + MIN_PACKS;
                 clientesEnFila--;
-            } else if (caja2 == 0 && clientesEnFila > 0){
-                caja2 = packsCliente;
+            }
+            if (caja2 == 0 && clientesEnFila > 0){
+                caja2 = (int) (Math.random() * (MAX_PACKS - MIN_PACKS + 1)) + MIN_PACKS;
                 clientesEnFila--;
-            } else if (caja3 == 0 && clientesEnFila > 0){
-                caja3 = packsCliente;
+            } 
+            if (caja3 == 0 && clientesEnFila > 0){
+                caja3 = (int) (Math.random() * (MAX_PACKS - MIN_PACKS + 1)) + MIN_PACKS;
                 clientesEnFila--;
-            } else if (caja4 == 0 && clientesEnFila > 0){
-                caja4 = packsCliente;
+            } 
+            if (caja4 == 0 && clientesEnFila > 0){
+                caja4 = (int) (Math.random() * (MAX_PACKS - MIN_PACKS + 1)) + MIN_PACKS;
                 clientesEnFila--;
             }
 
@@ -66,9 +61,11 @@ class CCCF {
                 caja4--;
             }
 
-            System.out.print("En cola: " + clientesEnFila);
-            System.out.println("");
-            System.out.println("Caja 1: [" + caja1 + "] | Caja 2: [" + caja2 + "] | Caja 3: [" + caja3 + "] | Caja 4: [" + caja4 + "]");
+            System.out.println("En cola: " + clientesEnFila);
+            System.out.print("Caja 1: [" + caja1 + "] | ");
+            System.out.print("Caja 2: [" + caja2 + "] | ");
+            System.out.print("Caja 3: [" + caja3 + "] | ");
+            System.out.println("Caja 4: [" + caja4 + "]");
             System.out.println("───────────────────────────────────────────────────────────");
         }
     }
