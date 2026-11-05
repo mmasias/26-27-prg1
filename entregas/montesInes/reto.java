@@ -18,19 +18,18 @@ public class reto {
 
         boolean estaAbierto = true;
         boolean clienteLLegado = false;
+        
 
         final int LIMITE_COLA = 15;
-        
 
         int caja1 = 0;
         int caja2 = 0;
         int caja3 = 0;
         int caja4 = 0;
-        
-        int cajaExtra=0;
+
+        int cajaExtra = 0;
         boolean extraAbierta = false;
         int atendidosCajaExtra = 0;
-
 
         do {
 
@@ -44,7 +43,8 @@ public class reto {
 
                 extraAbierta = true;
                 atendidosCajaExtra = 0;
-                System.out.println("Se abre la caja extra porque hay más gente en la cola de la que debería, (cola > " + LIMITE_COLA + ")");
+                System.out.println("Se abre la caja extra porque hay más gente en la cola de la que debería, (cola > "
+                        + LIMITE_COLA + ")");
             }
             if (cola > 0 && caja1 == 0) {
 
@@ -82,7 +82,8 @@ public class reto {
                     + caja4 + "] | Caja Extra: [" + cajaExtra + "]");
             System.out.println("--------------------------------------------");
 
-            int personasEnCaja = (caja1 > 0 ? 1 : 0) + (caja2 > 0 ? 1 : 0) + (caja3 > 0 ? 1 : 0) + (caja4 > 0 ? 1 : 0) + (cajaExtra > 0 ? 1 : 0);
+            int personasEnCaja = (caja1 > 0 ? 1 : 0) + (caja2 > 0 ? 1 : 0) + (caja3 > 0 ? 1 : 0) + (caja4 > 0 ? 1 : 0)
+                    + (cajaExtra > 0 ? 1 : 0);
 
             if (caja1 > 0) {
                 caja1 = caja1 - 1;
@@ -120,7 +121,7 @@ public class reto {
                     atendidosCajaExtra = atendidosCajaExtra + 1;
                 }
             }
-               if (extraAbierta && cajaExtra == 0 && atendidosCajaExtra >= ATENDIDOS_MINIMO_EXTRA && cola <= LIMITE_COLA) {
+            if (extraAbierta && cajaExtra == 0 && atendidosCajaExtra >= ATENDIDOS_MINIMO_EXTRA && cola <= LIMITE_COLA) {
                 extraAbierta = false;
                 System.out.println("Se cierra caja extra, ya no hace falta");
             }
