@@ -1,7 +1,7 @@
 package entregas;
 import java.util.Scanner;
 
-public class cajaCarrefour {
+public class CajaCarrefour {
     public static void main(String[] args) {
 
         Scanner scanner = new Scanner(System.in);
