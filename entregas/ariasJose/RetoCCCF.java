@@ -13,9 +13,9 @@ class RetoCCCF {
         int clientesEnFila = 0;
         int clientesEnCaja = 0;
         int packsClienteCajaUno = 0;
-        int packsClienteCajaDos;
-        int packsClienteCajaTres;
-        int packsClienteCajaCuatro;
+        int packsClienteCajaDos = 0;
+        int packsClienteCajaTres = 0;
+        int packsClienteCajaCuatro = 0;
         int packsProcesados = 0;
 
         Boolean cajaUnoLibre = true;
@@ -25,6 +25,9 @@ class RetoCCCF {
         Boolean llegaUnaPersona = false;
 
         Boolean procesadoCompraCajaUno = false;
+        Boolean procesadoCompraCajaDos = false;
+        Boolean procesadoCompraCajaTres = false;
+        Boolean procesadoCompraCajaCuatro = false;
 
         do {
             minutoActual++;
@@ -37,7 +40,7 @@ class RetoCCCF {
                 llegaUnaPersona = false;
             }
 
-            System.out.print("Minuto: " + minutoActual + "- ");
+            System.out.print("Minuto: " + minutoActual + " - ");
             if (llegaUnaPersona == true) {
                 System.out.print("Llega 1 persona - ");
             } else {
@@ -58,17 +61,46 @@ class RetoCCCF {
 
             }
 
-            if (cajaUnoLibre == false) {
-
-                System.out.println("Caja1: [" + packsClienteCajaUno + "]");
-
+            if (cajaUnoLibre == true) {
+                System.out.println("Caja1:["+packsClienteCajaUno+"] | ");
+            } else if (cajaUnoLibre == false) {
                 packsClienteCajaUno--;
+                System.out.print("Caja1:["+packsClienteCajaUno+"] | ");
+
+                if (packsClienteCajaUno == 0) {
+                    cajaUnoLibre = true;
+                }
                 procesadoCompraCajaUno = true;
+            }
+
+            if (cajaDosLibre == true && clientesEnFila > 0) {
+
+                procesadoCompraCajaDos = false;
+
+                cajaDosLibre = false;
+                clientesEnFila--;
+                clientesEnCaja++;
+                packsClienteCajaDos = (int) (Math.random()
+                        * (CANTIDAD_MAXIMA_PACKS_CLIENTE - CANTIDAD_MINIMA_PACKS_CLIENTE + 1))
+                        + CANTIDAD_MINIMA_PACKS_CLIENTE;
+
+            }
+
+            if (cajaDosLibre == true) {
+                System.out.println(" Caja2:["+packsClienteCajaDos+"] | ");
+            } else if (cajaDosLibre == false) {
+                packsClienteCajaDos--;
+                System.out.println(" Caja2:["+packsClienteCajaDos+"] | ");
+
+                if (packsClienteCajaDos == 0) {
+                    cajaDosLibre = true;
+                }
+                procesadoCompraCajaDos = true;
 
             }
             
 
-        } while (minutoActual < 10);
+        } while (minutoActual < 5);
 
     }
 }
