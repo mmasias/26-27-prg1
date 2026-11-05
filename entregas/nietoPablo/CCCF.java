@@ -6,6 +6,10 @@ public class CCCF {
         Random azar = new Random();
         ArrayDeque<Integer> cola = new ArrayDeque<>();
         int[] cajas = new int[4];
+        int[] compras = new int[4];
+        int minutosSinCola = 0;
+        int personasAtendidas = 0;
+        int itemsVendidos = 0;
 
         for (int minuto = 1; minuto <= 720; minuto++) {
             boolean[] libres = new boolean[cajas.length];
@@ -20,10 +24,20 @@ public class CCCF {
 
             for (int i = 0; i < cajas.length; i++) {
                 if (libres[i] && !cola.isEmpty()) {
-                    cajas[i] = cola.remove();
+                    compras[i] = cola.remove();
+                    cajas[i] = compras[i];
                 } else if (!libres[i]) {
                     cajas[i]--;
+                    if (cajas[i] == 0) {
+                        personasAtendidas++;
+                        itemsVendidos += compras[i];
+                        compras[i] = 0;
+                    }
                 }
+            }
+
+            if (cola.isEmpty()) {
+                minutosSinCola++;
             }
 
             System.out.print("MINUTO " + minuto + " - ");
@@ -34,6 +48,12 @@ public class CCCF {
             }
             System.out.println();
         }
+
+        System.out.println("RESUMEN");
+        System.out.println("Minutos sin personas en cola: " + minutosSinCola);
+        System.out.println("Personas en cola al cierre: " + cola.size());
+        System.out.println("Personas atendidas en el dia: " + personasAtendidas);
+        System.out.println("Items vendidos en el dia: " + itemsVendidos);
     }
 }
 
