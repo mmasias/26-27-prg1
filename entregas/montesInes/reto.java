@@ -22,24 +22,38 @@ public class reto {
         boolean clienteLLegado = false;
 
         int cantidadPaquetes = MIN_PAQUETES + (int)(Math.random() * (MAX_PAQUETES - MIN_PAQUETES + 1));
-        
+
+        do {
+            
+            
+            tiempo ++;
+            estaAbierto = tiempo < MINUTOS_ABIERTO;
+            clienteLLegado = false;
+
+            if( cola > 0 && caja1 <= 0){
+               
+                caja1 = cantidadPaquetes;
+                cola --;
+
+            } else if( cola > 0 && caja2 <= 0){
+                
+                caja2 = cantidadPaquetes;
+                cola --;
+
+            } else if( cola > 0 && caja3 <= 0){
+                
+                caja3 = cantidadPaquetes;
+                cola --;
+
+            } else if( cola > 0 && caja4 <= 0){
+                
+                caja4 = cantidadPaquetes;
+                cola --;
+            }
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        }while (estaAbierto);
 
 
 
