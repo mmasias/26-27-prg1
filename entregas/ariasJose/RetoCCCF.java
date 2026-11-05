@@ -9,14 +9,15 @@ class RetoCCCF {
 
         double probabilidadClienteNuevo;
         int minutoActual = 0;
-        int clientesTotales = 0;
+        int clientesAtendidos = 0;
         int clientesEnFila = 0;
         int clientesEnCaja = 0;
         int packsClienteCajaUno = 0;
         int packsClienteCajaDos = 0;
         int packsClienteCajaTres = 0;
         int packsClienteCajaCuatro = 0;
-        int packsProcesados = 0;
+        int minutosSinFila = 0;
+        int packsVendidos = 0;
 
         Boolean cajaUnoLibre = true;
         Boolean cajaDosLibre = true;
@@ -65,10 +66,12 @@ class RetoCCCF {
                 System.out.print("Caja1:["+packsClienteCajaUno+"] | ");
             } else if (cajaUnoLibre == false) {
                 packsClienteCajaUno--;
+                packsVendidos ++;
                 System.out.print("Caja1:["+packsClienteCajaUno+"] | ");
 
                 if (packsClienteCajaUno == 0) {
                     cajaUnoLibre = true;
+                    clientesAtendidos++;
                 }
                 procesadoCompraCajaUno = true;
             }
@@ -90,10 +93,12 @@ class RetoCCCF {
                 System.out.print(" Caja2:["+packsClienteCajaDos+"] | ");
             } else if (cajaDosLibre == false) {
                 packsClienteCajaDos--;
+                packsVendidos ++;
                 System.out.print(" Caja2:["+packsClienteCajaDos+"] | ");
 
                 if (packsClienteCajaDos == 0) {
                     cajaDosLibre = true;
+                    clientesAtendidos++;
                 }
                 procesadoCompraCajaDos = true;
 
@@ -116,10 +121,12 @@ class RetoCCCF {
                 System.out.print(" Caja3:["+packsClienteCajaTres+"] | ");
             } else if (cajaTresLibre == false) {
                 packsClienteCajaTres--;
+                packsVendidos ++;
                 System.out.print(" Caja3:["+packsClienteCajaTres+"] | ");
 
                 if (packsClienteCajaTres == 0) {
                     cajaTresLibre = true;
+                    clientesAtendidos++;
                 }
                 procesadoCompraCajaTres = true;
 
@@ -142,18 +149,33 @@ class RetoCCCF {
                 System.out.println(" Caja4:["+packsClienteCajaCuatro+"] | ");
             } else if (cajaCuatroLibre == false) {
                 packsClienteCajaCuatro--;
+                packsVendidos ++;
                 System.out.println(" Caja4:["+packsClienteCajaCuatro+"] | ");
 
                 if (packsClienteCajaCuatro == 0) {
                     cajaCuatroLibre = true;
+                    clientesAtendidos ++;
                 }
                 procesadoCompraCajaCuatro = true;
 
             }
 
+            if (clientesEnFila == 0) {
+                minutosSinFila ++;
+            }
+
             System.out.println("- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -");
 
         } while (minutoActual < MINUTOS_POR_DIA);
+
+        System.out.println("RESUMEN");
+        System.out.println("=============================================================");
+        System.out.println("Minutos con cola en cero: " + minutosSinFila);
+        System.out.println("Personas en la cola al cierre: " + clientesEnFila);
+        System.out.println("Pesronas atendidas en el día: " + clientesAtendidos);
+        System.out.println("Artículos vendidos en el día: " + packsVendidos);
+
+
 
     }
 }
