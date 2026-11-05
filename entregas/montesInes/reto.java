@@ -13,45 +13,45 @@ public class reto {
         int tiempo;
         int cola;
 
-        int caja1 = 0;
-        int caja2 = 0;
-        int caja3 = 0;
-        int caja4 = 0;
-
         boolean estaAbierto = true;
         boolean clienteLLegado = false;
 
-        int cantidadPaquetes = MIN_PAQUETES + (int)(Math.random() * (MAX_PAQUETES - MIN_PAQUETES + 1));
+        int cantidadPaquetes1 =0;
+        int cantidadPaquetes2 =0;
+        int cantidadPaquetes3 =0;
+        int cantidadPaquetes4 =0;
 
         do {
             
-            
             tiempo ++;
             estaAbierto = tiempo < MINUTOS_ABIERTO;
-            clienteLLegado = false;
+            clienteLLegado = Math.random() < PROBABILIDAD_LLEGADA;
 
             if( cola > 0 && caja1 <= 0){
                
-                caja1 = cantidadPaquetes;
+                cantidadPaquetes1 =  MIN_PAQUETES + (int)(Math.random() * (MAX_PAQUETES - MIN_PAQUETES + 1));
                 cola --;
 
             } else if( cola > 0 && caja2 <= 0){
                 
-                caja2 = cantidadPaquetes;
+                cantidadPaquetes2 =  MIN_PAQUETES + (int)(Math.random() * (MAX_PAQUETES - MIN_PAQUETES + 1));
+                caja2 = cantidadPaquetes2;
                 cola --;
 
             } else if( cola > 0 && caja3 <= 0){
                 
-                caja3 = cantidadPaquetes;
+                cantidadPaquetes3 =  MIN_PAQUETES + (int)(Math.random() * (MAX_PAQUETES - MIN_PAQUETES + 1));
+                caja3 = cantidadPaquetes3;
                 cola --;
 
             } else if( cola > 0 && caja4 <= 0){
                 
-                caja4 = cantidadPaquetes;
+                cantidadPaquetes4 =  MIN_PAQUETES + (int)(Math.random() * (MAX_PAQUETES - MIN_PAQUETES + 1));
+                caja4 = cantidadPaquetes4;
                 cola --;
             }
 
-
+             int personasEnCaja = (caja1 > 0 ? 1 : 0) + (caja2 > 0 ? 1 : 0) + (caja3 > 0 ? 1 : 0) + (caja4 > 0 ? 1 : 0);
 
         }while (estaAbierto);
 
