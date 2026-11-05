@@ -16,5 +16,11 @@ public class Cajaregistradora {
         final int NUMERO_MAXIMO_PACKS = 15;
         int cola = 0;
         int atendidos = 0;
+
+
+        for (int minuto = 0; minuto < MINUTOS_JORNADA; minuto++) {
+
+            
+    }
     }
 }
