@@ -1,6 +1,6 @@
 class RetoCCCF {
     public static void main(String[] args) {
-        
+
         final int MINUTOS_POR_DIA = 720;
         final double PROBABILIDAD_CLIENTE_NUEVO = 0.6;
         final int CAJAS = 4;
@@ -16,7 +16,7 @@ class RetoCCCF {
         int packsClienteCajaDos;
         int packsClienteCajaTres;
         int packsClienteCajaCuatro;
-
+        int packsProcesados = 0;
 
         Boolean cajaUnoLibre = true;
         Boolean cajaDosLibre = true;
@@ -27,11 +27,11 @@ class RetoCCCF {
         Boolean procesadoCompraCajaUno = false;
 
         do {
-            minutoActual ++;
+            minutoActual++;
             probabilidadClienteNuevo = Math.random();
 
-            if (probabilidadClienteNuevo <= PROBABILIDAD_CLIENTE_NUEVO) { 
-                clientesEnFila ++;
+            if (probabilidadClienteNuevo <= PROBABILIDAD_CLIENTE_NUEVO) {
+                clientesEnFila++;
                 llegaUnaPersona = true;
             } else {
                 llegaUnaPersona = false;
@@ -45,29 +45,35 @@ class RetoCCCF {
             }
             System.out.println("En cola: " + clientesEnFila);
 
-            
-            if (cajaUnoLibre == true && clientesEnFila > 0) {
-                cajaUnoLibre = false;
-                clientesEnFila --;
-                clientesEnCaja ++;
+            if (cajaUnoLibre == true && clientesEnFila > 0
+                    || cajaUnoLibre == false && procesadoCompraCajaUno == false) {
 
-                packsClienteCajaUno = (int) (Math.random() * (CANTIDAD_MAXIMA_PACKS_CLIENTE - CANTIDAD_MINIMA_PACKS_CLIENTE + 1)) + CANTIDAD_MINIMA_PACKS_CLIENTE;
                 procesadoCompraCajaUno = false;
-                while (procesadoCompraCajaUno == false) {
-                    
-                    packsClienteCajaUno --;
+
+                cajaUnoLibre = false;
+                clientesEnFila--;
+                clientesEnCaja++;
+                packsClienteCajaUno = (int) (Math.random()
+                        * (CANTIDAD_MAXIMA_PACKS_CLIENTE - CANTIDAD_MINIMA_PACKS_CLIENTE + 1))
+                        + CANTIDAD_MINIMA_PACKS_CLIENTE;
+
+                do {
+
+                    packsClienteCajaUno--;
+
                     System.out.println("Caja1: [" + packsClienteCajaUno + "]");
 
-                    if (packsClienteCajaUno == 0){
+                    if (packsClienteCajaUno > 0) {
+                        procesadoCompraCajaUno = true;
+                    } else if (packsClienteCajaUno == 0) {
                         procesadoCompraCajaUno = true;
                     }
-                    
-                }
+
+                } while (procesadoCompraCajaUno == false);
+
             }
 
-
-        }
-        while (minutoActual < 10);
+        } while (minutoActual < 10);
 
     }
 }
