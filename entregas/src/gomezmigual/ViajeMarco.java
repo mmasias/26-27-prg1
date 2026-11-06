@@ -14,5 +14,8 @@ public class ViajeMarco {
 
         boolean enCamino = true;
         int contadorDias = 0;
+
+        double velocidadActual = (Math.random() * (VELOCIDAD_BASE_MAXIMA - VELOCIDAD_BASE_MINIMA)) + VELOCIDAD_BASE_MINIMA;
+        double tiempoHoras = (Math.random() * (TIEMPO_BASE_MAXIMO - TIEMPO_BASE_MINIMO)) + TIEMPO_BASE_MINIMO;
     }
 }
