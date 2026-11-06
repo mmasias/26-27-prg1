@@ -79,5 +79,11 @@ public class CajaCarrefour {
             }
 
         } while (operativo);
+
+        System.out.println("======== RESUMEN DE LA JORNADA =====");
+        System.out.println("Minutos sin ninguna persona en  la cola: " + lapsosSinEspera);
+        System.out.println("Numero de personas en cola al finalizar el día: " + filaEsperando);
+        System.out.println("Cantidad de personas atendidas durante el día: " + clientesProcesados);
+        System.out.println("Numero de artículos vendidos hoy: " + totalProductosVendidos);
     }
 }
