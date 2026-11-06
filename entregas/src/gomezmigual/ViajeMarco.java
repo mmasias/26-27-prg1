@@ -15,43 +15,59 @@ public class ViajeMarco {
         boolean enCamino = true;
         int contadorDias = 0;
 
-        contadorDias++;
-        System.out.println("JORNADA " + contadorDias);
+        while (enCamino == true) {
 
-        double velocidadActual = (Math.random() * (VELOCIDAD_BASE_MAXIMA - VELOCIDAD_BASE_MINIMA)) + VELOCIDAD_BASE_MINIMA;
-        double tiempoHoras = (Math.random() * (TIEMPO_BASE_MAXIMO - TIEMPO_BASE_MINIMO)) + TIEMPO_BASE_MINIMO;
+            contadorDias++;
+            System.out.println("JORNADA " + contadorDias);
 
-        double azarClima = Math.random();
+            double velocidadActual = (Math.random() * (VELOCIDAD_BASE_MAXIMA - VELOCIDAD_BASE_MINIMA)) + VELOCIDAD_BASE_MINIMA;
+            double tiempoHoras = (Math.random() * (TIEMPO_BASE_MAXIMO - TIEMPO_BASE_MINIMO)) + TIEMPO_BASE_MINIMO;
 
-        final double CHANCE_TORMENTA = 0.1;
-        final double FACTOR_TORMENTA = 0.25;
-        final double CHANCE_CHUBASCO = 0.3;
-        final double FACTOR_CHUBASCO = 0.75;
+            double azarClima = Math.random();
 
-        if (azarClima <= CHANCE_TORMENTA) {
-            velocidadActual = velocidadActual * FACTOR_TORMENTA;
-        } else if (azarClima <= CHANCE_CHUBASCO) {
-            velocidadActual = velocidadActual * FACTOR_CHUBASCO;
+            final double CHANCE_TORMENTA = 0.1;
+            final double FACTOR_TORMENTA = 0.25;
+            final double CHANCE_CHUBASCO = 0.3;
+            final double FACTOR_CHUBASCO = 0.75;
+
+            if (azarClima <= CHANCE_TORMENTA) {
+                System.out.println("¡Tormenta severa! El avance se dificulta gravemente.");
+                velocidadActual = velocidadActual * FACTOR_TORMENTA;
+            } else if (azarClima <= CHANCE_CHUBASCO) {
+                System.out.println("¡Lluvia moderada durante la marcha!");
+                velocidadActual = velocidadActual * FACTOR_CHUBASCO;
+            } else {
+                System.out.println("¡Jornada despejada y favorable!");
+            }
+
+            double azarAcompanante = Math.random();
+            final double CHANCE_CANSANCIO = 0.25;
+            final double FACTOR_CANSANCIO = 0.9;
+            final double CHANCE_EXTRAVIO = 0.15;
+            final int RESTA_TIEMPO_EXTRAVIO = -2;
+
+            if (azarAcompanante <= CHANCE_CANSANCIO) {
+                System.out.println("¡El acompañante muestra cansancio extremo!");
+                velocidadActual = velocidadActual * FACTOR_CANSANCIO;
+            }
+
+            if (azarAcompanante <= CHANCE_EXTRAVIO) {
+                System.out.println("¡El acompañante se ha extraviado temporalmente!");
+                tiempoHoras = tiempoHoras + RESTA_TIEMPO_EXTRAVIO;
+            }
+
+            double avanceJornada = velocidadActual * tiempoHoras;
+            distanciaPendiente = distanciaPendiente - avanceJornada + AVANCE_DIARIO_MADRE;
+
+            System.out.println("Marcha de " + tiempoHoras + " hrs a " + velocidadActual + " Km/h. Recorridos " + avanceJornada + " Km.");
+
+            if (distanciaPendiente <= 0) {
+                enCamino = false;
+                System.out.println("¡Al finalizar la jornada " + contadorDias + " la expedición logra su ansiado reencuentro!");
+            } else {
+                System.out.println("Brecha restante al cierre de la jornada " + contadorDias + ": " + distanciaPendiente + " Km.");
+            }
+
         }
-
-        double azarAcompanante = Math.random();
-        final double CHANCE_CANSANCIO = 0.25;
-        final double FACTOR_CANSANCIO = 0.9;
-        final double CHANCE_EXTRAVIO = 0.15;
-        final int RESTA_TIEMPO_EXTRAVIO = -2;
-
-        if (azarAcompanante <= CHANCE_CANSANCIO) {
-            velocidadActual = velocidadActual * FACTOR_CANSANCIO;
-        }
-
-        if (azarAcompanante <= CHANCE_EXTRAVIO) {
-            tiempoHoras = tiempoHoras + RESTA_TIEMPO_EXTRAVIO;
-        }
-
-        double avanceJornada = velocidadActual * tiempoHoras;
-        distanciaPendiente = distanciaPendiente - avanceJornada + AVANCE_DIARIO_MADRE;
-
-        System.out.println("Marcha de " + tiempoHoras + " hrs a " + velocidadActual + " Km/h. Recorridos " + avanceJornada + " Km.");
-        System.out.println("Brecha restante al cierre de jornada: " + distanciaPendiente + " Km.");
     }
 }
