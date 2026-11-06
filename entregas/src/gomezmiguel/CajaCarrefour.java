@@ -49,6 +49,11 @@ public class CajaCarrefour {
                 lapsosSinEspera = lapsosSinEspera + 1;
             }
 
+            System.out.println("En la cola hay: " + filaEsperando + " clientes");
+            System.out.println("Caja 1: [" + cajaCobro1 + "] | Caja 2: [" + cajaCobro2 + "] | Caja 3: [" + cajaCobro3 + "] | Caja 4: ["
+                    + cajaCobro4 + "]");
+            System.out.println("--------------------------------------------");
+
             if (cajaCobro1 > 0) {
                 cajaCobro1 = cajaCobro1 - 1;
                 totalProductosVendidos = totalProductosVendidos + 1;
@@ -77,6 +82,12 @@ public class CajaCarrefour {
                     clientesProcesados = clientesProcesados + 1;
                 }
             }
+
+            System.out.println("Hoy se han atendido a : " + clientesProcesados + " clientes");
+            System.out.println("Ha llegado algun cliente: " + (arriboCliente ? "SÍ" : "NO"));
+            System.out.println("Personas que hay en la cola: " + filaEsperando);
+            System.out.println("Minutos en los que no hubo cola: " + lapsosSinEspera);
+            System.out.println("Artículos que se han vendido hoy: " + totalProductosVendidos);
 
         } while (operativo);
 
