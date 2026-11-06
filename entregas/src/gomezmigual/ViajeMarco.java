@@ -26,13 +26,9 @@ public class ViajeMarco {
         final double FACTOR_CHUBASCO = 0.75;
 
         if (azarClima <= CHANCE_TORMENTA) {
-            System.out.println("¡Tormenta severa! El avance se dificulta gravemente.");
             velocidadActual = velocidadActual * FACTOR_TORMENTA;
         } else if (azarClima <= CHANCE_CHUBASCO) {
-            System.out.println("¡Lluvia moderada durante la marcha!");
             velocidadActual = velocidadActual * FACTOR_CHUBASCO;
-        } else {
-            System.out.println("¡Jornada despejada y favorable!");
         }
 
         double azarAcompanante = Math.random();
@@ -42,12 +38,10 @@ public class ViajeMarco {
         final int RESTA_TIEMPO_EXTRAVIO = -2;
 
         if (azarAcompanante <= CHANCE_CANSANCIO) {
-            System.out.println("¡El acompañante muestra cansancio extremo!");
             velocidadActual = velocidadActual * FACTOR_CANSANCIO;
         }
 
         if (azarAcompanante <= CHANCE_EXTRAVIO) {
-            System.out.println("¡El acompañante se ha extraviado temporalmente!");
             tiempoHoras = tiempoHoras + RESTA_TIEMPO_EXTRAVIO;
         }
     }
