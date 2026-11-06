@@ -34,5 +34,21 @@ public class ViajeMarco {
         } else {
             System.out.println("¡Jornada despejada y favorable!");
         }
+
+        double azarAcompanante = Math.random();
+        final double CHANCE_CANSANCIO = 0.25;
+        final double FACTOR_CANSANCIO = 0.9;
+        final double CHANCE_EXTRAVIO = 0.15;
+        final int RESTA_TIEMPO_EXTRAVIO = -2;
+
+        if (azarAcompanante <= CHANCE_CANSANCIO) {
+            System.out.println("¡El acompañante muestra cansancio extremo!");
+            velocidadActual = velocidadActual * FACTOR_CANSANCIO;
+        }
+
+        if (azarAcompanante <= CHANCE_EXTRAVIO) {
+            System.out.println("¡El acompañante se ha extraviado temporalmente!");
+            tiempoHoras = tiempoHoras + RESTA_TIEMPO_EXTRAVIO;
+        }
     }
 }
