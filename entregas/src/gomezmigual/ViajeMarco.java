@@ -59,6 +59,11 @@ public class ViajeMarco {
             double avanceJornada = velocidadActual * tiempoHoras;
             distanciaPendiente = distanciaPendiente - avanceJornada + AVANCE_DIARIO_MADRE;
 
+            distanciaPendiente = Math.round(distanciaPendiente * 100.0) / 100.0;
+            avanceJornada = Math.round(avanceJornada * 100.0) / 100.0;
+            tiempoHoras = Math.round(tiempoHoras * 100.0) / 100.0;
+            velocidadActual = Math.round(velocidadActual * 100.0) / 100.0;
+
             System.out.println("Marcha de " + tiempoHoras + " hrs a " + velocidadActual + " Km/h. Recorridos " + avanceJornada + " Km.");
 
             if (distanciaPendiente <= 0) {
