@@ -19,5 +19,36 @@ public class CajaCarrefour {
         int cajaCobro2 = 0;
         int cajaCobro3 = 0;
         int cajaCobro4 = 0;
+
+        do {
+            minutoActual++;
+            operativo = minutoActual < TIEMPO_TOTAL_SERVICIO;
+            arriboCliente = Math.random() <= PROBABILIDAD_NUEVO_CLIENTE;
+            
+            if (arriboCliente) {
+                filaEsperando = filaEsperando + 1;
+            }
+
+            if (filaEsperando > 0 && cajaCobro1 == 0) {
+                cajaCobro1 = PACKS_MINIMOS + (int) (Math.random() * (PACKS_MAXIMOS - PACKS_MINIMOS + 1));
+                filaEsperando = filaEsperando - 1;
+            }
+            if (filaEsperando > 0 && cajaCobro2 == 0) {
+                cajaCobro2 = PACKS_MINIMOS + (int) (Math.random() * (PACKS_MAXIMOS - PACKS_MINIMOS + 1));
+                filaEsperando = filaEsperando - 1;
+            }
+            if (filaEsperando > 0 && cajaCobro3 == 0) {
+                cajaCobro3 = PACKS_MINIMOS + (int) (Math.random() * (PACKS_MAXIMOS - PACKS_MINIMOS + 1));
+                filaEsperando = filaEsperando - 1;
+            }
+            if (filaEsperando > 0 && cajaCobro4 == 0) {
+                cajaCobro4 = PACKS_MINIMOS + (int) (Math.random() * (PACKS_MAXIMOS - PACKS_MINIMOS + 1));
+                filaEsperando = filaEsperando - 1;
+            }
+            if (filaEsperando == 0) {
+                lapsosSinEspera = lapsosSinEspera + 1;
+            }
+
+        } while (operativo);
     }
 }
