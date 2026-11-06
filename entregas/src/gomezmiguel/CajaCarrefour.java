@@ -49,6 +49,35 @@ public class CajaCarrefour {
                 lapsosSinEspera = lapsosSinEspera + 1;
             }
 
+            if (cajaCobro1 > 0) {
+                cajaCobro1 = cajaCobro1 - 1;
+                totalProductosVendidos = totalProductosVendidos + 1;
+                if (cajaCobro1 == 0) {
+                    clientesProcesados = clientesProcesados + 1;
+                }
+            }
+            if (cajaCobro2 > 0) {
+                cajaCobro2 = cajaCobro2 - 1;
+                totalProductosVendidos = totalProductosVendidos + 1;
+                if (cajaCobro2 == 0) {
+                    clientesProcesados = clientesProcesados + 1;
+                }
+            }
+            if (cajaCobro3 > 0) {
+                totalProductosVendidos = totalProductosVendidos + 1;
+                cajaCobro3 = cajaCobro3 - 1;
+                if (cajaCobro3 == 0) {
+                    clientesProcesados = clientesProcesados + 1;
+                }
+            }
+            if (cajaCobro4 > 0) {
+                totalProductosVendidos = totalProductosVendidos + 1;
+                cajaCobro4 = cajaCobro4 - 1;
+                if (cajaCobro4 == 0) {
+                    clientesProcesados = clientesProcesados + 1;
+                }
+            }
+
         } while (operativo);
     }
 }
