@@ -15,6 +15,9 @@ public class ViajeMarco {
         boolean enCamino = true;
         int contadorDias = 0;
 
+        contadorDias++;
+        System.out.println("JORNADA " + contadorDias);
+
         double velocidadActual = (Math.random() * (VELOCIDAD_BASE_MAXIMA - VELOCIDAD_BASE_MINIMA)) + VELOCIDAD_BASE_MINIMA;
         double tiempoHoras = (Math.random() * (TIEMPO_BASE_MAXIMO - TIEMPO_BASE_MINIMO)) + TIEMPO_BASE_MINIMO;
 
@@ -44,5 +47,11 @@ public class ViajeMarco {
         if (azarAcompanante <= CHANCE_EXTRAVIO) {
             tiempoHoras = tiempoHoras + RESTA_TIEMPO_EXTRAVIO;
         }
+
+        double avanceJornada = velocidadActual * tiempoHoras;
+        distanciaPendiente = distanciaPendiente - avanceJornada + AVANCE_DIARIO_MADRE;
+
+        System.out.println("Marcha de " + tiempoHoras + " hrs a " + velocidadActual + " Km/h. Recorridos " + avanceJornada + " Km.");
+        System.out.println("Brecha restante al cierre de jornada: " + distanciaPendiente + " Km.");
     }
 }
