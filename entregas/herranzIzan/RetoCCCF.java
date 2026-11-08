@@ -24,7 +24,7 @@ public class RetoCCCF {
         boolean cajaCuatroLibre = true;
 
         double probabilidadClienteNuevo;
-        boolean llegaUnaPersona = false;
+        boolean llegaUnaPersona;
 
 
         System.out.println("SIMULADOR CENTRO COMERCIAL CF");
