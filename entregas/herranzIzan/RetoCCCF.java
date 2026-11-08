@@ -10,6 +10,16 @@ public class RetoCCCF {
         int clientesLlegados = 0;
         int clientesEnFila = 0;
 
+        int packsClienteCajaUno = 0;
+        int packsClienteCajaDos = 0;
+        int packsClienteCajaTres = 0;
+        int packsClienteCajaCuatro = 0;
+
+        boolean cajaUnoLibre = true;
+        boolean cajaDosLibre = true;
+        boolean cajaTresLibre = true;
+        boolean cajaCuatroLibre = true;
+
         double probabilidadClienteNuevo;
         boolean llegaUnaPersona = false;
 
@@ -38,7 +48,53 @@ public class RetoCCCF {
                 System.out.print("No llega nadie - ");
             }
 
+            if (cajaUnoLibre == true && clientesEnFila > 0) {
+                cajaUnoLibre = false;
+                clientesEnFila--;
+
+                packsClienteCajaUno = (int) (Math.random()
+                        * (CANTIDAD_MAXIMA_PACKS_CLIENTE
+                        - CANTIDAD_MINIMA_PACKS_CLIENTE + 1))
+                        + CANTIDAD_MINIMA_PACKS_CLIENTE;
+            }
+
+            if (cajaDosLibre == true && clientesEnFila > 0) {
+                cajaDosLibre = false;
+                clientesEnFila--;
+
+                packsClienteCajaDos = (int) (Math.random()
+                        * (CANTIDAD_MAXIMA_PACKS_CLIENTE
+                        - CANTIDAD_MINIMA_PACKS_CLIENTE + 1))
+                        + CANTIDAD_MINIMA_PACKS_CLIENTE;
+            }
+
+            if (cajaTresLibre == true && clientesEnFila > 0) {
+                cajaTresLibre = false;
+                clientesEnFila--;
+
+                packsClienteCajaTres = (int) (Math.random()
+                        * (CANTIDAD_MAXIMA_PACKS_CLIENTE
+                        - CANTIDAD_MINIMA_PACKS_CLIENTE + 1))
+                        + CANTIDAD_MINIMA_PACKS_CLIENTE;
+            }
+
+            if (cajaCuatroLibre == true && clientesEnFila > 0) {
+                cajaCuatroLibre = false;
+                clientesEnFila--;
+
+                packsClienteCajaCuatro = (int) (Math.random()
+                        * (CANTIDAD_MAXIMA_PACKS_CLIENTE
+                        - CANTIDAD_MINIMA_PACKS_CLIENTE + 1))
+                        + CANTIDAD_MINIMA_PACKS_CLIENTE;
+            }
+
             System.out.println("En cola: " + clientesEnFila);
+
+            System.out.println("Caja1: [" + packsClienteCajaUno + "]");
+            System.out.println("Caja2: [" + packsClienteCajaDos + "]");
+            System.out.println("Caja3: [" + packsClienteCajaTres + "]");
+            System.out.println("Caja4: [" + packsClienteCajaCuatro + "]");
+
             System.out.println("----------------------------------------");
 
         } while (minutoActual < MINUTOS_POR_DIA);
