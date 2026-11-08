@@ -10,6 +10,7 @@ public class RetoCCCF {
         int clientesLlegados = 0;
         int clientesEnFila = 0;
         int clientesAtendidos = 0;
+        int minutosSinFila = 0;
         int packsVendidos = 0;
 
         int packsClienteCajaUno = 0;
@@ -28,6 +29,7 @@ public class RetoCCCF {
 
         System.out.println("SIMULADOR CENTRO COMERCIAL CF");
         System.out.println("Horario: 09:00 - 21:00");
+        System.out.println("================================================");
         
         do {
             minutoActual++;
@@ -156,8 +158,44 @@ public class RetoCCCF {
                 System.out.println("Caja4:[" + packsClienteCajaCuatro + "]");
             }
 
+            if (clientesEnFila == 0) {
+                minutosSinFila++;
+            }
+
             System.out.println("----------------------------------------");
 
         } while (minutoActual < MINUTOS_POR_DIA);
+
+        int clientesEnCaja = 0;
+
+        if (cajaUnoLibre == false) {
+            clientesEnCaja++;
+        }
+
+        if (cajaDosLibre == false) {
+            clientesEnCaja++;
+        }
+
+        if (cajaTresLibre == false) {
+            clientesEnCaja++;
+        }
+
+        if (cajaCuatroLibre == false) {
+            clientesEnCaja++;
+        }
+
+        System.out.println();
+        System.out.println("RESUMEN DEL DIA");
+        System.out.println("================================================");
+        System.out.println("Minutos sin personas en cola: " + minutosSinFila);
+        System.out.println("Personas en cola al cierre: " + clientesEnFila);
+        System.out.println("Personas atendidas durante el dia: " + clientesAtendidos);
+        System.out.println("Packs procesados durante el dia: " + packsVendidos);
+        System.out.println("================================================");
+        System.out.println("Clientes llegados: " + clientesLlegados);
+        System.out.println("Clientes que siguen en caja: " + clientesEnCaja);
+        System.out.println("Comprobacion de clientes: "
+                + (clientesAtendidos + clientesEnFila + clientesEnCaja)
+                + " de " + clientesLlegados);
     }
 }
