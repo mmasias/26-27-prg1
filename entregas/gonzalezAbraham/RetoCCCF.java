@@ -4,12 +4,18 @@ class RetoCCCF {
         final double PROBABILIDAD_LLEGADA = 0.60;
         final int MINIMO_PACKS = 5;
         final int MAXIMO_PACKS = 15;
+        final int COLA_PARA_REFUERZO = 15;
+        final int MINIMO_ATENDIDAS_REFUERZO = 5;
 
         int cola = 0;
         int caja1 = 0;
         int caja2 = 0;
         int caja3 = 0;
         int caja4 = 0;
+        int caja5 = 0;
+
+        boolean refuerzoAbierto = false;
+        int atendidasRefuerzo = 0;
 
         int minutosSinCola = 0;
         int personasAtendidas = 0;
@@ -35,6 +41,16 @@ class RetoCCCF {
             }
             if (caja4 == 0 && cola > 0) {
                 caja4 = MINIMO_PACKS + (int) (Math.random() * (MAXIMO_PACKS - MINIMO_PACKS + 1));
+                cola--;
+            }
+
+            if (!refuerzoAbierto && cola > COLA_PARA_REFUERZO) {
+                refuerzoAbierto = true;
+                atendidasRefuerzo = 0;
+                System.out.println("Se abre la caja 5 de refuerzo");
+            }
+            if (refuerzoAbierto && caja5 == 0 && cola > 0) {
+                caja5 = MINIMO_PACKS + (int) (Math.random() * (MAXIMO_PACKS - MINIMO_PACKS + 1));
                 cola--;
             }
 
@@ -67,6 +83,21 @@ class RetoCCCF {
                 }
             }
 
+            if (caja5 > 0) {
+                caja5--;
+                articulosVendidos++;
+                if (caja5 == 0) {
+                    personasAtendidas++;
+                    atendidasRefuerzo++;
+                }
+            }
+
+            if (refuerzoAbierto && caja5 == 0 && atendidasRefuerzo >= MINIMO_ATENDIDAS_REFUERZO
+                    && cola <= COLA_PARA_REFUERZO) {
+                refuerzoAbierto = false;
+                System.out.println("Se cierra la caja 5 de refuerzo");
+            }
+
             if (cola == 0) {
                 minutosSinCola++;
             }
@@ -77,7 +108,12 @@ class RetoCCCF {
                 System.out.print("MINUTO " + minuto + " - No llega nadie ");
             }
             System.out.println(" - En Cola: " + cola);
-            System.out.println("Caja1:[" + caja1 + "] | Caja2:[" + caja2 + "] | Caja3:[" + caja3 + "] | Caja4:[" + caja4 + "]");
+            System.out.print("Caja1:[" + caja1 + "] | Caja2:[" + caja2 + "] | Caja3:[" + caja3 + "] | Caja4:[" + caja4 + "]");
+            if (refuerzoAbierto) {
+                System.out.println(" | Caja5:[" + caja5 + "]");
+            } else {
+                System.out.println(" | Caja5:[--]");
+            }
             System.out.println("- - - - - - - - - - - - - - - - - - - - - - - - - - - - - -");
         }
 
