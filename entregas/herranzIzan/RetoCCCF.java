@@ -7,6 +7,11 @@ public class RetoCCCF {
         final int CANTIDAD_MAXIMA_PACKS_CLIENTE = 15;
 
         int minutoActual = 0;
+        int clientesLlegados = 0;
+
+        double probabilidadClienteNuevo;
+        boolean llegaUnaPersona = false;
+
 
         System.out.println("SIMULADOR CENTRO COMERCIAL CF");
         System.out.println("Horario: 09:00 - 21:00");
@@ -14,7 +19,22 @@ public class RetoCCCF {
         do {
             minutoActual++;
 
-            System.out.println("MINUTO " + minutoActual);
+            probabilidadClienteNuevo = Math.random();
+
+            if (probabilidadClienteNuevo < PROBABILIDAD_CLIENTE_NUEVO) {
+                clientesLlegados++;
+                llegaUnaPersona = true;
+            } else {
+                llegaUnaPersona = false;
+            }
+
+            System.out.print("MINUTO " + minutoActual + " - ");
+
+            if (llegaUnaPersona == true) {
+                System.out.println("Llega 1 persona");
+            } else {
+                System.out.println("No llega nadie");
+            }
 
         } while (minutoActual < MINUTOS_POR_DIA);
     }
