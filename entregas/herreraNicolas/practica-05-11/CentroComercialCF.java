@@ -5,17 +5,23 @@ public class CentroComercialCF {
         final double PROBABILIDAD_CLIENTE = 0.60;
         final int PACKS_MINIMOS = 5;
         final int PACKS_MAXIMOS = 15;
+        final int LIMITE_COLA = 15;
+        final int CLIENTES_MINIMOS_REFUERZO = 5;
 
         int cola = 0;
         int packsCaja1 = 0;
         int packsCaja2 = 0;
         int packsCaja3 = 0;
         int packsCaja4 = 0;
+        int packsCaja5 = 0;
 
         int clientesLlegados = 0;
         int clientesAtendidos = 0;
         int packsVendidos = 0;
         int minutosSinCola = 0;
+
+        boolean refuerzoActivo = false;
+        int clientesRefuerzo = 0;
 
         // La jornada empieza a las 9:00 y termina a las 21:00.
         for (int minuto = 1; minuto <= MINUTOS_JORNADA; minuto++) {
@@ -48,12 +54,34 @@ public class CentroComercialCF {
                     clientesAtendidos++;
                 }
             }
+            if (packsCaja5 > 0) {
+                packsCaja5--;
+                packsVendidos++;
+                if (packsCaja5 == 0) {
+                    clientesAtendidos++;
+                    if (refuerzoActivo) {
+                        clientesRefuerzo++;
+                    }
+                }
+            }
 
             // Comprobamos si llega un cliente nuevo durante este minuto.
             boolean llegaCliente = Math.random() < PROBABILIDAD_CLIENTE;
             if (llegaCliente) {
                 cola++;
                 clientesLlegados++;
+            }
+
+            // La caja de refuerzo se revisa antes de repartir la cola.
+            if (!refuerzoActivo && packsCaja5 == 0 && cola > LIMITE_COLA) {
+                refuerzoActivo = true;
+                clientesRefuerzo = 0;
+                System.out.println("REFUERZO ABRE - Minuto " + minuto + " - Cola: " + cola);
+            } else if (refuerzoActivo && packsCaja5 == 0
+                    && clientesRefuerzo >= CLIENTES_MINIMOS_REFUERZO && cola <= LIMITE_COLA) {
+                refuerzoActivo = false;
+                System.out.println("REFUERZO CIERRA - Minuto " + minuto
+                        + " - Clientes: " + clientesRefuerzo + " - Cola: " + cola);
             }
 
             // Las cajas libres reciben clientes por orden de numero de caja.
@@ -73,6 +101,10 @@ public class CentroComercialCF {
                 packsCaja4 = PACKS_MINIMOS + (int) (Math.random() * (PACKS_MAXIMOS - PACKS_MINIMOS + 1));
                 cola--;
             }
+            if (refuerzoActivo && packsCaja5 == 0 && cola > 0) {
+                packsCaja5 = PACKS_MINIMOS + (int) (Math.random() * (PACKS_MAXIMOS - PACKS_MINIMOS + 1));
+                cola--;
+            }
 
             if (cola == 0) {
                 minutosSinCola++;
@@ -89,6 +121,8 @@ public class CentroComercialCF {
             System.out.print(" | Caja2:[" + packsCaja2 + "]");
             System.out.print(" | Caja3:[" + packsCaja3 + "]");
             System.out.print(" | Caja4:[" + packsCaja4 + "]");
+            System.out.print(" | Caja5:[" + (refuerzoActivo
+                    ? Integer.toString(packsCaja5) : "cerrada") + "]");
             System.out.println();
             System.out.println("------------------------------------------------------------");
         }
@@ -104,6 +138,9 @@ public class CentroComercialCF {
             clientesEnCaja++;
         }
         if (packsCaja4 > 0) {
+            clientesEnCaja++;
+        }
+        if (packsCaja5 > 0) {
             clientesEnCaja++;
         }
 
