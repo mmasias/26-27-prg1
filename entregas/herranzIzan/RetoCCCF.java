@@ -9,6 +9,8 @@ public class RetoCCCF {
         int minutoActual = 0;
         int clientesLlegados = 0;
         int clientesEnFila = 0;
+        int clientesAtendidos = 0;
+        int packsVendidos = 0;
 
         int packsClienteCajaUno = 0;
         int packsClienteCajaDos = 0;
@@ -29,6 +31,46 @@ public class RetoCCCF {
         
         do {
             minutoActual++;
+
+            if (cajaUnoLibre == false) {
+                packsClienteCajaUno--;
+                packsVendidos++;
+
+                if (packsClienteCajaUno == 0) {
+                    cajaUnoLibre = true;
+                    clientesAtendidos++;
+                }
+            }
+
+            if (cajaDosLibre == false) {
+                packsClienteCajaDos--;
+                packsVendidos++;
+
+                if (packsClienteCajaDos == 0) {
+                    cajaDosLibre = true;
+                    clientesAtendidos++;
+                }
+            }
+
+            if (cajaTresLibre == false) {
+                packsClienteCajaTres--;
+                packsVendidos++;
+
+                if (packsClienteCajaTres == 0) {
+                    cajaTresLibre = true;
+                    clientesAtendidos++;
+                }
+            }
+
+            if (cajaCuatroLibre == false) {
+                packsClienteCajaCuatro--;
+                packsVendidos++;
+
+                if (packsClienteCajaCuatro == 0) {
+                    cajaCuatroLibre = true;
+                    clientesAtendidos++;
+                }
+            }
 
             probabilidadClienteNuevo = Math.random();
 
@@ -90,10 +132,29 @@ public class RetoCCCF {
 
             System.out.println("En cola: " + clientesEnFila);
 
-            System.out.println("Caja1: [" + packsClienteCajaUno + "]");
-            System.out.println("Caja2: [" + packsClienteCajaDos + "]");
-            System.out.println("Caja3: [" + packsClienteCajaTres + "]");
-            System.out.println("Caja4: [" + packsClienteCajaCuatro + "]");
+            if (cajaUnoLibre == true) {
+                System.out.print("Caja1:[LIBRE] | ");
+            } else {
+                System.out.print("Caja1:[" + packsClienteCajaUno + "] | ");
+            }
+
+            if (cajaDosLibre == true) {
+                System.out.print("Caja2:[LIBRE] | ");
+            } else {
+                System.out.print("Caja2:[" + packsClienteCajaDos + "] | ");
+            }
+
+            if (cajaTresLibre == true) {
+                System.out.print("Caja3:[LIBRE] | ");
+            } else {
+                System.out.print("Caja3:[" + packsClienteCajaTres + "] | ");
+            }
+
+            if (cajaCuatroLibre == true) {
+                System.out.println("Caja4:[LIBRE]");
+            } else {
+                System.out.println("Caja4:[" + packsClienteCajaCuatro + "]");
+            }
 
             System.out.println("----------------------------------------");
 
