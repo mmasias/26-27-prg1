@@ -8,6 +8,7 @@ public class RetoCCCF {
 
         int minutoActual = 0;
         int clientesLlegados = 0;
+        int clientesEnFila = 0;
 
         double probabilidadClienteNuevo;
         boolean llegaUnaPersona = false;
@@ -23,6 +24,7 @@ public class RetoCCCF {
 
             if (probabilidadClienteNuevo < PROBABILIDAD_CLIENTE_NUEVO) {
                 clientesLlegados++;
+                clientesEnFila++;
                 llegaUnaPersona = true;
             } else {
                 llegaUnaPersona = false;
@@ -30,11 +32,14 @@ public class RetoCCCF {
 
             System.out.print("MINUTO " + minutoActual + " - ");
 
-            if (llegaUnaPersona == true) {
-                System.out.println("Llega 1 persona");
+           if (llegaUnaPersona == true) {
+                System.out.print("Llega 1 persona - ");
             } else {
-                System.out.println("No llega nadie");
+                System.out.print("No llega nadie - ");
             }
+
+            System.out.println("En cola: " + clientesEnFila);
+            System.out.println("----------------------------------------");
 
         } while (minutoActual < MINUTOS_POR_DIA);
     }
