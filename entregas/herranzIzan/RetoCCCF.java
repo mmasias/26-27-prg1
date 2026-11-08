@@ -6,8 +6,16 @@ public class RetoCCCF {
         final int CANTIDAD_MINIMA_PACKS_CLIENTE = 5;
         final int CANTIDAD_MAXIMA_PACKS_CLIENTE = 15;
 
+        int minutoActual = 0;
+
         System.out.println("SIMULADOR CENTRO COMERCIAL CF");
         System.out.println("Horario: 09:00 - 21:00");
-        System.out.println("================================================");
+        
+        do {
+            minutoActual++;
+
+            System.out.println("MINUTO " + minutoActual);
+
+        } while (minutoActual < MINUTOS_POR_DIA);
     }
 }
