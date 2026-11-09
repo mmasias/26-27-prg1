@@ -74,5 +74,48 @@ public class RetoCCCF {
                 }
             }
 
+            
+            if (tiempoCaja1 == 0 && personasEnCola > 0) {
+                tiempoCaja1 = (int) (Math.random() * (MAX_PACKS - MIN_PACKS + 1))
+                        + MIN_PACKS;
+                personasEnCola--;
+            }
+
+            if (tiempoCaja2 == 0 && personasEnCola > 0) {
+                tiempoCaja2 = (int) (Math.random() * (MAX_PACKS - MIN_PACKS + 1))
+                        + MIN_PACKS;
+                personasEnCola--;
+            }
+
+            if (tiempoCaja3 == 0 && personasEnCola > 0) {
+                tiempoCaja3 = (int) (Math.random() * (MAX_PACKS - MIN_PACKS + 1))
+                        + MIN_PACKS;
+                personasEnCola--;
+            }
+
+            if (tiempoCaja4 == 0 && personasEnCola > 0) {
+                tiempoCaja4 = (int) (Math.random() * (MAX_PACKS - MIN_PACKS + 1))
+                        + MIN_PACKS;
+                personasEnCola--;
+            }
+
+            System.out.println("MINUTO: " + minuto);
+
+            System.out.println("Personas en cola: " + personasEnCola);
+
+            System.out.println("Caja 1: " + tiempoCaja1 + " packs pendientes");
+            System.out.println("Caja 2: " + tiempoCaja2 + " packs pendientes");
+            System.out.println("Caja 3: " + tiempoCaja3 + " packs pendientes");
+            System.out.println("Caja 4: " + tiempoCaja4 + " packs pendientes");
+
+            if (personasEnCola == 0) {
+                minutosColaVacia++;
+            }
+
+            System.out.println("----------------------------------------");
+
+        } while (minuto < DURACION_JORNADA);
+
+
 
 
