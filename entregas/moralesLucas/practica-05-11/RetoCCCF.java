@@ -116,6 +116,52 @@ public class RetoCCCF {
 
         } while (minuto < DURACION_JORNADA);
 
+        
+        int personasEnCajas = 0;
+
+        if (tiempoCaja1 > 0) {
+            personasEnCajas++;
+        }
+
+        if (tiempoCaja2 > 0) {
+            personasEnCajas++;
+        }
+
+        if (tiempoCaja3 > 0) {
+            personasEnCajas++;
+        }
+
+        if (tiempoCaja4 > 0) {
+            personasEnCajas++;
+        }
+
+        System.out.println();
+        System.out.println("RESUMEN FINAL DE LA JORNADA");
+        System.out.println("----------------------------------------");
+
+        System.out.println("Minutos sin personas en cola: "
+                + minutosColaVacia);
+
+        System.out.println("Personas en cola al finalizar: "
+                + personasEnCola);
+
+        System.out.println("Personas atendidas: "
+                + personasAtendidas);
+
+        System.out.println("Packs vendidos: "
+                + packsVendidos);
+
+        System.out.println("Personas que siguen en cajas: "
+                + personasEnCajas);
+
+        System.out.println("Personas que han llegado: "
+                + personasLlegadas);
+
+        System.out.println("----------------------------------------");
+    }
+}
+
+
 
 
 
