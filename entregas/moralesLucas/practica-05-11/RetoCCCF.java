@@ -26,4 +26,53 @@ public class RetoCCCF {
         System.out.println("Cierre: 21:00");
         System.out.println("----------------------------------------");
 
+        
+        do {
+
+            minuto++;
+
+            double numeroAleatorio = Math.random();
+
+            if (numeroAleatorio < PROBABILIDAD_LLEGADA) {
+                personasLlegadas++;
+                personasEnCola++;
+            }
+
+            if (tiempoCaja1 > 0) {
+                tiempoCaja1--;
+                packsVendidos++;
+
+                if (tiempoCaja1 == 0) {
+                    personasAtendidas++;
+                }
+            }
+
+            if (tiempoCaja2 > 0) {
+                tiempoCaja2--;
+                packsVendidos++;
+
+                if (tiempoCaja2 == 0) {
+                    personasAtendidas++;
+                }
+            }
+
+            if (tiempoCaja3 > 0) {
+                tiempoCaja3--;
+                packsVendidos++;
+
+                if (tiempoCaja3 == 0) {
+                    personasAtendidas++;
+                }
+            }
+
+            if (tiempoCaja4 > 0) {
+                tiempoCaja4--;
+                packsVendidos++;
+
+                if (tiempoCaja4 == 0) {
+                    personasAtendidas++;
+                }
+            }
+
+
 
