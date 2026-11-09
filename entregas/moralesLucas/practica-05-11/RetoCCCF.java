@@ -26,16 +26,20 @@ public class RetoCCCF {
         System.out.println("Cierre: 21:00");
         System.out.println("----------------------------------------");
 
-        
         do {
 
             minuto++;
+
+            System.out.print("MINUTO: " + minuto + " - ");
 
             double numeroAleatorio = Math.random();
 
             if (numeroAleatorio < PROBABILIDAD_LLEGADA) {
                 personasLlegadas++;
                 personasEnCola++;
+                System.out.println("Llega una persona.");
+            } else {
+                System.out.println("No llega nadie.");
             }
 
             if (tiempoCaja1 > 0) {
@@ -74,7 +78,6 @@ public class RetoCCCF {
                 }
             }
 
-            
             if (tiempoCaja1 == 0 && personasEnCola > 0) {
                 tiempoCaja1 = (int) (Math.random() * (MAX_PACKS - MIN_PACKS + 1))
                         + MIN_PACKS;
@@ -99,8 +102,6 @@ public class RetoCCCF {
                 personasEnCola--;
             }
 
-            System.out.println("MINUTO: " + minuto);
-
             System.out.println("Personas en cola: " + personasEnCola);
 
             System.out.println("Caja 1: " + tiempoCaja1 + " packs pendientes");
@@ -116,7 +117,6 @@ public class RetoCCCF {
 
         } while (minuto < DURACION_JORNADA);
 
-        
         int personasEnCajas = 0;
 
         if (tiempoCaja1 > 0) {
@@ -160,6 +160,7 @@ public class RetoCCCF {
         System.out.println("----------------------------------------");
     }
 }
+
 
 
 
