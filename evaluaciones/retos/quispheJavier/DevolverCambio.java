@@ -23,16 +23,16 @@ public class DevolverCambio {
         int billetes100 = cambio / BILLETE_100;
         cambio = cambio % BILLETE_100;
 
-        int billete50 = cambio / BILLETE_50;
+        int billetes50 = cambio / BILLETE_50;
         cambio = cambio % BILLETE_50;
 
-        int billete20 = cambio / BILLETE_20;
+        int billetes20 = cambio / BILLETE_20;
         cambio = cambio % BILLETE_20;
 
-        int billete10 = cambio / BILLETE_10;
+        int billetes10 = cambio / BILLETE_10;
         cambio = cambio % BILLETE_10;
 
-        int billete5 = cambio / BILLETE_5;
+        int billetes5 = cambio / BILLETE_5;
         cambio = cambio % BILLETE_5;
 
         int monedas2 = cambio / MONEDA_2;
