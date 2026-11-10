@@ -1,3 +1,5 @@
+
+
 public class ViajeMarco {
     public static void main(String[] args) {
         final int VELOCIDAD_MINIMA_MARCO = 10;
@@ -30,5 +32,28 @@ public class ViajeMarco {
         final double PROBABILIDAD_AVISO = 0.50;
         final int KM_EXTRA_CORRIENDO = 25;
 
+        double distancia = DISTANCIA_INICIAL_MADRE;
+        int dia = 0;
+
+        System.out.println("EL VIAJE DE MARCO");
+        System.out.println("=================");
+
+        do {
+            dia++;
+            System.out.println("DIA" + dia);
+
+            double velocidadMarco = Math.random() + (VELOCIDAD_MAXIMA_MARCO - VELOCIDAD_MINIMA_MARCO) + VELOCIDAD_MINIMA_MARCO;
+            int horas_avance_Marco = (int) (Math.random() * (TIEMPO_MAX - TIEMPO_MIN + 1)) + TIEMPO_MIN;
+
+            double avanceMarco = velocidadMarco * horas_avance_Marco;
+            System.out.println("Avance " + horas_avance_Marco + " horas a" + String.format("%.2f", velocidadMarco) +  " Km/h recorriendo " + String.format("%.2f", avanceMarco) + " Km");
+
+            distancia = distancia - avanceMarco;
+
+            if (distancia > 0) {
+                System.out.println("Al final del día" + dia + "la distancia entre Marco y su madre es de " + String.format("%.2f", distancia) + " Km");
+                System.out.println("- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - ");
+            }
+        } while (distancia > 0);
     }
 }
