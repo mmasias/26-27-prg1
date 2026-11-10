@@ -35,6 +35,11 @@ public class DevolverCambio {
         int billete5 = cambio / BILLETE_5;
         cambio = cambio % BILLETE_5;
 
+        int monedas2 = cambio / MONEDA_2;
+        cambio = cambio % MONEDA_2;
+
+        int monedas1 = cambio / MONEDA_1;
+
         teclado.close();
     }
 }
