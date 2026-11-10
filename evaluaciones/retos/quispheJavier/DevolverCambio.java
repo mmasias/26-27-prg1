@@ -40,6 +40,16 @@ public class DevolverCambio {
 
         int monedas1 = cambio / MONEDA_1;
 
+
+        System.out.println("");
+        System.out.println(billetes100 + " billete(s) de 100 €");
+        System.out.println(billetes50 + " billete(s) de 50 €");
+        System.out.println(billetes20 + " billete(s) de 20 €");
+        System.out.println(billetes10 + " billete(s) de 10 €");
+        System.out.println(billetes5 + " billete(s) de 5 €");
+        System.out.println(monedas2 + " moneda(s) de 2 €");
+        System.out.println(monedas1 + " moneda(s) de 1 €");
+
         teclado.close();
     }
 }
