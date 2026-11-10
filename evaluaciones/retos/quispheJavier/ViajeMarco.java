@@ -105,5 +105,8 @@ public class ViajeMarco {
                 System.out.println("- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - ");
             }
         } while (distancia > 0);
+
+        System.out.println("Al final del día " + dia + " Marco encuentra a su madre!!!");
+        System.out.println("************************************************************");
     }
 }
