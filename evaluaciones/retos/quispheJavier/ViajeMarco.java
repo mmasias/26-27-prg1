@@ -45,6 +45,21 @@ public class ViajeMarco {
             double velocidadMarco = Math.random() + (VELOCIDAD_MAXIMA_MARCO - VELOCIDAD_MINIMA_MARCO) + VELOCIDAD_MINIMA_MARCO;
             int horas_avance_Marco = (int) (Math.random() * (TIEMPO_MAX - TIEMPO_MIN + 1)) + TIEMPO_MIN;
 
+            String mensajeDia;
+
+            double clima = Math.random();
+            if (clima <= PROBABILIDAD_LLUVIA_FUERTE) {
+                velocidadMarco = velocidadMarco * FACTOR_LLUVIA_FUERTE;
+                mensajeDia = "¡Ha llovido muchisimo!";
+            } else if (clima < PROBABILIDAD_LLUVIA_FUERTE + PROBABILIDAD_LLUVIA_NORMAL) {
+                velocidadMarco = velocidadMarco * FACTOR_LLUVIA_NORMAL;
+                mensajeDia = "Ha llovido un poco";
+            } else {
+                mensajeDia = "Ha hecho un buen día";
+            }
+
+            System.out.println(mensajeDia);
+
             double avanceMarco = velocidadMarco * horas_avance_Marco;
             System.out.println("Avance " + horas_avance_Marco + " horas a" + String.format("%.2f", velocidadMarco) +  " Km/h recorriendo " + String.format("%.2f", avanceMarco) + " Km");
 
