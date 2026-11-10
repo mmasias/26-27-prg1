@@ -73,6 +73,12 @@ public class ViajeMarco {
             double avanceMarco = velocidadMarco * horas_avance_Marco;
             System.out.println("Avance " + horas_avance_Marco + " horas a" + String.format("%.2f", velocidadMarco) +  " Km/h recorriendo " + String.format("%.2f", avanceMarco) + " Km");
 
+            double velocidad_de_madre = Math.random() * (VELOCIDAD_MAXIMA_MADRE - VELOCIDAD_MINIMA_MADRE) + VELOCIDAD_MINIMA_MADRE;
+            int horasMadre = (int) (Math.random() * (HORAS_MAXIMAS_MADRE - HORAS_MINIMAS_MADRE + 1)) + HORAS_MINIMAS_MADRE;
+
+            double avanceMadre = velocidad_de_madre * horasMadre;
+            System.out.println("Mama pudo avanzar " + horasMadre + " horas a " + String.format("%.2f", velocidad_de_madre) + " Km/h recorriendo " + String.format("%.2f", avanceMadre) + " Km");
+
             distancia = distancia - avanceMarco;
 
             if (distancia > 0) {
