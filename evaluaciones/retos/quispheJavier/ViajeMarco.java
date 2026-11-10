@@ -13,7 +13,7 @@ public class ViajeMarco {
         final double FACTOR_LLUVIA_NORMAL = 0.75;
 
         final double PROBABILIDAD_MONO_ESCAPA = 0.15;
-        final double PROBAILIDAD_MONO_CANSADO = 0.25;
+        final double PROBABILIDAD_MONO_CANSADO = 0.25;
         final double FACTOR_MONO_CANSADO = 0.90;
         final int HORAS_PERDIDAS_MONO_ESCAPA = 2;
 
@@ -56,6 +56,16 @@ public class ViajeMarco {
                 mensajeDia = "Ha llovido un poco";
             } else {
                 mensajeDia = "Ha hecho un buen día";
+            }
+
+            if (Math.random() < PROBABILIDAD_MONO_CANSADO) {
+                velocidadMarco = velocidadMarco * FACTOR_MONO_CANSADO;
+                mensajeDia = mensajeDia + "\n¡Amedio se ha cansado y he tenido que llevarlo en brazos!";
+            }
+
+            if (Math.random() < PROBABILIDAD_MONO_ESCAPA) {
+                horas_avance_Marco = horas_avance_Marco - HORAS_PERDIDAS_MONO_ESCAPA;
+                mensajeDia = mensajeDia + "\n¡He perdido tiempo buscando a Amedio!";
             }
 
             System.out.println(mensajeDia);
