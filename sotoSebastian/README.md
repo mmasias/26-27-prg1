@@ -1,33 +1,67 @@
-# Reto CCCF
+# 🧭 Viaje de Marco
 
-Simulación en Java del funcionamiento de las cajas de un centro comercial durante una jornada de 12 horas (720 minutos).
+Simulación en Java del viaje de **Marco** (acompañado de su mono **Amedio**) en busca de su madre. Cada día ambos avanzan el uno hacia el otro, condicionados por el clima y por distintos imprevistos, hasta que la distancia que los separa llega a cero.
 
-## Requisitos del reto
+## 📋 Descripción
 
-- Probabilidad de llegada de un cliente: 60 % por minuto.
-- Cada cliente lleva entre 5 y 15 packs de artículos.
-- Cada caja tarda un minuto por pack.
-- El sistema comienza con cuatro cajas.
-- Se muestra la llegada de clientes, el tamaño de la cola y el estado de las cajas.
-- Al terminar la jornada se muestra un resumen con las estadísticas.
-- La versión ampliada permite gestionar hasta seis cajas y abrir una caja automática cuando la cola supera las 15 personas.
+- Distancia inicial entre Marco y su madre: **350 km**.
+- Cada día se simulan dos turnos: el de Marco y el de su madre.
+- Velocidades, horas de marcha, clima e imprevistos son **aleatorios**.
+- El programa imprime un **diario del viaje** día a día y termina cuando Marco encuentra a su madre.
 
-## Archivos
+## 🗂️ Estructura del repositorio
 
-- `CCCF.java`: código fuente del simulador.
-- `CCCF.md`: explicación y código fuente completo en formato Markdown.
-
-## Cómo compilar y ejecutar
-
-Necesitas tener instalado el JDK de Java. Desde la carpeta que contiene `CCCF.java`, ejecuta:
-
-```bash
-javac CCCF.java
-java CCCF
+```
+.
+├── ViajeMarco.java        # Código fuente
+├── README.md              # Este archivo
+└── docs/
+    ├── REGLAS.md          # Reglas y probabilidades de la simulación
+    └── CODIGO.md          # Explicación del código (métodos y flujo)
 ```
 
-La contraseña de demostración del superadministrador es `admin`.
+## ⚙️ Requisitos
 
-## Nota
+- Java JDK 8 o superior.
 
-Los resultados cambian en cada ejecución porque las llegadas de clientes y la cantidad de artículos se generan aleatoriamente.
+## ▶️ Compilación y ejecución
+
+```bash
+javac ViajeMarco.java
+java ViajeMarco
+```
+
+> Cada ejecución produce un viaje distinto, ya que se usa `java.util.Random` sin semilla fija.
+
+## 🖥️ Ejemplo de salida
+
+> Salida ilustrativa; los valores cambian en cada ejecución.
+
+```
+DIARIO DEL VIAJE DE MARCO
+=========================
+
+DIA 1
+Ha hecho un buen dia
+Amedio se ha cansado y tengo que llevarlo en brazos
+Avance 9.12 horas a 11.80 Km/h recorriendo 107.62 Km
+A mama le ha llovido un poco
+Mama pudo avanzar 7.40 horas a 5.10 Km/h recorriendo 37.74 Km
+Al final del dia 1 la distancia entre Marco y su Madre es de 204.64 Km
+- - - - - - - - - - - - - - - - - - - - - - - - - - - -
+...
+FIN DEL VIAJE
+Marco encontro a su madre en 3 dias.
+```
+
+## ✨ Extensiones incluidas
+
+1. **Amedio** (imprevistos con el mono): se escapa o se cansa y afecta al avance de Marco.
+2. **Información sobre mamá**: cuando están cerca (< 50 km), Marco puede recibir una pista y correr 25 km extra.
+
+Consulta los detalles en [`docs/REGLAS.md`](docs/REGLAS.md).
+
+## 📚 Documentación
+
+- [Reglas de la simulación](docs/REGLAS.md)
+- [Explicación del código](docs/CODIGO.md)
