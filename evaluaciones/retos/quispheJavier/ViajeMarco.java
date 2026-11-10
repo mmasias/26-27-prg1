@@ -75,9 +75,25 @@ public class ViajeMarco {
 
             double velocidad_de_madre = Math.random() * (VELOCIDAD_MAXIMA_MADRE - VELOCIDAD_MINIMA_MADRE) + VELOCIDAD_MINIMA_MADRE;
             int horasMadre = (int) (Math.random() * (HORAS_MAXIMAS_MADRE - HORAS_MINIMAS_MADRE + 1)) + HORAS_MINIMAS_MADRE;
+            String mensajeMadre;
+
+            double climaMadre = Math.random();
+            if (climaMadre < PROBABILIDAD_LLUVIA_FUERTE_MADRE) {
+                velocidad_de_madre = velocidad_de_madre * FACTOR_LLUVIA_FUERTE_MADRE;
+                mensajeMadre = "A mamá le ha llovido muchisimo";
+            } else if (climaMadre < PROBABILIDAD_LLUVIA_FUERTE_MADRE + PROBABILIDAD_LLUVIA_MADRE) {
+                velocidad_de_madre = velocidad_de_madre * FACTOR_LLUVIA_MADRE;
+                mensajeMadre = "A mamá le ha llovido poco";
+            } else {
+                mensajeMadre = "A mamá le ha hecho un buen día";
+            }
+
+            System.out.println(mensajeMadre);
 
             double avanceMadre = velocidad_de_madre * horasMadre;
             System.out.println("Mama pudo avanzar " + horasMadre + " horas a " + String.format("%.2f", velocidad_de_madre) + " Km/h recorriendo " + String.format("%.2f", avanceMadre) + " Km");
+
+            distancia = distancia - avanceMarco + avanceMadre;
 
             distancia = distancia - avanceMarco;
 
