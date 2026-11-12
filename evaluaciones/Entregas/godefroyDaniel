@@ -1,0 +1,4 @@
+public class Examen 
+    public static void main (Strin:g[] args) {
+        System.out.println("examen parcial PRG1.");
+       
