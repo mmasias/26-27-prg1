@@ -39,7 +39,7 @@ class RetoCCCF{
                 System.out.print("Quieres abrir o cerrar alguna caja? (true/false): ");
                 boolean abrircerrar = scanner.nextBoolean();
                 if (abrircerrar){
-                    System.out.print("Que caja quieres abrir/cerrar? (1-6): ");
+                    System.out.print("Que caja quieres abrir/cerrar? (1-6):  ");
                     int cajaseleccionada = scanner.nextInt();
                     switch (cajaseleccionada){
                         case 1:
