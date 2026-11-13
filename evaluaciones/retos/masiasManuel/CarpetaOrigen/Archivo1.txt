@@ -1,4 +1,0 @@
-total 24
-8 Archivo1.txt
-8 Archivo2.txt
-8 Archivo3.txt
