@@ -1,0 +1,56 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "RetoCCCF",
+            "request": "launch",
+            "mainClass": "RetoCCCF",
+            "projectName": "celisDaniel_74d36a74"
+        },
+        {
+            "type": "java",
+            "name": "RetoCCCFAmpliado",
+            "request": "launch",
+            "mainClass": "RetoCCCFAmpliado",
+            "projectName": "celisDaniel_74d36a74"
+        },
+        {
+            "type": "java",
+            "name": "Reto003ViajeDeMarco",
+            "request": "launch",
+            "mainClass": "Reto003ViajeDeMarco",
+            "projectName": "celisDaniel_74d36a74"
+        },
+        {
+            "type": "java",
+            "name": "Reto2Think",
+            "request": "launch",
+            "mainClass": "Reto2Think",
+            "projectName": "celisDaniel_74d36a74"
+        },
+        {
+            "type": "java",
+            "name": "Current File",
+            "request": "launch",
+            "mainClass": "${file}"
+        },
+        {
+            "type": "java",
+            "name": "DevolverCambio",
+            "request": "launch",
+            "mainClass": "DevolverCambio",
+            "projectName": "celisDaniel_74d36a74"
+        },
+        {
+            "type": "java",
+            "name": "DevolverCambioAmpliado",
+            "request": "launch",
+            "mainClass": "DevolverCambioAmpliado",
+            "projectName": "celisDaniel_74d36a74"
+        }
+    ]
+}
