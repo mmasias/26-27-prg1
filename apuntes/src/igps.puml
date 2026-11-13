@@ -1,0 +1,7 @@
+@startsalt
+{
+    Nombre | "Ana"
+    Email | Santander
+    [Cancelar] [Guardar]
+}
+@endsalt
