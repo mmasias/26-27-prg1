@@ -1,0 +1,1 @@
+El programa daría números de billetes negativos porque el cambio sería negativo al ser el importe mayor que la entrega
