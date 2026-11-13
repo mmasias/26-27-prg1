@@ -1,0 +1,46 @@
+import java.util.Scanner;
+
+public class Examen {
+    public static void main(String[] args) {
+        // Usamos Scanner porque System.console() suele dar error en editores como NetBeans o Eclipse
+        Scanner scanner = new Scanner(System.in);
+        int numAsignaturas = 0;
+
+        // 1. Validar que el número de asignaturas esté entre 1 y 10
+        do {
+            System.out.print("Ingrese el numero de asignaturas (1 a 10): ");
+            numAsignaturas = scanner.nextInt();
+
+            if (numAsignaturas < 1 || numAsignaturas > 10) {
+                System.out.println("Error: El numero de asignaturas debe estar entre 1 y 10.");
+            }
+        } while (numAsignaturas < 1 || numAsignaturas > 10);
+
+        // 2. Declarar el arreglo de notas y las variables de cálculo fuera del ciclo
+        double[] notas = new double[numAsignaturas];
+        double sumaNotas = 0;
+        double notaMasAlta = 0;
+
+        // 3. Pedir las notas, sumarlas y buscar la mayor
+        for (int i = 0; i < numAsignaturas; i++) {
+            System.out.print("Ingrese la nota de la asignatura " + (i + 1) + ": ");
+            notas[i] = scanner.nextDouble();
+
+            sumaNotas += notas[i];
+
+            // Si es la primera nota o es mayor a la que teníamos guardada, la actualizamos
+            if (i == 0 || notas[i] > notaMasAlta) {
+                notaMasAlta = notas[i];
+            }
+        }
+
+        // 4. Calcular el promedio final y mostrar resultados
+        double promedio = sumaNotas / numAsignaturas;
+
+        System.out.println("\n--- Resultados ---");
+        System.out.println("El promedio de las notas es: " + promedio);
+        System.out.println("La nota mas alta es: " + notaMasAlta);
+        
+        scanner.close();
+    }
+}
